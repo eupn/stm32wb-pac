@@ -1,0 +1,19 @@
+[package]
+name = "stm32wb-pac"
+version = "0.1.0"
+authors = ["Evgenii P. <eupn@protonmail.com>"]
+edition = "2018"
+description = "A peripheral access crate for STM32WB Cortex-M4F BLE/IEEE 802.15.4"
+repository = "https://github.com/eupn/stm32wb-pac"
+
+[dependencies]
+bare-metal = "0.2"
+cortex-m = "0.5"
+vcell = "0.1.0"
+
+[dependencies.cortex-m-rt]
+optional = true
+version = "0.6"
+
+[features]
+rt = ["cortex-m-rt/device"]

@@ -2,3 +2,5 @@
 **/*.rs.bk
 Cargo.lock
 .idea
+.DS_Store
+stm32wb-pac.iml

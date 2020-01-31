@@ -1,300 +1,154 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::SIPCR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register SIPCR"]
+pub type R = crate::R<u32, super::SIPCR>;
+#[doc = "Writer for register SIPCR"]
+pub type W = crate::W<u32, super::SIPCR>;
+#[doc = "Register SIPCR `reset()`'s with value 0"]
+impl crate::ResetValue for super::SIPCR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct SAES1R {
-    bits: bool,
-}
-impl SAES1R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SAES2R {
-    bits: bool,
-}
-impl SAES2R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SPKAR {
-    bits: bool,
-}
-impl SPKAR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SRNGR {
-    bits: bool,
-}
-impl SRNGR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SAES1W<'a> {
+#[doc = "Reader of field `SAES1`"]
+pub type SAES1_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `SAES1`"]
+pub struct SAES1_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SAES1W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SAES1_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SAES2W<'a> {
+#[doc = "Reader of field `SAES2`"]
+pub type SAES2_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `SAES2`"]
+pub struct SAES2_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SAES2W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SAES2_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SPKAW<'a> {
+#[doc = "Reader of field `SPKA`"]
+pub type SPKA_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `SPKA`"]
+pub struct SPKA_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SPKAW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SPKA_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SRNGW<'a> {
+#[doc = "Reader of field `SRNG`"]
+pub type SRNG_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `SRNG`"]
+pub struct SRNG_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SRNGW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SRNG_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
-    #[doc = "Bit 0 - Enable AES1 KEY\\[7:0\\] security."]
-    #[inline]
-    pub fn saes1(&self) -> SAES1R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SAES1R { bits }
+    #[doc = "Bit 0 - Enable AES1 KEY\\[7:0\\]
+security."]
+    #[inline(always)]
+    pub fn saes1(&self) -> SAES1_R {
+        SAES1_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Enable AES2 security."]
-    #[inline]
-    pub fn saes2(&self) -> SAES2R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SAES2R { bits }
+    #[inline(always)]
+    pub fn saes2(&self) -> SAES2_R {
+        SAES2_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Enable PKA security"]
-    #[inline]
-    pub fn spka(&self) -> SPKAR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SPKAR { bits }
+    #[inline(always)]
+    pub fn spka(&self) -> SPKA_R {
+        SPKA_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Enable True RNG security"]
-    #[inline]
-    pub fn srng(&self) -> SRNGR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SRNGR { bits }
+    #[inline(always)]
+    pub fn srng(&self) -> SRNG_R {
+        SRNG_R::new(((self.bits >> 3) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
-    #[doc = "Bit 0 - Enable AES1 KEY\\[7:0\\] security."]
-    #[inline]
-    pub fn saes1(&mut self) -> _SAES1W {
-        _SAES1W { w: self }
+    #[doc = "Bit 0 - Enable AES1 KEY\\[7:0\\]
+security."]
+    #[inline(always)]
+    pub fn saes1(&mut self) -> SAES1_W {
+        SAES1_W { w: self }
     }
     #[doc = "Bit 1 - Enable AES2 security."]
-    #[inline]
-    pub fn saes2(&mut self) -> _SAES2W {
-        _SAES2W { w: self }
+    #[inline(always)]
+    pub fn saes2(&mut self) -> SAES2_W {
+        SAES2_W { w: self }
     }
     #[doc = "Bit 2 - Enable PKA security"]
-    #[inline]
-    pub fn spka(&mut self) -> _SPKAW {
-        _SPKAW { w: self }
+    #[inline(always)]
+    pub fn spka(&mut self) -> SPKA_W {
+        SPKA_W { w: self }
     }
     #[doc = "Bit 3 - Enable True RNG security"]
-    #[inline]
-    pub fn srng(&mut self) -> _SRNGW {
-        _SRNGW { w: self }
+    #[inline(always)]
+    pub fn srng(&mut self) -> SRNG_W {
+        SRNG_W { w: self }
     }
 }

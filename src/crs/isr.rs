@@ -1,289 +1,67 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::ISR {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SYNCOKFR {
-    bits: bool,
-}
-impl SYNCOKFR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SYNCWARNFR {
-    bits: bool,
-}
-impl SYNCWARNFR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct ERRFR {
-    bits: bool,
-}
-impl ERRFR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct ESYNCFR {
-    bits: bool,
-}
-impl ESYNCFR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SYNCERRR {
-    bits: bool,
-}
-impl SYNCERRR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SYNCMISSR {
-    bits: bool,
-}
-impl SYNCMISSR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TRIMOVFR {
-    bits: bool,
-}
-impl TRIMOVFR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FEDIRR {
-    bits: bool,
-}
-impl FEDIRR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FECAPR {
-    bits: u16,
-}
-impl FECAPR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u16 {
-        self.bits
-    }
-}
+#[doc = "Reader of register ISR"]
+pub type R = crate::R<u32, super::ISR>;
+#[doc = "Reader of field `SYNCOKF`"]
+pub type SYNCOKF_R = crate::R<bool, bool>;
+#[doc = "Reader of field `SYNCWARNF`"]
+pub type SYNCWARNF_R = crate::R<bool, bool>;
+#[doc = "Reader of field `ERRF`"]
+pub type ERRF_R = crate::R<bool, bool>;
+#[doc = "Reader of field `ESYNCF`"]
+pub type ESYNCF_R = crate::R<bool, bool>;
+#[doc = "Reader of field `SYNCERR`"]
+pub type SYNCERR_R = crate::R<bool, bool>;
+#[doc = "Reader of field `SYNCMISS`"]
+pub type SYNCMISS_R = crate::R<bool, bool>;
+#[doc = "Reader of field `TRIMOVF`"]
+pub type TRIMOVF_R = crate::R<bool, bool>;
+#[doc = "Reader of field `FEDIR`"]
+pub type FEDIR_R = crate::R<bool, bool>;
+#[doc = "Reader of field `FECAP`"]
+pub type FECAP_R = crate::R<u16, u16>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - SYNC event OK flag"]
-    #[inline]
-    pub fn syncokf(&self) -> SYNCOKFR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SYNCOKFR { bits }
+    #[inline(always)]
+    pub fn syncokf(&self) -> SYNCOKF_R {
+        SYNCOKF_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - SYNC warning flag"]
-    #[inline]
-    pub fn syncwarnf(&self) -> SYNCWARNFR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SYNCWARNFR { bits }
+    #[inline(always)]
+    pub fn syncwarnf(&self) -> SYNCWARNF_R {
+        SYNCWARNF_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Error flag"]
-    #[inline]
-    pub fn errf(&self) -> ERRFR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        ERRFR { bits }
+    #[inline(always)]
+    pub fn errf(&self) -> ERRF_R {
+        ERRF_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Expected SYNC flag"]
-    #[inline]
-    pub fn esyncf(&self) -> ESYNCFR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        ESYNCFR { bits }
+    #[inline(always)]
+    pub fn esyncf(&self) -> ESYNCF_R {
+        ESYNCF_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 8 - SYNC error"]
-    #[inline]
-    pub fn syncerr(&self) -> SYNCERRR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SYNCERRR { bits }
+    #[inline(always)]
+    pub fn syncerr(&self) -> SYNCERR_R {
+        SYNCERR_R::new(((self.bits >> 8) & 0x01) != 0)
     }
     #[doc = "Bit 9 - SYNC missed"]
-    #[inline]
-    pub fn syncmiss(&self) -> SYNCMISSR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 9;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SYNCMISSR { bits }
+    #[inline(always)]
+    pub fn syncmiss(&self) -> SYNCMISS_R {
+        SYNCMISS_R::new(((self.bits >> 9) & 0x01) != 0)
     }
     #[doc = "Bit 10 - Trimming overflow or underflow"]
-    #[inline]
-    pub fn trimovf(&self) -> TRIMOVFR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 10;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TRIMOVFR { bits }
+    #[inline(always)]
+    pub fn trimovf(&self) -> TRIMOVF_R {
+        TRIMOVF_R::new(((self.bits >> 10) & 0x01) != 0)
     }
     #[doc = "Bit 15 - Frequency error direction"]
-    #[inline]
-    pub fn fedir(&self) -> FEDIRR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 15;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        FEDIRR { bits }
+    #[inline(always)]
+    pub fn fedir(&self) -> FEDIR_R {
+        FEDIR_R::new(((self.bits >> 15) & 0x01) != 0)
     }
     #[doc = "Bits 16:31 - Frequency error capture"]
-    #[inline]
-    pub fn fecap(&self) -> FECAPR {
-        let bits = {
-            const MASK: u16 = 65535;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) as u16
-        };
-        FECAPR { bits }
+    #[inline(always)]
+    pub fn fecap(&self) -> FECAP_R {
+        FECAP_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }

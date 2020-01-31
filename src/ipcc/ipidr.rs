@@ -1,41 +1,11 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::IPIDR {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct IPIDR {
-    bits: u32,
-}
-impl IPIDR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
-}
+#[doc = "Reader of register IPIDR"]
+pub type R = crate::R<u32, super::IPIDR>;
+#[doc = "Reader of field `IPID`"]
+pub type IPID_R = crate::R<u32, u32>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:31 - Identification Code"]
-    #[inline]
-    pub fn ipid(&self) -> IPIDR {
-        let bits = {
-            const MASK: u32 = 4294967295;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u32
-        };
-        IPIDR { bits }
+    #[inline(always)]
+    pub fn ipid(&self) -> IPID_R {
+        IPID_R::new((self.bits & 0xffff_ffff) as u32)
     }
 }

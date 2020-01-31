@@ -1,105 +1,40 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::AWD2CR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register AWD2CR"]
+pub type R = crate::R<u32, super::AWD2CR>;
+#[doc = "Writer for register AWD2CR"]
+pub type W = crate::W<u32, super::AWD2CR>;
+#[doc = "Register AWD2CR `reset()`'s with value 0"]
+impl crate::ResetValue for super::AWD2CR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct AWD2CHR {
-    bits: u32,
-}
-impl AWD2CHR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
-}
-#[doc = r" Proxy"]
-pub struct _AWD2CHW<'a> {
+#[doc = "Reader of field `AWD2CH`"]
+pub type AWD2CH_R = crate::R<u32, u32>;
+#[doc = "Write proxy for field `AWD2CH`"]
+pub struct AWD2CH_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _AWD2CHW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> AWD2CH_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u32) -> &'a mut W {
-        const MASK: u32 = 524287;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x0007_ffff) | ((value as u32) & 0x0007_ffff);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:18 - ADC analog watchdog 2 monitored channel selection"]
-    #[inline]
-    pub fn awd2ch(&self) -> AWD2CHR {
-        let bits = {
-            const MASK: u32 = 524287;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u32
-        };
-        AWD2CHR { bits }
+    #[inline(always)]
+    pub fn awd2ch(&self) -> AWD2CH_R {
+        AWD2CH_R::new((self.bits & 0x0007_ffff) as u32)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:18 - ADC analog watchdog 2 monitored channel selection"]
-    #[inline]
-    pub fn awd2ch(&mut self) -> _AWD2CHW {
-        _AWD2CHW { w: self }
+    #[inline(always)]
+    pub fn awd2ch(&mut self) -> AWD2CH_W {
+        AWD2CH_W { w: self }
     }
 }

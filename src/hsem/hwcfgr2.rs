@@ -1,104 +1,32 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::HWCFGR2 {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct MASTERID4R {
-    bits: u8,
-}
-impl MASTERID4R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct MASTERID3R {
-    bits: u8,
-}
-impl MASTERID3R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct MASTERID2R {
-    bits: u8,
-}
-impl MASTERID2R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct MASTERID1R {
-    bits: u8,
-}
-impl MASTERID1R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
+#[doc = "Reader of register HWCFGR2"]
+pub type R = crate::R<u32, super::HWCFGR2>;
+#[doc = "Reader of field `MASTERID4`"]
+pub type MASTERID4_R = crate::R<u8, u8>;
+#[doc = "Reader of field `MASTERID3`"]
+pub type MASTERID3_R = crate::R<u8, u8>;
+#[doc = "Reader of field `MASTERID2`"]
+pub type MASTERID2_R = crate::R<u8, u8>;
+#[doc = "Reader of field `MASTERID1`"]
+pub type MASTERID1_R = crate::R<u8, u8>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 12:15 - Hardware Configuration valid bus masters ID4"]
-    #[inline]
-    pub fn masterid4(&self) -> MASTERID4R {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        MASTERID4R { bits }
+    #[inline(always)]
+    pub fn masterid4(&self) -> MASTERID4_R {
+        MASTERID4_R::new(((self.bits >> 12) & 0x0f) as u8)
     }
     #[doc = "Bits 8:11 - Hardware Configuration valid bus masters ID3"]
-    #[inline]
-    pub fn masterid3(&self) -> MASTERID3R {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        MASTERID3R { bits }
+    #[inline(always)]
+    pub fn masterid3(&self) -> MASTERID3_R {
+        MASTERID3_R::new(((self.bits >> 8) & 0x0f) as u8)
     }
     #[doc = "Bits 4:7 - Hardware Configuration valid bus masters ID2"]
-    #[inline]
-    pub fn masterid2(&self) -> MASTERID2R {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        MASTERID2R { bits }
+    #[inline(always)]
+    pub fn masterid2(&self) -> MASTERID2_R {
+        MASTERID2_R::new(((self.bits >> 4) & 0x0f) as u8)
     }
     #[doc = "Bits 0:3 - Hardware Configuration valid bus masters ID1"]
-    #[inline]
-    pub fn masterid1(&self) -> MASTERID1R {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        MASTERID1R { bits }
+    #[inline(always)]
+    pub fn masterid1(&self) -> MASTERID1_R {
+        MASTERID1_R::new((self.bits & 0x0f) as u8)
     }
 }

@@ -1,454 +1,102 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::CSR {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SOF0R {
-    bits: bool,
-}
-impl SOF0R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SOF1R {
-    bits: bool,
-}
-impl SOF1R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SOF2R {
-    bits: bool,
-}
-impl SOF2R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SOF3R {
-    bits: bool,
-}
-impl SOF3R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SOF4R {
-    bits: bool,
-}
-impl SOF4R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SOF5R {
-    bits: bool,
-}
-impl SOF5R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SOF6R {
-    bits: bool,
-}
-impl SOF6R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SOF7R {
-    bits: bool,
-}
-impl SOF7R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SOF8R {
-    bits: bool,
-}
-impl SOF8R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SOF9R {
-    bits: bool,
-}
-impl SOF9R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SOF10R {
-    bits: bool,
-}
-impl SOF10R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SOF11R {
-    bits: bool,
-}
-impl SOF11R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SOF12R {
-    bits: bool,
-}
-impl SOF12R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SOF13R {
-    bits: bool,
-}
-impl SOF13R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
+#[doc = "Reader of register CSR"]
+pub type R = crate::R<u32, super::CSR>;
+#[doc = "Reader of field `SOF0`"]
+pub type SOF0_R = crate::R<bool, bool>;
+#[doc = "Reader of field `SOF1`"]
+pub type SOF1_R = crate::R<bool, bool>;
+#[doc = "Reader of field `SOF2`"]
+pub type SOF2_R = crate::R<bool, bool>;
+#[doc = "Reader of field `SOF3`"]
+pub type SOF3_R = crate::R<bool, bool>;
+#[doc = "Reader of field `SOF4`"]
+pub type SOF4_R = crate::R<bool, bool>;
+#[doc = "Reader of field `SOF5`"]
+pub type SOF5_R = crate::R<bool, bool>;
+#[doc = "Reader of field `SOF6`"]
+pub type SOF6_R = crate::R<bool, bool>;
+#[doc = "Reader of field `SOF7`"]
+pub type SOF7_R = crate::R<bool, bool>;
+#[doc = "Reader of field `SOF8`"]
+pub type SOF8_R = crate::R<bool, bool>;
+#[doc = "Reader of field `SOF9`"]
+pub type SOF9_R = crate::R<bool, bool>;
+#[doc = "Reader of field `SOF10`"]
+pub type SOF10_R = crate::R<bool, bool>;
+#[doc = "Reader of field `SOF11`"]
+pub type SOF11_R = crate::R<bool, bool>;
+#[doc = "Reader of field `SOF12`"]
+pub type SOF12_R = crate::R<bool, bool>;
+#[doc = "Reader of field `SOF13`"]
+pub type SOF13_R = crate::R<bool, bool>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Synchronization Overrun Flag 0"]
-    #[inline]
-    pub fn sof0(&self) -> SOF0R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SOF0R { bits }
+    #[inline(always)]
+    pub fn sof0(&self) -> SOF0_R {
+        SOF0_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Synchronization Overrun Flag 1"]
-    #[inline]
-    pub fn sof1(&self) -> SOF1R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SOF1R { bits }
+    #[inline(always)]
+    pub fn sof1(&self) -> SOF1_R {
+        SOF1_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Synchronization Overrun Flag 2"]
-    #[inline]
-    pub fn sof2(&self) -> SOF2R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SOF2R { bits }
+    #[inline(always)]
+    pub fn sof2(&self) -> SOF2_R {
+        SOF2_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Synchronization Overrun Flag 3"]
-    #[inline]
-    pub fn sof3(&self) -> SOF3R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SOF3R { bits }
+    #[inline(always)]
+    pub fn sof3(&self) -> SOF3_R {
+        SOF3_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Synchronization Overrun Flag 4"]
-    #[inline]
-    pub fn sof4(&self) -> SOF4R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SOF4R { bits }
+    #[inline(always)]
+    pub fn sof4(&self) -> SOF4_R {
+        SOF4_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Synchronization Overrun Flag 5"]
-    #[inline]
-    pub fn sof5(&self) -> SOF5R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SOF5R { bits }
+    #[inline(always)]
+    pub fn sof5(&self) -> SOF5_R {
+        SOF5_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 6 - Synchronization Overrun Flag 6"]
-    #[inline]
-    pub fn sof6(&self) -> SOF6R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SOF6R { bits }
+    #[inline(always)]
+    pub fn sof6(&self) -> SOF6_R {
+        SOF6_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 7 - Synchronization Overrun Flag 7"]
-    #[inline]
-    pub fn sof7(&self) -> SOF7R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SOF7R { bits }
+    #[inline(always)]
+    pub fn sof7(&self) -> SOF7_R {
+        SOF7_R::new(((self.bits >> 7) & 0x01) != 0)
     }
     #[doc = "Bit 8 - Synchronization Overrun Flag 8"]
-    #[inline]
-    pub fn sof8(&self) -> SOF8R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SOF8R { bits }
+    #[inline(always)]
+    pub fn sof8(&self) -> SOF8_R {
+        SOF8_R::new(((self.bits >> 8) & 0x01) != 0)
     }
     #[doc = "Bit 9 - Synchronization Overrun Flag 9"]
-    #[inline]
-    pub fn sof9(&self) -> SOF9R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 9;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SOF9R { bits }
+    #[inline(always)]
+    pub fn sof9(&self) -> SOF9_R {
+        SOF9_R::new(((self.bits >> 9) & 0x01) != 0)
     }
     #[doc = "Bit 10 - Synchronization Overrun Flag 10"]
-    #[inline]
-    pub fn sof10(&self) -> SOF10R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 10;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SOF10R { bits }
+    #[inline(always)]
+    pub fn sof10(&self) -> SOF10_R {
+        SOF10_R::new(((self.bits >> 10) & 0x01) != 0)
     }
     #[doc = "Bit 11 - Synchronization Overrun Flag 11"]
-    #[inline]
-    pub fn sof11(&self) -> SOF11R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 11;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SOF11R { bits }
+    #[inline(always)]
+    pub fn sof11(&self) -> SOF11_R {
+        SOF11_R::new(((self.bits >> 11) & 0x01) != 0)
     }
     #[doc = "Bit 12 - Synchronization Overrun Flag 12"]
-    #[inline]
-    pub fn sof12(&self) -> SOF12R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SOF12R { bits }
+    #[inline(always)]
+    pub fn sof12(&self) -> SOF12_R {
+        SOF12_R::new(((self.bits >> 12) & 0x01) != 0)
     }
     #[doc = "Bit 13 - Synchronization Overrun Flag 13"]
-    #[inline]
-    pub fn sof13(&self) -> SOF13R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 13;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SOF13R { bits }
+    #[inline(always)]
+    pub fn sof13(&self) -> SOF13_R {
+        SOF13_R::new(((self.bits >> 13) & 0x01) != 0)
     }
 }

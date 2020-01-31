@@ -1,418 +1,220 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::C2AHB1SMENR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register C2AHB1SMENR"]
+pub type R = crate::R<u32, super::C2AHB1SMENR>;
+#[doc = "Writer for register C2AHB1SMENR"]
+pub type W = crate::W<u32, super::C2AHB1SMENR>;
+#[doc = "Register C2AHB1SMENR `reset()`'s with value 0x0001_1207"]
+impl crate::ResetValue for super::C2AHB1SMENR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0x0001_1207
     }
 }
-#[doc = r" Value of the field"]
-pub struct TSCSMENR {
-    bits: bool,
-}
-impl TSCSMENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CRCSMENR {
-    bits: bool,
-}
-impl CRCSMENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SRAM1SMENR {
-    bits: bool,
-}
-impl SRAM1SMENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct DMAMUXSMENR {
-    bits: bool,
-}
-impl DMAMUXSMENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct DMA2SMENR {
-    bits: bool,
-}
-impl DMA2SMENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct DMA1SMENR {
-    bits: bool,
-}
-impl DMA1SMENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Proxy"]
-pub struct _TSCSMENW<'a> {
+#[doc = "Reader of field `TSCSMEN`"]
+pub type TSCSMEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `TSCSMEN`"]
+pub struct TSCSMEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TSCSMENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> TSCSMEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CRCSMENW<'a> {
+#[doc = "Reader of field `CRCSMEN`"]
+pub type CRCSMEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `CRCSMEN`"]
+pub struct CRCSMEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CRCSMENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CRCSMEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 12;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 12)) | (((value as u32) & 0x01) << 12);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SRAM1SMENW<'a> {
+#[doc = "Reader of field `SRAM1SMEN`"]
+pub type SRAM1SMEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `SRAM1SMEN`"]
+pub struct SRAM1SMEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SRAM1SMENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SRAM1SMEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 9;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _DMAMUXSMENW<'a> {
+#[doc = "Reader of field `DMAMUXSMEN`"]
+pub type DMAMUXSMEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `DMAMUXSMEN`"]
+pub struct DMAMUXSMEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _DMAMUXSMENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> DMAMUXSMEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _DMA2SMENW<'a> {
+#[doc = "Reader of field `DMA2SMEN`"]
+pub type DMA2SMEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `DMA2SMEN`"]
+pub struct DMA2SMEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _DMA2SMENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> DMA2SMEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _DMA1SMENW<'a> {
+#[doc = "Reader of field `DMA1SMEN`"]
+pub type DMA1SMEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `DMA1SMEN`"]
+pub struct DMA1SMEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _DMA1SMENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> DMA1SMEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 16 - CPU2 Touch Sensing Controller clocks enable during Sleep and Stop modes"]
-    #[inline]
-    pub fn tscsmen(&self) -> TSCSMENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TSCSMENR { bits }
+    #[inline(always)]
+    pub fn tscsmen(&self) -> TSCSMEN_R {
+        TSCSMEN_R::new(((self.bits >> 16) & 0x01) != 0)
     }
     #[doc = "Bit 12 - CPU2 CRCSMEN"]
-    #[inline]
-    pub fn crcsmen(&self) -> CRCSMENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CRCSMENR { bits }
+    #[inline(always)]
+    pub fn crcsmen(&self) -> CRCSMEN_R {
+        CRCSMEN_R::new(((self.bits >> 12) & 0x01) != 0)
     }
     #[doc = "Bit 9 - SRAM1 interface clock enable during CPU1 CSleep mode"]
-    #[inline]
-    pub fn sram1smen(&self) -> SRAM1SMENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 9;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SRAM1SMENR { bits }
+    #[inline(always)]
+    pub fn sram1smen(&self) -> SRAM1SMEN_R {
+        SRAM1SMEN_R::new(((self.bits >> 9) & 0x01) != 0)
     }
     #[doc = "Bit 2 - CPU2 DMAMUX clocks enable during Sleep and Stop modes"]
-    #[inline]
-    pub fn dmamuxsmen(&self) -> DMAMUXSMENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        DMAMUXSMENR { bits }
+    #[inline(always)]
+    pub fn dmamuxsmen(&self) -> DMAMUXSMEN_R {
+        DMAMUXSMEN_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 1 - CPU2 DMA2 clocks enable during Sleep and Stop modes"]
-    #[inline]
-    pub fn dma2smen(&self) -> DMA2SMENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        DMA2SMENR { bits }
+    #[inline(always)]
+    pub fn dma2smen(&self) -> DMA2SMEN_R {
+        DMA2SMEN_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 0 - CPU2 DMA1 clocks enable during Sleep and Stop modes"]
-    #[inline]
-    pub fn dma1smen(&self) -> DMA1SMENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        DMA1SMENR { bits }
+    #[inline(always)]
+    pub fn dma1smen(&self) -> DMA1SMEN_R {
+        DMA1SMEN_R::new((self.bits & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 70151 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 16 - CPU2 Touch Sensing Controller clocks enable during Sleep and Stop modes"]
-    #[inline]
-    pub fn tscsmen(&mut self) -> _TSCSMENW {
-        _TSCSMENW { w: self }
+    #[inline(always)]
+    pub fn tscsmen(&mut self) -> TSCSMEN_W {
+        TSCSMEN_W { w: self }
     }
     #[doc = "Bit 12 - CPU2 CRCSMEN"]
-    #[inline]
-    pub fn crcsmen(&mut self) -> _CRCSMENW {
-        _CRCSMENW { w: self }
+    #[inline(always)]
+    pub fn crcsmen(&mut self) -> CRCSMEN_W {
+        CRCSMEN_W { w: self }
     }
     #[doc = "Bit 9 - SRAM1 interface clock enable during CPU1 CSleep mode"]
-    #[inline]
-    pub fn sram1smen(&mut self) -> _SRAM1SMENW {
-        _SRAM1SMENW { w: self }
+    #[inline(always)]
+    pub fn sram1smen(&mut self) -> SRAM1SMEN_W {
+        SRAM1SMEN_W { w: self }
     }
     #[doc = "Bit 2 - CPU2 DMAMUX clocks enable during Sleep and Stop modes"]
-    #[inline]
-    pub fn dmamuxsmen(&mut self) -> _DMAMUXSMENW {
-        _DMAMUXSMENW { w: self }
+    #[inline(always)]
+    pub fn dmamuxsmen(&mut self) -> DMAMUXSMEN_W {
+        DMAMUXSMEN_W { w: self }
     }
     #[doc = "Bit 1 - CPU2 DMA2 clocks enable during Sleep and Stop modes"]
-    #[inline]
-    pub fn dma2smen(&mut self) -> _DMA2SMENW {
-        _DMA2SMENW { w: self }
+    #[inline(always)]
+    pub fn dma2smen(&mut self) -> DMA2SMEN_W {
+        DMA2SMEN_W { w: self }
     }
     #[doc = "Bit 0 - CPU2 DMA1 clocks enable during Sleep and Stop modes"]
-    #[inline]
-    pub fn dma1smen(&mut self) -> _DMA1SMENW {
-        _DMA1SMENW { w: self }
+    #[inline(always)]
+    pub fn dma1smen(&mut self) -> DMA1SMEN_W {
+        DMA1SMEN_W { w: self }
     }
 }

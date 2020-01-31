@@ -1,164 +1,74 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register CR"]
+pub type R = crate::R<u32, super::CR>;
+#[doc = "Writer for register CR"]
+pub type W = crate::W<u32, super::CR>;
+#[doc = "Register CR `reset()`'s with value 0x7f"]
+impl crate::ResetValue for super::CR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0x7f
     }
 }
-#[doc = r" Value of the field"]
-pub struct WDGAR {
-    bits: bool,
-}
-impl WDGAR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TR {
-    bits: u8,
-}
-impl TR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WDGAW<'a> {
+#[doc = "Reader of field `WDGA`"]
+pub type WDGA_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `WDGA`"]
+pub struct WDGA_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _WDGAW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> WDGA_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 7;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _TW<'a> {
+#[doc = "Reader of field `T`"]
+pub type T_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `T`"]
+pub struct T_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> T_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 127;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x7f) | ((value as u32) & 0x7f);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 7 - Activation bit"]
-    #[inline]
-    pub fn wdga(&self) -> WDGAR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        WDGAR { bits }
+    #[inline(always)]
+    pub fn wdga(&self) -> WDGA_R {
+        WDGA_R::new(((self.bits >> 7) & 0x01) != 0)
     }
     #[doc = "Bits 0:6 - 7-bit counter (MSB to LSB)"]
-    #[inline]
-    pub fn t(&self) -> TR {
-        let bits = {
-            const MASK: u8 = 127;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        TR { bits }
+    #[inline(always)]
+    pub fn t(&self) -> T_R {
+        T_R::new((self.bits & 0x7f) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 127 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 7 - Activation bit"]
-    #[inline]
-    pub fn wdga(&mut self) -> _WDGAW {
-        _WDGAW { w: self }
+    #[inline(always)]
+    pub fn wdga(&mut self) -> WDGA_W {
+        WDGA_W { w: self }
     }
     #[doc = "Bits 0:6 - 7-bit counter (MSB to LSB)"]
-    #[inline]
-    pub fn t(&mut self) -> _TW {
-        _TW { w: self }
+    #[inline(always)]
+    pub fn t(&mut self) -> T_W {
+        T_W { w: self }
     }
 }

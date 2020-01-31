@@ -1,382 +1,200 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CFGR2 {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register CFGR2"]
+pub type R = crate::R<u32, super::CFGR2>;
+#[doc = "Writer for register CFGR2"]
+pub type W = crate::W<u32, super::CFGR2>;
+#[doc = "Register CFGR2 `reset()`'s with value 0"]
+impl crate::ResetValue for super::CFGR2 {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct ROVSMR {
-    bits: bool,
-}
-impl ROVSMR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TOVSR {
-    bits: bool,
-}
-impl TOVSR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct OVSSR {
-    bits: u8,
-}
-impl OVSSR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct OVSRR {
-    bits: u8,
-}
-impl OVSRR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct JOVSER {
-    bits: bool,
-}
-impl JOVSER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct ROVSER {
-    bits: bool,
-}
-impl ROVSER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Proxy"]
-pub struct _ROVSMW<'a> {
+#[doc = "Reader of field `ROVSM`"]
+pub type ROVSM_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `ROVSM`"]
+pub struct ROVSM_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _ROVSMW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> ROVSM_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 10;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 10)) | (((value as u32) & 0x01) << 10);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _TOVSW<'a> {
+#[doc = "Reader of field `TOVS`"]
+pub type TOVS_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `TOVS`"]
+pub struct TOVS_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TOVSW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> TOVS_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 9;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _OVSSW<'a> {
+#[doc = "Reader of field `OVSS`"]
+pub type OVSS_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `OVSS`"]
+pub struct OVSS_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _OVSSW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> OVSS_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 5)) | (((value as u32) & 0x0f) << 5);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _OVSRW<'a> {
+#[doc = "Reader of field `OVSR`"]
+pub type OVSR_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `OVSR`"]
+pub struct OVSR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _OVSRW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> OVSR_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 7;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x07 << 2)) | (((value as u32) & 0x07) << 2);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _JOVSEW<'a> {
+#[doc = "Reader of field `JOVSE`"]
+pub type JOVSE_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `JOVSE`"]
+pub struct JOVSE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _JOVSEW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> JOVSE_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _ROVSEW<'a> {
+#[doc = "Reader of field `ROVSE`"]
+pub type ROVSE_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `ROVSE`"]
+pub struct ROVSE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _ROVSEW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> ROVSE_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 10 - ADC oversampling mode managing interlaced conversions of ADC group regular and group injected"]
-    #[inline]
-    pub fn rovsm(&self) -> ROVSMR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 10;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        ROVSMR { bits }
+    #[inline(always)]
+    pub fn rovsm(&self) -> ROVSM_R {
+        ROVSM_R::new(((self.bits >> 10) & 0x01) != 0)
     }
     #[doc = "Bit 9 - ADC oversampling discontinuous mode (triggered mode) for ADC group regular"]
-    #[inline]
-    pub fn tovs(&self) -> TOVSR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 9;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TOVSR { bits }
+    #[inline(always)]
+    pub fn tovs(&self) -> TOVS_R {
+        TOVS_R::new(((self.bits >> 9) & 0x01) != 0)
     }
     #[doc = "Bits 5:8 - ADC oversampling shift"]
-    #[inline]
-    pub fn ovss(&self) -> OVSSR {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        OVSSR { bits }
+    #[inline(always)]
+    pub fn ovss(&self) -> OVSS_R {
+        OVSS_R::new(((self.bits >> 5) & 0x0f) as u8)
     }
     #[doc = "Bits 2:4 - ADC oversampling ratio"]
-    #[inline]
-    pub fn ovsr(&self) -> OVSRR {
-        let bits = {
-            const MASK: u8 = 7;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        OVSRR { bits }
+    #[inline(always)]
+    pub fn ovsr(&self) -> OVSR_R {
+        OVSR_R::new(((self.bits >> 2) & 0x07) as u8)
     }
     #[doc = "Bit 1 - ADC oversampler enable on scope ADC group injected"]
-    #[inline]
-    pub fn jovse(&self) -> JOVSER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        JOVSER { bits }
+    #[inline(always)]
+    pub fn jovse(&self) -> JOVSE_R {
+        JOVSE_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 0 - ADC oversampler enable on scope ADC group regular"]
-    #[inline]
-    pub fn rovse(&self) -> ROVSER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        ROVSER { bits }
+    #[inline(always)]
+    pub fn rovse(&self) -> ROVSE_R {
+        ROVSE_R::new((self.bits & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 10 - ADC oversampling mode managing interlaced conversions of ADC group regular and group injected"]
-    #[inline]
-    pub fn rovsm(&mut self) -> _ROVSMW {
-        _ROVSMW { w: self }
+    #[inline(always)]
+    pub fn rovsm(&mut self) -> ROVSM_W {
+        ROVSM_W { w: self }
     }
     #[doc = "Bit 9 - ADC oversampling discontinuous mode (triggered mode) for ADC group regular"]
-    #[inline]
-    pub fn tovs(&mut self) -> _TOVSW {
-        _TOVSW { w: self }
+    #[inline(always)]
+    pub fn tovs(&mut self) -> TOVS_W {
+        TOVS_W { w: self }
     }
     #[doc = "Bits 5:8 - ADC oversampling shift"]
-    #[inline]
-    pub fn ovss(&mut self) -> _OVSSW {
-        _OVSSW { w: self }
+    #[inline(always)]
+    pub fn ovss(&mut self) -> OVSS_W {
+        OVSS_W { w: self }
     }
     #[doc = "Bits 2:4 - ADC oversampling ratio"]
-    #[inline]
-    pub fn ovsr(&mut self) -> _OVSRW {
-        _OVSRW { w: self }
+    #[inline(always)]
+    pub fn ovsr(&mut self) -> OVSR_W {
+        OVSR_W { w: self }
     }
     #[doc = "Bit 1 - ADC oversampler enable on scope ADC group injected"]
-    #[inline]
-    pub fn jovse(&mut self) -> _JOVSEW {
-        _JOVSEW { w: self }
+    #[inline(always)]
+    pub fn jovse(&mut self) -> JOVSE_W {
+        JOVSE_W { w: self }
     }
     #[doc = "Bit 0 - ADC oversampler enable on scope ADC group regular"]
-    #[inline]
-    pub fn rovse(&mut self) -> _ROVSEW {
-        _ROVSEW { w: self }
+    #[inline(always)]
+    pub fn rovse(&mut self) -> ROVSE_W {
+        ROVSE_W { w: self }
     }
 }

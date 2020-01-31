@@ -1,405 +1,214 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::C2CR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register C2CR"]
+pub type R = crate::R<u32, super::C2CR>;
+#[doc = "Writer for register C2CR"]
+pub type W = crate::W<u32, super::C2CR>;
+#[doc = "Register C2CR `reset()`'s with value 0"]
+impl crate::ResetValue for super::C2CR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct SYNC_IDR {
-    bits: u8,
-}
-impl SYNC_IDR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct NBREQR {
-    bits: u8,
-}
-impl NBREQR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SPOLR {
-    bits: u8,
-}
-impl SPOLR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SER {
-    bits: bool,
-}
-impl SER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EGER {
-    bits: bool,
-}
-impl EGER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SOIER {
-    bits: bool,
-}
-impl SOIER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct DMAREQ_IDR {
-    bits: u8,
-}
-impl DMAREQ_IDR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SYNC_IDW<'a> {
+#[doc = "Reader of field `SYNC_ID`"]
+pub type SYNC_ID_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `SYNC_ID`"]
+pub struct SYNC_ID_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SYNC_IDW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> SYNC_ID_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 31;
-        const OFFSET: u8 = 24;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x1f << 24)) | (((value as u32) & 0x1f) << 24);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _NBREQW<'a> {
+#[doc = "Reader of field `NBREQ`"]
+pub type NBREQ_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `NBREQ`"]
+pub struct NBREQ_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _NBREQW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> NBREQ_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 31;
-        const OFFSET: u8 = 19;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x1f << 19)) | (((value as u32) & 0x1f) << 19);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SPOLW<'a> {
+#[doc = "Reader of field `SPOL`"]
+pub type SPOL_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `SPOL`"]
+pub struct SPOL_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SPOLW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> SPOL_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 17;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 17)) | (((value as u32) & 0x03) << 17);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SEW<'a> {
+#[doc = "Reader of field `SE`"]
+pub type SE_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `SE`"]
+pub struct SE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SEW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SE_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EGEW<'a> {
+#[doc = "Reader of field `EGE`"]
+pub type EGE_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `EGE`"]
+pub struct EGE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EGEW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EGE_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 9;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SOIEW<'a> {
+#[doc = "Reader of field `SOIE`"]
+pub type SOIE_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `SOIE`"]
+pub struct SOIE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SOIEW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SOIE_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _DMAREQ_IDW<'a> {
+#[doc = "Reader of field `DMAREQ_ID`"]
+pub type DMAREQ_ID_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `DMAREQ_ID`"]
+pub struct DMAREQ_ID_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _DMAREQ_IDW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> DMAREQ_ID_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0xff) | ((value as u32) & 0xff);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 24:28 - SYNC_ID"]
-    #[inline]
-    pub fn sync_id(&self) -> SYNC_IDR {
-        let bits = {
-            const MASK: u8 = 31;
-            const OFFSET: u8 = 24;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        SYNC_IDR { bits }
+    #[inline(always)]
+    pub fn sync_id(&self) -> SYNC_ID_R {
+        SYNC_ID_R::new(((self.bits >> 24) & 0x1f) as u8)
     }
     #[doc = "Bits 19:23 - Nb request"]
-    #[inline]
-    pub fn nbreq(&self) -> NBREQR {
-        let bits = {
-            const MASK: u8 = 31;
-            const OFFSET: u8 = 19;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        NBREQR { bits }
+    #[inline(always)]
+    pub fn nbreq(&self) -> NBREQ_R {
+        NBREQ_R::new(((self.bits >> 19) & 0x1f) as u8)
     }
     #[doc = "Bits 17:18 - Sync polarity"]
-    #[inline]
-    pub fn spol(&self) -> SPOLR {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 17;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        SPOLR { bits }
+    #[inline(always)]
+    pub fn spol(&self) -> SPOL_R {
+        SPOL_R::new(((self.bits >> 17) & 0x03) as u8)
     }
     #[doc = "Bit 16 - Synchronization enable"]
-    #[inline]
-    pub fn se(&self) -> SER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SER { bits }
+    #[inline(always)]
+    pub fn se(&self) -> SE_R {
+        SE_R::new(((self.bits >> 16) & 0x01) != 0)
     }
     #[doc = "Bit 9 - Event Generation Enable"]
-    #[inline]
-    pub fn ege(&self) -> EGER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 9;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EGER { bits }
+    #[inline(always)]
+    pub fn ege(&self) -> EGE_R {
+        EGE_R::new(((self.bits >> 9) & 0x01) != 0)
     }
     #[doc = "Bit 8 - Synchronization Overrun Interrupt Enable"]
-    #[inline]
-    pub fn soie(&self) -> SOIER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SOIER { bits }
+    #[inline(always)]
+    pub fn soie(&self) -> SOIE_R {
+        SOIE_R::new(((self.bits >> 8) & 0x01) != 0)
     }
     #[doc = "Bits 0:7 - DMA Request ID"]
-    #[inline]
-    pub fn dmareq_id(&self) -> DMAREQ_IDR {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        DMAREQ_IDR { bits }
+    #[inline(always)]
+    pub fn dmareq_id(&self) -> DMAREQ_ID_R {
+        DMAREQ_ID_R::new((self.bits & 0xff) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 24:28 - SYNC_ID"]
-    #[inline]
-    pub fn sync_id(&mut self) -> _SYNC_IDW {
-        _SYNC_IDW { w: self }
+    #[inline(always)]
+    pub fn sync_id(&mut self) -> SYNC_ID_W {
+        SYNC_ID_W { w: self }
     }
     #[doc = "Bits 19:23 - Nb request"]
-    #[inline]
-    pub fn nbreq(&mut self) -> _NBREQW {
-        _NBREQW { w: self }
+    #[inline(always)]
+    pub fn nbreq(&mut self) -> NBREQ_W {
+        NBREQ_W { w: self }
     }
     #[doc = "Bits 17:18 - Sync polarity"]
-    #[inline]
-    pub fn spol(&mut self) -> _SPOLW {
-        _SPOLW { w: self }
+    #[inline(always)]
+    pub fn spol(&mut self) -> SPOL_W {
+        SPOL_W { w: self }
     }
     #[doc = "Bit 16 - Synchronization enable"]
-    #[inline]
-    pub fn se(&mut self) -> _SEW {
-        _SEW { w: self }
+    #[inline(always)]
+    pub fn se(&mut self) -> SE_W {
+        SE_W { w: self }
     }
     #[doc = "Bit 9 - Event Generation Enable"]
-    #[inline]
-    pub fn ege(&mut self) -> _EGEW {
-        _EGEW { w: self }
+    #[inline(always)]
+    pub fn ege(&mut self) -> EGE_W {
+        EGE_W { w: self }
     }
     #[doc = "Bit 8 - Synchronization Overrun Interrupt Enable"]
-    #[inline]
-    pub fn soie(&mut self) -> _SOIEW {
-        _SOIEW { w: self }
+    #[inline(always)]
+    pub fn soie(&mut self) -> SOIE_W {
+        SOIE_W { w: self }
     }
     #[doc = "Bits 0:7 - DMA Request ID"]
-    #[inline]
-    pub fn dmareq_id(&mut self) -> _DMAREQ_IDW {
-        _DMAREQ_IDW { w: self }
+    #[inline(always)]
+    pub fn dmareq_id(&mut self) -> DMAREQ_ID_W {
+        DMAREQ_ID_W { w: self }
     }
 }

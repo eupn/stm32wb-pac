@@ -1,636 +1,337 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::COMP1_CSR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register COMP1_CSR"]
+pub type R = crate::R<u32, super::COMP1_CSR>;
+#[doc = "Writer for register COMP1_CSR"]
+pub type W = crate::W<u32, super::COMP1_CSR>;
+#[doc = "Register COMP1_CSR `reset()`'s with value 0"]
+impl crate::ResetValue for super::COMP1_CSR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct COMP1_ENR {
-    bits: bool,
-}
-impl COMP1_ENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct COMP1_PWRMODER {
-    bits: u8,
-}
-impl COMP1_PWRMODER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct COMP1_INMSELR {
-    bits: u8,
-}
-impl COMP1_INMSELR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct COMP1_INPSELR {
-    bits: u8,
-}
-impl COMP1_INPSELR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct COMP1_POLARITYR {
-    bits: bool,
-}
-impl COMP1_POLARITYR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct COMP1_HYSTR {
-    bits: u8,
-}
-impl COMP1_HYSTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct COMP1_BLANKINGR {
-    bits: u8,
-}
-impl COMP1_BLANKINGR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct COMP1_BRGENR {
-    bits: bool,
-}
-impl COMP1_BRGENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct COMP1_SCALENR {
-    bits: bool,
-}
-impl COMP1_SCALENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct COMP1_INMESELR {
-    bits: u8,
-}
-impl COMP1_INMESELR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct COMP1_VALUER {
-    bits: bool,
-}
-impl COMP1_VALUER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct COMP1_LOCKR {
-    bits: bool,
-}
-impl COMP1_LOCKR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Proxy"]
-pub struct _COMP1_ENW<'a> {
+#[doc = "Reader of field `COMP1_EN`"]
+pub type COMP1_EN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `COMP1_EN`"]
+pub struct COMP1_EN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _COMP1_ENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> COMP1_EN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _COMP1_PWRMODEW<'a> {
+#[doc = "Reader of field `COMP1_PWRMODE`"]
+pub type COMP1_PWRMODE_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `COMP1_PWRMODE`"]
+pub struct COMP1_PWRMODE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _COMP1_PWRMODEW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> COMP1_PWRMODE_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 2)) | (((value as u32) & 0x03) << 2);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _COMP1_INMSELW<'a> {
+#[doc = "Reader of field `COMP1_INMSEL`"]
+pub type COMP1_INMSEL_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `COMP1_INMSEL`"]
+pub struct COMP1_INMSEL_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _COMP1_INMSELW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> COMP1_INMSEL_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 7;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x07 << 4)) | (((value as u32) & 0x07) << 4);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _COMP1_INPSELW<'a> {
+#[doc = "Reader of field `COMP1_INPSEL`"]
+pub type COMP1_INPSEL_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `COMP1_INPSEL`"]
+pub struct COMP1_INPSEL_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _COMP1_INPSELW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> COMP1_INPSEL_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 7;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 7)) | (((value as u32) & 0x03) << 7);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _COMP1_POLARITYW<'a> {
+#[doc = "Reader of field `COMP1_POLARITY`"]
+pub type COMP1_POLARITY_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `COMP1_POLARITY`"]
+pub struct COMP1_POLARITY_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _COMP1_POLARITYW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> COMP1_POLARITY_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 15;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 15)) | (((value as u32) & 0x01) << 15);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _COMP1_HYSTW<'a> {
+#[doc = "Reader of field `COMP1_HYST`"]
+pub type COMP1_HYST_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `COMP1_HYST`"]
+pub struct COMP1_HYST_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _COMP1_HYSTW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> COMP1_HYST_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 16)) | (((value as u32) & 0x03) << 16);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _COMP1_BLANKINGW<'a> {
+#[doc = "Reader of field `COMP1_BLANKING`"]
+pub type COMP1_BLANKING_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `COMP1_BLANKING`"]
+pub struct COMP1_BLANKING_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _COMP1_BLANKINGW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> COMP1_BLANKING_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 7;
-        const OFFSET: u8 = 18;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x07 << 18)) | (((value as u32) & 0x07) << 18);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _COMP1_BRGENW<'a> {
+#[doc = "Reader of field `COMP1_BRGEN`"]
+pub type COMP1_BRGEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `COMP1_BRGEN`"]
+pub struct COMP1_BRGEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _COMP1_BRGENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> COMP1_BRGEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 22;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 22)) | (((value as u32) & 0x01) << 22);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _COMP1_SCALENW<'a> {
+#[doc = "Reader of field `COMP1_SCALEN`"]
+pub type COMP1_SCALEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `COMP1_SCALEN`"]
+pub struct COMP1_SCALEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _COMP1_SCALENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> COMP1_SCALEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 23;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 23)) | (((value as u32) & 0x01) << 23);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _COMP1_INMESELW<'a> {
+#[doc = "Reader of field `COMP1_INMESEL`"]
+pub type COMP1_INMESEL_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `COMP1_INMESEL`"]
+pub struct COMP1_INMESEL_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _COMP1_INMESELW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> COMP1_INMESEL_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 25;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 25)) | (((value as u32) & 0x03) << 25);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _COMP1_LOCKW<'a> {
+#[doc = "Reader of field `COMP1_VALUE`"]
+pub type COMP1_VALUE_R = crate::R<bool, bool>;
+#[doc = "Reader of field `COMP1_LOCK`"]
+pub type COMP1_LOCK_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `COMP1_LOCK`"]
+pub struct COMP1_LOCK_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _COMP1_LOCKW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> COMP1_LOCK_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 31;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 31)) | (((value as u32) & 0x01) << 31);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Comparator enable"]
-    #[inline]
-    pub fn comp1_en(&self) -> COMP1_ENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        COMP1_ENR { bits }
+    #[inline(always)]
+    pub fn comp1_en(&self) -> COMP1_EN_R {
+        COMP1_EN_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bits 2:3 - Comparator power mode"]
-    #[inline]
-    pub fn comp1_pwrmode(&self) -> COMP1_PWRMODER {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        COMP1_PWRMODER { bits }
+    #[inline(always)]
+    pub fn comp1_pwrmode(&self) -> COMP1_PWRMODE_R {
+        COMP1_PWRMODE_R::new(((self.bits >> 2) & 0x03) as u8)
     }
     #[doc = "Bits 4:6 - Comparator input minus selection"]
-    #[inline]
-    pub fn comp1_inmsel(&self) -> COMP1_INMSELR {
-        let bits = {
-            const MASK: u8 = 7;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        COMP1_INMSELR { bits }
+    #[inline(always)]
+    pub fn comp1_inmsel(&self) -> COMP1_INMSEL_R {
+        COMP1_INMSEL_R::new(((self.bits >> 4) & 0x07) as u8)
     }
     #[doc = "Bits 7:8 - Comparator input plus selection"]
-    #[inline]
-    pub fn comp1_inpsel(&self) -> COMP1_INPSELR {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        COMP1_INPSELR { bits }
+    #[inline(always)]
+    pub fn comp1_inpsel(&self) -> COMP1_INPSEL_R {
+        COMP1_INPSEL_R::new(((self.bits >> 7) & 0x03) as u8)
     }
     #[doc = "Bit 15 - Comparator output polarity"]
-    #[inline]
-    pub fn comp1_polarity(&self) -> COMP1_POLARITYR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 15;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        COMP1_POLARITYR { bits }
+    #[inline(always)]
+    pub fn comp1_polarity(&self) -> COMP1_POLARITY_R {
+        COMP1_POLARITY_R::new(((self.bits >> 15) & 0x01) != 0)
     }
     #[doc = "Bits 16:17 - Comparator hysteresis"]
-    #[inline]
-    pub fn comp1_hyst(&self) -> COMP1_HYSTR {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        COMP1_HYSTR { bits }
+    #[inline(always)]
+    pub fn comp1_hyst(&self) -> COMP1_HYST_R {
+        COMP1_HYST_R::new(((self.bits >> 16) & 0x03) as u8)
     }
     #[doc = "Bits 18:20 - Comparator blanking source"]
-    #[inline]
-    pub fn comp1_blanking(&self) -> COMP1_BLANKINGR {
-        let bits = {
-            const MASK: u8 = 7;
-            const OFFSET: u8 = 18;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        COMP1_BLANKINGR { bits }
+    #[inline(always)]
+    pub fn comp1_blanking(&self) -> COMP1_BLANKING_R {
+        COMP1_BLANKING_R::new(((self.bits >> 18) & 0x07) as u8)
     }
     #[doc = "Bit 22 - Comparator voltage scaler enable"]
-    #[inline]
-    pub fn comp1_brgen(&self) -> COMP1_BRGENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 22;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        COMP1_BRGENR { bits }
+    #[inline(always)]
+    pub fn comp1_brgen(&self) -> COMP1_BRGEN_R {
+        COMP1_BRGEN_R::new(((self.bits >> 22) & 0x01) != 0)
     }
     #[doc = "Bit 23 - Comparator scaler bridge enable"]
-    #[inline]
-    pub fn comp1_scalen(&self) -> COMP1_SCALENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 23;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        COMP1_SCALENR { bits }
+    #[inline(always)]
+    pub fn comp1_scalen(&self) -> COMP1_SCALEN_R {
+        COMP1_SCALEN_R::new(((self.bits >> 23) & 0x01) != 0)
     }
     #[doc = "Bits 25:26 - Comparator input minus extended selection"]
-    #[inline]
-    pub fn comp1_inmesel(&self) -> COMP1_INMESELR {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 25;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        COMP1_INMESELR { bits }
+    #[inline(always)]
+    pub fn comp1_inmesel(&self) -> COMP1_INMESEL_R {
+        COMP1_INMESEL_R::new(((self.bits >> 25) & 0x03) as u8)
     }
     #[doc = "Bit 30 - Comparator output level"]
-    #[inline]
-    pub fn comp1_value(&self) -> COMP1_VALUER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 30;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        COMP1_VALUER { bits }
+    #[inline(always)]
+    pub fn comp1_value(&self) -> COMP1_VALUE_R {
+        COMP1_VALUE_R::new(((self.bits >> 30) & 0x01) != 0)
     }
     #[doc = "Bit 31 - Comparator lock"]
-    #[inline]
-    pub fn comp1_lock(&self) -> COMP1_LOCKR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 31;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        COMP1_LOCKR { bits }
+    #[inline(always)]
+    pub fn comp1_lock(&self) -> COMP1_LOCK_R {
+        COMP1_LOCK_R::new(((self.bits >> 31) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Comparator enable"]
-    #[inline]
-    pub fn comp1_en(&mut self) -> _COMP1_ENW {
-        _COMP1_ENW { w: self }
+    #[inline(always)]
+    pub fn comp1_en(&mut self) -> COMP1_EN_W {
+        COMP1_EN_W { w: self }
     }
     #[doc = "Bits 2:3 - Comparator power mode"]
-    #[inline]
-    pub fn comp1_pwrmode(&mut self) -> _COMP1_PWRMODEW {
-        _COMP1_PWRMODEW { w: self }
+    #[inline(always)]
+    pub fn comp1_pwrmode(&mut self) -> COMP1_PWRMODE_W {
+        COMP1_PWRMODE_W { w: self }
     }
     #[doc = "Bits 4:6 - Comparator input minus selection"]
-    #[inline]
-    pub fn comp1_inmsel(&mut self) -> _COMP1_INMSELW {
-        _COMP1_INMSELW { w: self }
+    #[inline(always)]
+    pub fn comp1_inmsel(&mut self) -> COMP1_INMSEL_W {
+        COMP1_INMSEL_W { w: self }
     }
     #[doc = "Bits 7:8 - Comparator input plus selection"]
-    #[inline]
-    pub fn comp1_inpsel(&mut self) -> _COMP1_INPSELW {
-        _COMP1_INPSELW { w: self }
+    #[inline(always)]
+    pub fn comp1_inpsel(&mut self) -> COMP1_INPSEL_W {
+        COMP1_INPSEL_W { w: self }
     }
     #[doc = "Bit 15 - Comparator output polarity"]
-    #[inline]
-    pub fn comp1_polarity(&mut self) -> _COMP1_POLARITYW {
-        _COMP1_POLARITYW { w: self }
+    #[inline(always)]
+    pub fn comp1_polarity(&mut self) -> COMP1_POLARITY_W {
+        COMP1_POLARITY_W { w: self }
     }
     #[doc = "Bits 16:17 - Comparator hysteresis"]
-    #[inline]
-    pub fn comp1_hyst(&mut self) -> _COMP1_HYSTW {
-        _COMP1_HYSTW { w: self }
+    #[inline(always)]
+    pub fn comp1_hyst(&mut self) -> COMP1_HYST_W {
+        COMP1_HYST_W { w: self }
     }
     #[doc = "Bits 18:20 - Comparator blanking source"]
-    #[inline]
-    pub fn comp1_blanking(&mut self) -> _COMP1_BLANKINGW {
-        _COMP1_BLANKINGW { w: self }
+    #[inline(always)]
+    pub fn comp1_blanking(&mut self) -> COMP1_BLANKING_W {
+        COMP1_BLANKING_W { w: self }
     }
     #[doc = "Bit 22 - Comparator voltage scaler enable"]
-    #[inline]
-    pub fn comp1_brgen(&mut self) -> _COMP1_BRGENW {
-        _COMP1_BRGENW { w: self }
+    #[inline(always)]
+    pub fn comp1_brgen(&mut self) -> COMP1_BRGEN_W {
+        COMP1_BRGEN_W { w: self }
     }
     #[doc = "Bit 23 - Comparator scaler bridge enable"]
-    #[inline]
-    pub fn comp1_scalen(&mut self) -> _COMP1_SCALENW {
-        _COMP1_SCALENW { w: self }
+    #[inline(always)]
+    pub fn comp1_scalen(&mut self) -> COMP1_SCALEN_W {
+        COMP1_SCALEN_W { w: self }
     }
     #[doc = "Bits 25:26 - Comparator input minus extended selection"]
-    #[inline]
-    pub fn comp1_inmesel(&mut self) -> _COMP1_INMESELW {
-        _COMP1_INMESELW { w: self }
+    #[inline(always)]
+    pub fn comp1_inmesel(&mut self) -> COMP1_INMESEL_W {
+        COMP1_INMESEL_W { w: self }
     }
     #[doc = "Bit 31 - Comparator lock"]
-    #[inline]
-    pub fn comp1_lock(&mut self) -> _COMP1_LOCKW {
-        _COMP1_LOCKW { w: self }
+    #[inline(always)]
+    pub fn comp1_lock(&mut self) -> COMP1_LOCK_W {
+        COMP1_LOCK_W { w: self }
     }
 }

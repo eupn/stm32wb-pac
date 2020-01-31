@@ -1,314 +1,139 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::ECCR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register ECCR"]
+pub type R = crate::R<u32, super::ECCR>;
+#[doc = "Writer for register ECCR"]
+pub type W = crate::W<u32, super::ECCR>;
+#[doc = "Register ECCR `reset()`'s with value 0"]
+impl crate::ResetValue for super::ECCR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct ADDR_ECCR {
-    bits: u32,
-}
-impl ADDR_ECCR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SYSF_ECCR {
-    bits: bool,
-}
-impl SYSF_ECCR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct ECCCIER {
-    bits: bool,
-}
-impl ECCCIER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CPUIDR {
-    bits: u8,
-}
-impl CPUIDR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct ECCCR {
-    bits: bool,
-}
-impl ECCCR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct ECCDR {
-    bits: bool,
-}
-impl ECCDR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Proxy"]
-pub struct _ECCCIEW<'a> {
+#[doc = "Reader of field `ADDR_ECC`"]
+pub type ADDR_ECC_R = crate::R<u32, u32>;
+#[doc = "Reader of field `SYSF_ECC`"]
+pub type SYSF_ECC_R = crate::R<bool, bool>;
+#[doc = "Reader of field `ECCCIE`"]
+pub type ECCCIE_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `ECCCIE`"]
+pub struct ECCCIE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _ECCCIEW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> ECCCIE_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 24;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 24)) | (((value as u32) & 0x01) << 24);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _ECCCW<'a> {
+#[doc = "Reader of field `CPUID`"]
+pub type CPUID_R = crate::R<u8, u8>;
+#[doc = "Reader of field `ECCC`"]
+pub type ECCC_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `ECCC`"]
+pub struct ECCC_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _ECCCW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> ECCC_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 30;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 30)) | (((value as u32) & 0x01) << 30);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _ECCDW<'a> {
+#[doc = "Reader of field `ECCD`"]
+pub type ECCD_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `ECCD`"]
+pub struct ECCD_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _ECCDW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> ECCD_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 31;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 31)) | (((value as u32) & 0x01) << 31);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:16 - ECC fail address"]
-    #[inline]
-    pub fn addr_ecc(&self) -> ADDR_ECCR {
-        let bits = {
-            const MASK: u32 = 131071;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u32
-        };
-        ADDR_ECCR { bits }
+    #[inline(always)]
+    pub fn addr_ecc(&self) -> ADDR_ECC_R {
+        ADDR_ECC_R::new((self.bits & 0x0001_ffff) as u32)
     }
     #[doc = "Bit 20 - System Flash ECC fail"]
-    #[inline]
-    pub fn sysf_ecc(&self) -> SYSF_ECCR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 20;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SYSF_ECCR { bits }
+    #[inline(always)]
+    pub fn sysf_ecc(&self) -> SYSF_ECC_R {
+        SYSF_ECC_R::new(((self.bits >> 20) & 0x01) != 0)
     }
     #[doc = "Bit 24 - ECC correction interrupt enable"]
-    #[inline]
-    pub fn ecccie(&self) -> ECCCIER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 24;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        ECCCIER { bits }
+    #[inline(always)]
+    pub fn ecccie(&self) -> ECCCIE_R {
+        ECCCIE_R::new(((self.bits >> 24) & 0x01) != 0)
     }
     #[doc = "Bits 26:28 - CPU identification"]
-    #[inline]
-    pub fn cpuid(&self) -> CPUIDR {
-        let bits = {
-            const MASK: u8 = 7;
-            const OFFSET: u8 = 26;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        CPUIDR { bits }
+    #[inline(always)]
+    pub fn cpuid(&self) -> CPUID_R {
+        CPUID_R::new(((self.bits >> 26) & 0x07) as u8)
     }
     #[doc = "Bit 30 - ECC correction"]
-    #[inline]
-    pub fn eccc(&self) -> ECCCR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 30;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        ECCCR { bits }
+    #[inline(always)]
+    pub fn eccc(&self) -> ECCC_R {
+        ECCC_R::new(((self.bits >> 30) & 0x01) != 0)
     }
     #[doc = "Bit 31 - ECC detection"]
-    #[inline]
-    pub fn eccd(&self) -> ECCDR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 31;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        ECCDR { bits }
+    #[inline(always)]
+    pub fn eccd(&self) -> ECCD_R {
+        ECCD_R::new(((self.bits >> 31) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 24 - ECC correction interrupt enable"]
-    #[inline]
-    pub fn ecccie(&mut self) -> _ECCCIEW {
-        _ECCCIEW { w: self }
+    #[inline(always)]
+    pub fn ecccie(&mut self) -> ECCCIE_W {
+        ECCCIE_W { w: self }
     }
     #[doc = "Bit 30 - ECC correction"]
-    #[inline]
-    pub fn eccc(&mut self) -> _ECCCW {
-        _ECCCW { w: self }
+    #[inline(always)]
+    pub fn eccc(&mut self) -> ECCC_W {
+        ECCC_W { w: self }
     }
     #[doc = "Bit 31 - ECC detection"]
-    #[inline]
-    pub fn eccd(&mut self) -> _ECCDW {
-        _ECCDW { w: self }
+    #[inline(always)]
+    pub fn eccd(&mut self) -> ECCD_W {
+        ECCD_W { w: self }
     }
 }

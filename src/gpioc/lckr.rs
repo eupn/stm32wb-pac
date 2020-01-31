@@ -1,1067 +1,594 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::LCKR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register LCKR"]
+pub type R = crate::R<u32, super::LCKR>;
+#[doc = "Writer for register LCKR"]
+pub type W = crate::W<u32, super::LCKR>;
+#[doc = "Register LCKR `reset()`'s with value 0"]
+impl crate::ResetValue for super::LCKR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct LCKKR {
-    bits: bool,
-}
-impl LCKKR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LCK15R {
-    bits: bool,
-}
-impl LCK15R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LCK14R {
-    bits: bool,
-}
-impl LCK14R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LCK13R {
-    bits: bool,
-}
-impl LCK13R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LCK12R {
-    bits: bool,
-}
-impl LCK12R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LCK11R {
-    bits: bool,
-}
-impl LCK11R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LCK10R {
-    bits: bool,
-}
-impl LCK10R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LCK9R {
-    bits: bool,
-}
-impl LCK9R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LCK8R {
-    bits: bool,
-}
-impl LCK8R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LCK7R {
-    bits: bool,
-}
-impl LCK7R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LCK6R {
-    bits: bool,
-}
-impl LCK6R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LCK5R {
-    bits: bool,
-}
-impl LCK5R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LCK4R {
-    bits: bool,
-}
-impl LCK4R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LCK3R {
-    bits: bool,
-}
-impl LCK3R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LCK2R {
-    bits: bool,
-}
-impl LCK2R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LCK1R {
-    bits: bool,
-}
-impl LCK1R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LCK0R {
-    bits: bool,
-}
-impl LCK0R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Proxy"]
-pub struct _LCKKW<'a> {
+#[doc = "Reader of field `LCKK`"]
+pub type LCKK_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `LCKK`"]
+pub struct LCKK_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _LCKKW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> LCKK_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _LCK15W<'a> {
+#[doc = "Reader of field `LCK15`"]
+pub type LCK15_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `LCK15`"]
+pub struct LCK15_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _LCK15W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> LCK15_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 15;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 15)) | (((value as u32) & 0x01) << 15);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _LCK14W<'a> {
+#[doc = "Reader of field `LCK14`"]
+pub type LCK14_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `LCK14`"]
+pub struct LCK14_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _LCK14W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> LCK14_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 14;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 14)) | (((value as u32) & 0x01) << 14);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _LCK13W<'a> {
+#[doc = "Reader of field `LCK13`"]
+pub type LCK13_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `LCK13`"]
+pub struct LCK13_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _LCK13W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> LCK13_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 13;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 13)) | (((value as u32) & 0x01) << 13);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _LCK12W<'a> {
+#[doc = "Reader of field `LCK12`"]
+pub type LCK12_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `LCK12`"]
+pub struct LCK12_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _LCK12W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> LCK12_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 12;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 12)) | (((value as u32) & 0x01) << 12);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _LCK11W<'a> {
+#[doc = "Reader of field `LCK11`"]
+pub type LCK11_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `LCK11`"]
+pub struct LCK11_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _LCK11W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> LCK11_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 11;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 11)) | (((value as u32) & 0x01) << 11);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _LCK10W<'a> {
+#[doc = "Reader of field `LCK10`"]
+pub type LCK10_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `LCK10`"]
+pub struct LCK10_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _LCK10W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> LCK10_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 10;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 10)) | (((value as u32) & 0x01) << 10);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _LCK9W<'a> {
+#[doc = "Reader of field `LCK9`"]
+pub type LCK9_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `LCK9`"]
+pub struct LCK9_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _LCK9W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> LCK9_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 9;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _LCK8W<'a> {
+#[doc = "Reader of field `LCK8`"]
+pub type LCK8_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `LCK8`"]
+pub struct LCK8_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _LCK8W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> LCK8_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _LCK7W<'a> {
+#[doc = "Reader of field `LCK7`"]
+pub type LCK7_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `LCK7`"]
+pub struct LCK7_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _LCK7W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> LCK7_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 7;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _LCK6W<'a> {
+#[doc = "Reader of field `LCK6`"]
+pub type LCK6_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `LCK6`"]
+pub struct LCK6_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _LCK6W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> LCK6_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _LCK5W<'a> {
+#[doc = "Reader of field `LCK5`"]
+pub type LCK5_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `LCK5`"]
+pub struct LCK5_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _LCK5W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> LCK5_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _LCK4W<'a> {
+#[doc = "Reader of field `LCK4`"]
+pub type LCK4_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `LCK4`"]
+pub struct LCK4_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _LCK4W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> LCK4_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _LCK3W<'a> {
+#[doc = "Reader of field `LCK3`"]
+pub type LCK3_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `LCK3`"]
+pub struct LCK3_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _LCK3W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> LCK3_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _LCK2W<'a> {
+#[doc = "Reader of field `LCK2`"]
+pub type LCK2_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `LCK2`"]
+pub struct LCK2_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _LCK2W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> LCK2_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _LCK1W<'a> {
+#[doc = "Reader of field `LCK1`"]
+pub type LCK1_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `LCK1`"]
+pub struct LCK1_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _LCK1W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> LCK1_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _LCK0W<'a> {
+#[doc = "Reader of field `LCK0`"]
+pub type LCK0_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `LCK0`"]
+pub struct LCK0_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _LCK0W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> LCK0_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 16 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lckk(&self) -> LCKKR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LCKKR { bits }
+    #[inline(always)]
+    pub fn lckk(&self) -> LCKK_R {
+        LCKK_R::new(((self.bits >> 16) & 0x01) != 0)
     }
     #[doc = "Bit 15 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lck15(&self) -> LCK15R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 15;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LCK15R { bits }
+    #[inline(always)]
+    pub fn lck15(&self) -> LCK15_R {
+        LCK15_R::new(((self.bits >> 15) & 0x01) != 0)
     }
     #[doc = "Bit 14 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lck14(&self) -> LCK14R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 14;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LCK14R { bits }
+    #[inline(always)]
+    pub fn lck14(&self) -> LCK14_R {
+        LCK14_R::new(((self.bits >> 14) & 0x01) != 0)
     }
     #[doc = "Bit 13 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lck13(&self) -> LCK13R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 13;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LCK13R { bits }
+    #[inline(always)]
+    pub fn lck13(&self) -> LCK13_R {
+        LCK13_R::new(((self.bits >> 13) & 0x01) != 0)
     }
     #[doc = "Bit 12 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lck12(&self) -> LCK12R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LCK12R { bits }
+    #[inline(always)]
+    pub fn lck12(&self) -> LCK12_R {
+        LCK12_R::new(((self.bits >> 12) & 0x01) != 0)
     }
     #[doc = "Bit 11 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lck11(&self) -> LCK11R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 11;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LCK11R { bits }
+    #[inline(always)]
+    pub fn lck11(&self) -> LCK11_R {
+        LCK11_R::new(((self.bits >> 11) & 0x01) != 0)
     }
     #[doc = "Bit 10 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lck10(&self) -> LCK10R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 10;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LCK10R { bits }
+    #[inline(always)]
+    pub fn lck10(&self) -> LCK10_R {
+        LCK10_R::new(((self.bits >> 10) & 0x01) != 0)
     }
     #[doc = "Bit 9 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lck9(&self) -> LCK9R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 9;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LCK9R { bits }
+    #[inline(always)]
+    pub fn lck9(&self) -> LCK9_R {
+        LCK9_R::new(((self.bits >> 9) & 0x01) != 0)
     }
     #[doc = "Bit 8 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lck8(&self) -> LCK8R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LCK8R { bits }
+    #[inline(always)]
+    pub fn lck8(&self) -> LCK8_R {
+        LCK8_R::new(((self.bits >> 8) & 0x01) != 0)
     }
     #[doc = "Bit 7 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lck7(&self) -> LCK7R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LCK7R { bits }
+    #[inline(always)]
+    pub fn lck7(&self) -> LCK7_R {
+        LCK7_R::new(((self.bits >> 7) & 0x01) != 0)
     }
     #[doc = "Bit 6 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lck6(&self) -> LCK6R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LCK6R { bits }
+    #[inline(always)]
+    pub fn lck6(&self) -> LCK6_R {
+        LCK6_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lck5(&self) -> LCK5R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LCK5R { bits }
+    #[inline(always)]
+    pub fn lck5(&self) -> LCK5_R {
+        LCK5_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lck4(&self) -> LCK4R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LCK4R { bits }
+    #[inline(always)]
+    pub fn lck4(&self) -> LCK4_R {
+        LCK4_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lck3(&self) -> LCK3R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LCK3R { bits }
+    #[inline(always)]
+    pub fn lck3(&self) -> LCK3_R {
+        LCK3_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lck2(&self) -> LCK2R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LCK2R { bits }
+    #[inline(always)]
+    pub fn lck2(&self) -> LCK2_R {
+        LCK2_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 1 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lck1(&self) -> LCK1R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LCK1R { bits }
+    #[inline(always)]
+    pub fn lck1(&self) -> LCK1_R {
+        LCK1_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 0 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lck0(&self) -> LCK0R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LCK0R { bits }
+    #[inline(always)]
+    pub fn lck0(&self) -> LCK0_R {
+        LCK0_R::new((self.bits & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 16 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lckk(&mut self) -> _LCKKW {
-        _LCKKW { w: self }
+    #[inline(always)]
+    pub fn lckk(&mut self) -> LCKK_W {
+        LCKK_W { w: self }
     }
     #[doc = "Bit 15 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lck15(&mut self) -> _LCK15W {
-        _LCK15W { w: self }
+    #[inline(always)]
+    pub fn lck15(&mut self) -> LCK15_W {
+        LCK15_W { w: self }
     }
     #[doc = "Bit 14 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lck14(&mut self) -> _LCK14W {
-        _LCK14W { w: self }
+    #[inline(always)]
+    pub fn lck14(&mut self) -> LCK14_W {
+        LCK14_W { w: self }
     }
     #[doc = "Bit 13 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lck13(&mut self) -> _LCK13W {
-        _LCK13W { w: self }
+    #[inline(always)]
+    pub fn lck13(&mut self) -> LCK13_W {
+        LCK13_W { w: self }
     }
     #[doc = "Bit 12 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lck12(&mut self) -> _LCK12W {
-        _LCK12W { w: self }
+    #[inline(always)]
+    pub fn lck12(&mut self) -> LCK12_W {
+        LCK12_W { w: self }
     }
     #[doc = "Bit 11 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lck11(&mut self) -> _LCK11W {
-        _LCK11W { w: self }
+    #[inline(always)]
+    pub fn lck11(&mut self) -> LCK11_W {
+        LCK11_W { w: self }
     }
     #[doc = "Bit 10 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lck10(&mut self) -> _LCK10W {
-        _LCK10W { w: self }
+    #[inline(always)]
+    pub fn lck10(&mut self) -> LCK10_W {
+        LCK10_W { w: self }
     }
     #[doc = "Bit 9 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lck9(&mut self) -> _LCK9W {
-        _LCK9W { w: self }
+    #[inline(always)]
+    pub fn lck9(&mut self) -> LCK9_W {
+        LCK9_W { w: self }
     }
     #[doc = "Bit 8 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lck8(&mut self) -> _LCK8W {
-        _LCK8W { w: self }
+    #[inline(always)]
+    pub fn lck8(&mut self) -> LCK8_W {
+        LCK8_W { w: self }
     }
     #[doc = "Bit 7 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lck7(&mut self) -> _LCK7W {
-        _LCK7W { w: self }
+    #[inline(always)]
+    pub fn lck7(&mut self) -> LCK7_W {
+        LCK7_W { w: self }
     }
     #[doc = "Bit 6 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lck6(&mut self) -> _LCK6W {
-        _LCK6W { w: self }
+    #[inline(always)]
+    pub fn lck6(&mut self) -> LCK6_W {
+        LCK6_W { w: self }
     }
     #[doc = "Bit 5 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lck5(&mut self) -> _LCK5W {
-        _LCK5W { w: self }
+    #[inline(always)]
+    pub fn lck5(&mut self) -> LCK5_W {
+        LCK5_W { w: self }
     }
     #[doc = "Bit 4 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lck4(&mut self) -> _LCK4W {
-        _LCK4W { w: self }
+    #[inline(always)]
+    pub fn lck4(&mut self) -> LCK4_W {
+        LCK4_W { w: self }
     }
     #[doc = "Bit 3 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lck3(&mut self) -> _LCK3W {
-        _LCK3W { w: self }
+    #[inline(always)]
+    pub fn lck3(&mut self) -> LCK3_W {
+        LCK3_W { w: self }
     }
     #[doc = "Bit 2 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lck2(&mut self) -> _LCK2W {
-        _LCK2W { w: self }
+    #[inline(always)]
+    pub fn lck2(&mut self) -> LCK2_W {
+        LCK2_W { w: self }
     }
     #[doc = "Bit 1 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lck1(&mut self) -> _LCK1W {
-        _LCK1W { w: self }
+    #[inline(always)]
+    pub fn lck1(&mut self) -> LCK1_W {
+        LCK1_W { w: self }
     }
     #[doc = "Bit 0 - Port x lock bit y (y= 0..15)"]
-    #[inline]
-    pub fn lck0(&mut self) -> _LCK0W {
-        _LCK0W { w: self }
+    #[inline(always)]
+    pub fn lck0(&mut self) -> LCK0_W {
+        LCK0_W { w: self }
     }
 }

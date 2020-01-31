@@ -1,182 +1,84 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::C1CR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register C1CR"]
+pub type R = crate::R<u32, super::C1CR>;
+#[doc = "Writer for register C1CR"]
+pub type W = crate::W<u32, super::C1CR>;
+#[doc = "Register C1CR `reset()`'s with value 0"]
+impl crate::ResetValue for super::C1CR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct TXFIER {
-    bits: bool,
-}
-impl TXFIER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct RXOIER {
-    bits: bool,
-}
-impl RXOIER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Proxy"]
-pub struct _TXFIEW<'a> {
+#[doc = "Reader of field `TXFIE`"]
+pub type TXFIE_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `TXFIE`"]
+pub struct TXFIE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TXFIEW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> TXFIE_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _RXOIEW<'a> {
+#[doc = "Reader of field `RXOIE`"]
+pub type RXOIE_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `RXOIE`"]
+pub struct RXOIE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _RXOIEW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> RXOIE_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 16 - processor 1 Transmit channel free interrupt enable"]
-    #[inline]
-    pub fn txfie(&self) -> TXFIER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TXFIER { bits }
+    #[inline(always)]
+    pub fn txfie(&self) -> TXFIE_R {
+        TXFIE_R::new(((self.bits >> 16) & 0x01) != 0)
     }
     #[doc = "Bit 0 - processor 1 Receive channel occupied interrupt enable"]
-    #[inline]
-    pub fn rxoie(&self) -> RXOIER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        RXOIER { bits }
+    #[inline(always)]
+    pub fn rxoie(&self) -> RXOIE_R {
+        RXOIE_R::new((self.bits & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 16 - processor 1 Transmit channel free interrupt enable"]
-    #[inline]
-    pub fn txfie(&mut self) -> _TXFIEW {
-        _TXFIEW { w: self }
+    #[inline(always)]
+    pub fn txfie(&mut self) -> TXFIE_W {
+        TXFIE_W { w: self }
     }
     #[doc = "Bit 0 - processor 1 Receive channel occupied interrupt enable"]
-    #[inline]
-    pub fn rxoie(&mut self) -> _RXOIEW {
-        _RXOIEW { w: self }
+    #[inline(always)]
+    pub fn rxoie(&mut self) -> RXOIE_W {
+        RXOIE_W { w: self }
     }
 }

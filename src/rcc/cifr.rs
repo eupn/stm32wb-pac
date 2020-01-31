@@ -1,361 +1,81 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::CIFR {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LSI2RDYFR {
-    bits: bool,
-}
-impl LSI2RDYFR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct HSI48RDYFR {
-    bits: bool,
-}
-impl HSI48RDYFR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LSECSSFR {
-    bits: bool,
-}
-impl LSECSSFR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct HSECSSFR {
-    bits: bool,
-}
-impl HSECSSFR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct PLLSAI1RDYFR {
-    bits: bool,
-}
-impl PLLSAI1RDYFR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct PLLRDYFR {
-    bits: bool,
-}
-impl PLLRDYFR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct HSERDYFR {
-    bits: bool,
-}
-impl HSERDYFR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct HSIRDYFR {
-    bits: bool,
-}
-impl HSIRDYFR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct MSIRDYFR {
-    bits: bool,
-}
-impl MSIRDYFR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LSERDYFR {
-    bits: bool,
-}
-impl LSERDYFR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LSI1RDYFR {
-    bits: bool,
-}
-impl LSI1RDYFR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
+#[doc = "Reader of register CIFR"]
+pub type R = crate::R<u32, super::CIFR>;
+#[doc = "Reader of field `LSI2RDYF`"]
+pub type LSI2RDYF_R = crate::R<bool, bool>;
+#[doc = "Reader of field `HSI48RDYF`"]
+pub type HSI48RDYF_R = crate::R<bool, bool>;
+#[doc = "Reader of field `LSECSSF`"]
+pub type LSECSSF_R = crate::R<bool, bool>;
+#[doc = "Reader of field `HSECSSF`"]
+pub type HSECSSF_R = crate::R<bool, bool>;
+#[doc = "Reader of field `PLLSAI1RDYF`"]
+pub type PLLSAI1RDYF_R = crate::R<bool, bool>;
+#[doc = "Reader of field `PLLRDYF`"]
+pub type PLLRDYF_R = crate::R<bool, bool>;
+#[doc = "Reader of field `HSERDYF`"]
+pub type HSERDYF_R = crate::R<bool, bool>;
+#[doc = "Reader of field `HSIRDYF`"]
+pub type HSIRDYF_R = crate::R<bool, bool>;
+#[doc = "Reader of field `MSIRDYF`"]
+pub type MSIRDYF_R = crate::R<bool, bool>;
+#[doc = "Reader of field `LSERDYF`"]
+pub type LSERDYF_R = crate::R<bool, bool>;
+#[doc = "Reader of field `LSI1RDYF`"]
+pub type LSI1RDYF_R = crate::R<bool, bool>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 11 - LSI2 ready interrupt flag"]
-    #[inline]
-    pub fn lsi2rdyf(&self) -> LSI2RDYFR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 11;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LSI2RDYFR { bits }
+    #[inline(always)]
+    pub fn lsi2rdyf(&self) -> LSI2RDYF_R {
+        LSI2RDYF_R::new(((self.bits >> 11) & 0x01) != 0)
     }
     #[doc = "Bit 10 - HSI48 ready interrupt flag"]
-    #[inline]
-    pub fn hsi48rdyf(&self) -> HSI48RDYFR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 10;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        HSI48RDYFR { bits }
+    #[inline(always)]
+    pub fn hsi48rdyf(&self) -> HSI48RDYF_R {
+        HSI48RDYF_R::new(((self.bits >> 10) & 0x01) != 0)
     }
     #[doc = "Bit 9 - LSE Clock security system interrupt flag"]
-    #[inline]
-    pub fn lsecssf(&self) -> LSECSSFR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 9;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LSECSSFR { bits }
+    #[inline(always)]
+    pub fn lsecssf(&self) -> LSECSSF_R {
+        LSECSSF_R::new(((self.bits >> 9) & 0x01) != 0)
     }
     #[doc = "Bit 8 - HSE Clock security system interrupt flag"]
-    #[inline]
-    pub fn hsecssf(&self) -> HSECSSFR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        HSECSSFR { bits }
+    #[inline(always)]
+    pub fn hsecssf(&self) -> HSECSSF_R {
+        HSECSSF_R::new(((self.bits >> 8) & 0x01) != 0)
     }
     #[doc = "Bit 6 - PLLSAI1 ready interrupt flag"]
-    #[inline]
-    pub fn pllsai1rdyf(&self) -> PLLSAI1RDYFR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        PLLSAI1RDYFR { bits }
+    #[inline(always)]
+    pub fn pllsai1rdyf(&self) -> PLLSAI1RDYF_R {
+        PLLSAI1RDYF_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 5 - PLL ready interrupt flag"]
-    #[inline]
-    pub fn pllrdyf(&self) -> PLLRDYFR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        PLLRDYFR { bits }
+    #[inline(always)]
+    pub fn pllrdyf(&self) -> PLLRDYF_R {
+        PLLRDYF_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 4 - HSE ready interrupt flag"]
-    #[inline]
-    pub fn hserdyf(&self) -> HSERDYFR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        HSERDYFR { bits }
+    #[inline(always)]
+    pub fn hserdyf(&self) -> HSERDYF_R {
+        HSERDYF_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 3 - HSI ready interrupt flag"]
-    #[inline]
-    pub fn hsirdyf(&self) -> HSIRDYFR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        HSIRDYFR { bits }
+    #[inline(always)]
+    pub fn hsirdyf(&self) -> HSIRDYF_R {
+        HSIRDYF_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 2 - MSI ready interrupt flag"]
-    #[inline]
-    pub fn msirdyf(&self) -> MSIRDYFR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        MSIRDYFR { bits }
+    #[inline(always)]
+    pub fn msirdyf(&self) -> MSIRDYF_R {
+        MSIRDYF_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 1 - LSE ready interrupt flag"]
-    #[inline]
-    pub fn lserdyf(&self) -> LSERDYFR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LSERDYFR { bits }
+    #[inline(always)]
+    pub fn lserdyf(&self) -> LSERDYF_R {
+        LSERDYF_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 0 - LSI1 ready interrupt flag"]
-    #[inline]
-    pub fn lsi1rdyf(&self) -> LSI1RDYFR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LSI1RDYFR { bits }
+    #[inline(always)]
+    pub fn lsi1rdyf(&self) -> LSI1RDYF_R {
+        LSI1RDYF_R::new((self.bits & 0x01) != 0)
     }
 }

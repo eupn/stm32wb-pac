@@ -1,392 +1,208 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::AFRH {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register AFRH"]
+pub type R = crate::R<u32, super::AFRH>;
+#[doc = "Writer for register AFRH"]
+pub type W = crate::W<u32, super::AFRH>;
+#[doc = "Register AFRH `reset()`'s with value 0"]
+impl crate::ResetValue for super::AFRH {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct AFSEL15R {
-    bits: u8,
-}
-impl AFSEL15R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct AFSEL14R {
-    bits: u8,
-}
-impl AFSEL14R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct AFSEL13R {
-    bits: u8,
-}
-impl AFSEL13R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct AFSEL12R {
-    bits: u8,
-}
-impl AFSEL12R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct AFSEL11R {
-    bits: u8,
-}
-impl AFSEL11R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct AFSEL10R {
-    bits: u8,
-}
-impl AFSEL10R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct AFSEL9R {
-    bits: u8,
-}
-impl AFSEL9R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct AFSEL8R {
-    bits: u8,
-}
-impl AFSEL8R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Proxy"]
-pub struct _AFSEL15W<'a> {
+#[doc = "Reader of field `AFSEL15`"]
+pub type AFSEL15_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `AFSEL15`"]
+pub struct AFSEL15_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _AFSEL15W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> AFSEL15_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 28;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 28)) | (((value as u32) & 0x0f) << 28);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _AFSEL14W<'a> {
+#[doc = "Reader of field `AFSEL14`"]
+pub type AFSEL14_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `AFSEL14`"]
+pub struct AFSEL14_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _AFSEL14W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> AFSEL14_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 24;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 24)) | (((value as u32) & 0x0f) << 24);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _AFSEL13W<'a> {
+#[doc = "Reader of field `AFSEL13`"]
+pub type AFSEL13_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `AFSEL13`"]
+pub struct AFSEL13_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _AFSEL13W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> AFSEL13_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 20;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 20)) | (((value as u32) & 0x0f) << 20);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _AFSEL12W<'a> {
+#[doc = "Reader of field `AFSEL12`"]
+pub type AFSEL12_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `AFSEL12`"]
+pub struct AFSEL12_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _AFSEL12W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> AFSEL12_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 16)) | (((value as u32) & 0x0f) << 16);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _AFSEL11W<'a> {
+#[doc = "Reader of field `AFSEL11`"]
+pub type AFSEL11_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `AFSEL11`"]
+pub struct AFSEL11_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _AFSEL11W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> AFSEL11_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 12;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 12)) | (((value as u32) & 0x0f) << 12);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _AFSEL10W<'a> {
+#[doc = "Reader of field `AFSEL10`"]
+pub type AFSEL10_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `AFSEL10`"]
+pub struct AFSEL10_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _AFSEL10W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> AFSEL10_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 8)) | (((value as u32) & 0x0f) << 8);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _AFSEL9W<'a> {
+#[doc = "Reader of field `AFSEL9`"]
+pub type AFSEL9_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `AFSEL9`"]
+pub struct AFSEL9_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _AFSEL9W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> AFSEL9_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 4)) | (((value as u32) & 0x0f) << 4);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _AFSEL8W<'a> {
+#[doc = "Reader of field `AFSEL8`"]
+pub type AFSEL8_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `AFSEL8`"]
+pub struct AFSEL8_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _AFSEL8W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> AFSEL8_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x0f) | ((value as u32) & 0x0f);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 28:31 - Alternate function selection for port x bit y (y = 8..15)"]
-    #[inline]
-    pub fn afsel15(&self) -> AFSEL15R {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 28;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        AFSEL15R { bits }
+    #[inline(always)]
+    pub fn afsel15(&self) -> AFSEL15_R {
+        AFSEL15_R::new(((self.bits >> 28) & 0x0f) as u8)
     }
     #[doc = "Bits 24:27 - Alternate function selection for port x bit y (y = 8..15)"]
-    #[inline]
-    pub fn afsel14(&self) -> AFSEL14R {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 24;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        AFSEL14R { bits }
+    #[inline(always)]
+    pub fn afsel14(&self) -> AFSEL14_R {
+        AFSEL14_R::new(((self.bits >> 24) & 0x0f) as u8)
     }
     #[doc = "Bits 20:23 - Alternate function selection for port x bit y (y = 8..15)"]
-    #[inline]
-    pub fn afsel13(&self) -> AFSEL13R {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 20;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        AFSEL13R { bits }
+    #[inline(always)]
+    pub fn afsel13(&self) -> AFSEL13_R {
+        AFSEL13_R::new(((self.bits >> 20) & 0x0f) as u8)
     }
     #[doc = "Bits 16:19 - Alternate function selection for port x bit y (y = 8..15)"]
-    #[inline]
-    pub fn afsel12(&self) -> AFSEL12R {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        AFSEL12R { bits }
+    #[inline(always)]
+    pub fn afsel12(&self) -> AFSEL12_R {
+        AFSEL12_R::new(((self.bits >> 16) & 0x0f) as u8)
     }
     #[doc = "Bits 12:15 - Alternate function selection for port x bit y (y = 8..15)"]
-    #[inline]
-    pub fn afsel11(&self) -> AFSEL11R {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        AFSEL11R { bits }
+    #[inline(always)]
+    pub fn afsel11(&self) -> AFSEL11_R {
+        AFSEL11_R::new(((self.bits >> 12) & 0x0f) as u8)
     }
     #[doc = "Bits 8:11 - Alternate function selection for port x bit y (y = 8..15)"]
-    #[inline]
-    pub fn afsel10(&self) -> AFSEL10R {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        AFSEL10R { bits }
+    #[inline(always)]
+    pub fn afsel10(&self) -> AFSEL10_R {
+        AFSEL10_R::new(((self.bits >> 8) & 0x0f) as u8)
     }
     #[doc = "Bits 4:7 - Alternate function selection for port x bit y (y = 8..15)"]
-    #[inline]
-    pub fn afsel9(&self) -> AFSEL9R {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        AFSEL9R { bits }
+    #[inline(always)]
+    pub fn afsel9(&self) -> AFSEL9_R {
+        AFSEL9_R::new(((self.bits >> 4) & 0x0f) as u8)
     }
     #[doc = "Bits 0:3 - Alternate function selection for port x bit y (y = 8..15)"]
-    #[inline]
-    pub fn afsel8(&self) -> AFSEL8R {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        AFSEL8R { bits }
+    #[inline(always)]
+    pub fn afsel8(&self) -> AFSEL8_R {
+        AFSEL8_R::new((self.bits & 0x0f) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 28:31 - Alternate function selection for port x bit y (y = 8..15)"]
-    #[inline]
-    pub fn afsel15(&mut self) -> _AFSEL15W {
-        _AFSEL15W { w: self }
+    #[inline(always)]
+    pub fn afsel15(&mut self) -> AFSEL15_W {
+        AFSEL15_W { w: self }
     }
     #[doc = "Bits 24:27 - Alternate function selection for port x bit y (y = 8..15)"]
-    #[inline]
-    pub fn afsel14(&mut self) -> _AFSEL14W {
-        _AFSEL14W { w: self }
+    #[inline(always)]
+    pub fn afsel14(&mut self) -> AFSEL14_W {
+        AFSEL14_W { w: self }
     }
     #[doc = "Bits 20:23 - Alternate function selection for port x bit y (y = 8..15)"]
-    #[inline]
-    pub fn afsel13(&mut self) -> _AFSEL13W {
-        _AFSEL13W { w: self }
+    #[inline(always)]
+    pub fn afsel13(&mut self) -> AFSEL13_W {
+        AFSEL13_W { w: self }
     }
     #[doc = "Bits 16:19 - Alternate function selection for port x bit y (y = 8..15)"]
-    #[inline]
-    pub fn afsel12(&mut self) -> _AFSEL12W {
-        _AFSEL12W { w: self }
+    #[inline(always)]
+    pub fn afsel12(&mut self) -> AFSEL12_W {
+        AFSEL12_W { w: self }
     }
     #[doc = "Bits 12:15 - Alternate function selection for port x bit y (y = 8..15)"]
-    #[inline]
-    pub fn afsel11(&mut self) -> _AFSEL11W {
-        _AFSEL11W { w: self }
+    #[inline(always)]
+    pub fn afsel11(&mut self) -> AFSEL11_W {
+        AFSEL11_W { w: self }
     }
     #[doc = "Bits 8:11 - Alternate function selection for port x bit y (y = 8..15)"]
-    #[inline]
-    pub fn afsel10(&mut self) -> _AFSEL10W {
-        _AFSEL10W { w: self }
+    #[inline(always)]
+    pub fn afsel10(&mut self) -> AFSEL10_W {
+        AFSEL10_W { w: self }
     }
     #[doc = "Bits 4:7 - Alternate function selection for port x bit y (y = 8..15)"]
-    #[inline]
-    pub fn afsel9(&mut self) -> _AFSEL9W {
-        _AFSEL9W { w: self }
+    #[inline(always)]
+    pub fn afsel9(&mut self) -> AFSEL9_W {
+        AFSEL9_W { w: self }
     }
     #[doc = "Bits 0:3 - Alternate function selection for port x bit y (y = 8..15)"]
-    #[inline]
-    pub fn afsel8(&mut self) -> _AFSEL8W {
-        _AFSEL8W { w: self }
+    #[inline(always)]
+    pub fn afsel8(&mut self) -> AFSEL8_W {
+        AFSEL8_W { w: self }
     }
 }

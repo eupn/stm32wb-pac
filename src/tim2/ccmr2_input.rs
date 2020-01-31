@@ -1,310 +1,160 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CCMR2_INPUT {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register CCMR2_Input"]
+pub type R = crate::R<u32, super::CCMR2_INPUT>;
+#[doc = "Writer for register CCMR2_Input"]
+pub type W = crate::W<u32, super::CCMR2_INPUT>;
+#[doc = "Register CCMR2_Input `reset()`'s with value 0"]
+impl crate::ResetValue for super::CCMR2_INPUT {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct IC4FR {
-    bits: u8,
-}
-impl IC4FR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct IC4PSCR {
-    bits: u8,
-}
-impl IC4PSCR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CC4SR {
-    bits: u8,
-}
-impl CC4SR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct IC3FR {
-    bits: u8,
-}
-impl IC3FR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct IC3PSCR {
-    bits: u8,
-}
-impl IC3PSCR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CC3SR {
-    bits: u8,
-}
-impl CC3SR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Proxy"]
-pub struct _IC4FW<'a> {
+#[doc = "Reader of field `IC4F`"]
+pub type IC4F_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `IC4F`"]
+pub struct IC4F_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _IC4FW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> IC4F_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 12;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 12)) | (((value as u32) & 0x0f) << 12);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _IC4PSCW<'a> {
+#[doc = "Reader of field `IC4PSC`"]
+pub type IC4PSC_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `IC4PSC`"]
+pub struct IC4PSC_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _IC4PSCW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> IC4PSC_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 10;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 10)) | (((value as u32) & 0x03) << 10);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CC4SW<'a> {
+#[doc = "Reader of field `CC4S`"]
+pub type CC4S_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `CC4S`"]
+pub struct CC4S_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CC4SW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> CC4S_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 8)) | (((value as u32) & 0x03) << 8);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _IC3FW<'a> {
+#[doc = "Reader of field `IC3F`"]
+pub type IC3F_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `IC3F`"]
+pub struct IC3F_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _IC3FW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> IC3F_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 4)) | (((value as u32) & 0x0f) << 4);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _IC3PSCW<'a> {
+#[doc = "Reader of field `IC3PSC`"]
+pub type IC3PSC_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `IC3PSC`"]
+pub struct IC3PSC_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _IC3PSCW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> IC3PSC_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 2)) | (((value as u32) & 0x03) << 2);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CC3SW<'a> {
+#[doc = "Reader of field `CC3S`"]
+pub type CC3S_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `CC3S`"]
+pub struct CC3S_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CC3SW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> CC3S_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x03) | ((value as u32) & 0x03);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 12:15 - Input capture 4 filter"]
-    #[inline]
-    pub fn ic4f(&self) -> IC4FR {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        IC4FR { bits }
+    #[inline(always)]
+    pub fn ic4f(&self) -> IC4F_R {
+        IC4F_R::new(((self.bits >> 12) & 0x0f) as u8)
     }
     #[doc = "Bits 10:11 - Input capture 4 prescaler"]
-    #[inline]
-    pub fn ic4psc(&self) -> IC4PSCR {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 10;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        IC4PSCR { bits }
+    #[inline(always)]
+    pub fn ic4psc(&self) -> IC4PSC_R {
+        IC4PSC_R::new(((self.bits >> 10) & 0x03) as u8)
     }
     #[doc = "Bits 8:9 - Capture/Compare 4 selection"]
-    #[inline]
-    pub fn cc4s(&self) -> CC4SR {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        CC4SR { bits }
+    #[inline(always)]
+    pub fn cc4s(&self) -> CC4S_R {
+        CC4S_R::new(((self.bits >> 8) & 0x03) as u8)
     }
     #[doc = "Bits 4:7 - Input capture 3 filter"]
-    #[inline]
-    pub fn ic3f(&self) -> IC3FR {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        IC3FR { bits }
+    #[inline(always)]
+    pub fn ic3f(&self) -> IC3F_R {
+        IC3F_R::new(((self.bits >> 4) & 0x0f) as u8)
     }
     #[doc = "Bits 2:3 - Input capture 3 prescaler"]
-    #[inline]
-    pub fn ic3psc(&self) -> IC3PSCR {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        IC3PSCR { bits }
+    #[inline(always)]
+    pub fn ic3psc(&self) -> IC3PSC_R {
+        IC3PSC_R::new(((self.bits >> 2) & 0x03) as u8)
     }
     #[doc = "Bits 0:1 - Capture/Compare 3 selection"]
-    #[inline]
-    pub fn cc3s(&self) -> CC3SR {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        CC3SR { bits }
+    #[inline(always)]
+    pub fn cc3s(&self) -> CC3S_R {
+        CC3S_R::new((self.bits & 0x03) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 12:15 - Input capture 4 filter"]
-    #[inline]
-    pub fn ic4f(&mut self) -> _IC4FW {
-        _IC4FW { w: self }
+    #[inline(always)]
+    pub fn ic4f(&mut self) -> IC4F_W {
+        IC4F_W { w: self }
     }
     #[doc = "Bits 10:11 - Input capture 4 prescaler"]
-    #[inline]
-    pub fn ic4psc(&mut self) -> _IC4PSCW {
-        _IC4PSCW { w: self }
+    #[inline(always)]
+    pub fn ic4psc(&mut self) -> IC4PSC_W {
+        IC4PSC_W { w: self }
     }
     #[doc = "Bits 8:9 - Capture/Compare 4 selection"]
-    #[inline]
-    pub fn cc4s(&mut self) -> _CC4SW {
-        _CC4SW { w: self }
+    #[inline(always)]
+    pub fn cc4s(&mut self) -> CC4S_W {
+        CC4S_W { w: self }
     }
     #[doc = "Bits 4:7 - Input capture 3 filter"]
-    #[inline]
-    pub fn ic3f(&mut self) -> _IC3FW {
-        _IC3FW { w: self }
+    #[inline(always)]
+    pub fn ic3f(&mut self) -> IC3F_W {
+        IC3F_W { w: self }
     }
     #[doc = "Bits 2:3 - Input capture 3 prescaler"]
-    #[inline]
-    pub fn ic3psc(&mut self) -> _IC3PSCW {
-        _IC3PSCW { w: self }
+    #[inline(always)]
+    pub fn ic3psc(&mut self) -> IC3PSC_W {
+        IC3PSC_W { w: self }
     }
     #[doc = "Bits 0:1 - Capture/Compare 3 selection"]
-    #[inline]
-    pub fn cc3s(&mut self) -> _CC3SW {
-        _CC3SW { w: self }
+    #[inline(always)]
+    pub fn cc3s(&mut self) -> CC3S_W {
+        CC3S_W { w: self }
     }
 }

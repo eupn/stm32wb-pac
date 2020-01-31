@@ -1,341 +1,176 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CR2 {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register CR2"]
+pub type R = crate::R<u32, super::CR2>;
+#[doc = "Writer for register CR2"]
+pub type W = crate::W<u32, super::CR2>;
+#[doc = "Register CR2 `reset()`'s with value 0"]
+impl crate::ResetValue for super::CR2 {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct USVR {
-    bits: bool,
-}
-impl USVR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct PVME3R {
-    bits: bool,
-}
-impl PVME3R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct PVME1R {
-    bits: bool,
-}
-impl PVME1R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct PLSR {
-    bits: u8,
-}
-impl PLSR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct PVDER {
-    bits: bool,
-}
-impl PVDER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Proxy"]
-pub struct _USVW<'a> {
+#[doc = "Reader of field `USV`"]
+pub type USV_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `USV`"]
+pub struct USV_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _USVW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> USV_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 10;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 10)) | (((value as u32) & 0x01) << 10);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _PVME3W<'a> {
+#[doc = "Reader of field `PVME3`"]
+pub type PVME3_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `PVME3`"]
+pub struct PVME3_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PVME3W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> PVME3_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _PVME1W<'a> {
+#[doc = "Reader of field `PVME1`"]
+pub type PVME1_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `PVME1`"]
+pub struct PVME1_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PVME1W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> PVME1_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _PLSW<'a> {
+#[doc = "Reader of field `PLS`"]
+pub type PLS_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `PLS`"]
+pub struct PLS_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PLSW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> PLS_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 7;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x07 << 1)) | (((value as u32) & 0x07) << 1);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _PVDEW<'a> {
+#[doc = "Reader of field `PVDE`"]
+pub type PVDE_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `PVDE`"]
+pub struct PVDE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PVDEW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> PVDE_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 10 - VDDUSB USB supply valid"]
-    #[inline]
-    pub fn usv(&self) -> USVR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 10;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        USVR { bits }
+    #[inline(always)]
+    pub fn usv(&self) -> USV_R {
+        USV_R::new(((self.bits >> 10) & 0x01) != 0)
     }
     #[doc = "Bit 6 - Peripheral voltage monitoring 3 enable: VDDA vs. 1.62V"]
-    #[inline]
-    pub fn pvme3(&self) -> PVME3R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        PVME3R { bits }
+    #[inline(always)]
+    pub fn pvme3(&self) -> PVME3_R {
+        PVME3_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Peripheral voltage monitoring 1 enable: VDDUSB vs. 1.2V"]
-    #[inline]
-    pub fn pvme1(&self) -> PVME1R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        PVME1R { bits }
+    #[inline(always)]
+    pub fn pvme1(&self) -> PVME1_R {
+        PVME1_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bits 1:3 - Power voltage detector level selection"]
-    #[inline]
-    pub fn pls(&self) -> PLSR {
-        let bits = {
-            const MASK: u8 = 7;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        PLSR { bits }
+    #[inline(always)]
+    pub fn pls(&self) -> PLS_R {
+        PLS_R::new(((self.bits >> 1) & 0x07) as u8)
     }
     #[doc = "Bit 0 - Power voltage detector enable"]
-    #[inline]
-    pub fn pvde(&self) -> PVDER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        PVDER { bits }
+    #[inline(always)]
+    pub fn pvde(&self) -> PVDE_R {
+        PVDE_R::new((self.bits & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 10 - VDDUSB USB supply valid"]
-    #[inline]
-    pub fn usv(&mut self) -> _USVW {
-        _USVW { w: self }
+    #[inline(always)]
+    pub fn usv(&mut self) -> USV_W {
+        USV_W { w: self }
     }
     #[doc = "Bit 6 - Peripheral voltage monitoring 3 enable: VDDA vs. 1.62V"]
-    #[inline]
-    pub fn pvme3(&mut self) -> _PVME3W {
-        _PVME3W { w: self }
+    #[inline(always)]
+    pub fn pvme3(&mut self) -> PVME3_W {
+        PVME3_W { w: self }
     }
     #[doc = "Bit 4 - Peripheral voltage monitoring 1 enable: VDDUSB vs. 1.2V"]
-    #[inline]
-    pub fn pvme1(&mut self) -> _PVME1W {
-        _PVME1W { w: self }
+    #[inline(always)]
+    pub fn pvme1(&mut self) -> PVME1_W {
+        PVME1_W { w: self }
     }
     #[doc = "Bits 1:3 - Power voltage detector level selection"]
-    #[inline]
-    pub fn pls(&mut self) -> _PLSW {
-        _PLSW { w: self }
+    #[inline(always)]
+    pub fn pls(&mut self) -> PLS_W {
+        PLS_W { w: self }
     }
     #[doc = "Bit 0 - Power voltage detector enable"]
-    #[inline]
-    pub fn pvde(&mut self) -> _PVDEW {
-        _PVDEW { w: self }
+    #[inline(always)]
+    pub fn pvde(&mut self) -> PVDE_W {
+        PVDE_W { w: self }
     }
 }

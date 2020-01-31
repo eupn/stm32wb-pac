@@ -1,104 +1,32 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::HWCFR {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CFG4R {
-    bits: u8,
-}
-impl CFG4R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CFG3R {
-    bits: u8,
-}
-impl CFG3R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CFG2R {
-    bits: u8,
-}
-impl CFG2R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CFG1R {
-    bits: u8,
-}
-impl CFG1R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
+#[doc = "Reader of register HWCFR"]
+pub type R = crate::R<u32, super::HWCFR>;
+#[doc = "Reader of field `CFG4`"]
+pub type CFG4_R = crate::R<u8, u8>;
+#[doc = "Reader of field `CFG3`"]
+pub type CFG3_R = crate::R<u8, u8>;
+#[doc = "Reader of field `CFG2`"]
+pub type CFG2_R = crate::R<u8, u8>;
+#[doc = "Reader of field `CFG1`"]
+pub type CFG1_R = crate::R<u8, u8>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 12:15 - HW Generic 4"]
-    #[inline]
-    pub fn cfg4(&self) -> CFG4R {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        CFG4R { bits }
+    #[inline(always)]
+    pub fn cfg4(&self) -> CFG4_R {
+        CFG4_R::new(((self.bits >> 12) & 0x0f) as u8)
     }
     #[doc = "Bits 8:11 - HW Generic 3"]
-    #[inline]
-    pub fn cfg3(&self) -> CFG3R {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        CFG3R { bits }
+    #[inline(always)]
+    pub fn cfg3(&self) -> CFG3_R {
+        CFG3_R::new(((self.bits >> 8) & 0x0f) as u8)
     }
     #[doc = "Bits 4:7 - HW Generic 2"]
-    #[inline]
-    pub fn cfg2(&self) -> CFG2R {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        CFG2R { bits }
+    #[inline(always)]
+    pub fn cfg2(&self) -> CFG2_R {
+        CFG2_R::new(((self.bits >> 4) & 0x0f) as u8)
     }
     #[doc = "Bits 0:3 - HW Generic 1"]
-    #[inline]
-    pub fn cfg1(&self) -> CFG1R {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        CFG1R { bits }
+    #[inline(always)]
+    pub fn cfg1(&self) -> CFG1_R {
+        CFG1_R::new((self.bits & 0x0f) as u8)
     }
 }

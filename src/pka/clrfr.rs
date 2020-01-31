@@ -1,241 +1,118 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CLRFR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register CLRFR"]
+pub type R = crate::R<u32, super::CLRFR>;
+#[doc = "Writer for register CLRFR"]
+pub type W = crate::W<u32, super::CLRFR>;
+#[doc = "Register CLRFR `reset()`'s with value 0"]
+impl crate::ResetValue for super::CLRFR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct ADDRERRFCR {
-    bits: bool,
-}
-impl ADDRERRFCR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct RAMERRFCR {
-    bits: bool,
-}
-impl RAMERRFCR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct PROCENDFCR {
-    bits: bool,
-}
-impl PROCENDFCR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Proxy"]
-pub struct _ADDRERRFCW<'a> {
+#[doc = "Reader of field `ADDRERRFC`"]
+pub type ADDRERRFC_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `ADDRERRFC`"]
+pub struct ADDRERRFC_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _ADDRERRFCW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> ADDRERRFC_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 20;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 20)) | (((value as u32) & 0x01) << 20);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _RAMERRFCW<'a> {
+#[doc = "Reader of field `RAMERRFC`"]
+pub type RAMERRFC_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `RAMERRFC`"]
+pub struct RAMERRFC_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _RAMERRFCW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> RAMERRFC_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 19;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 19)) | (((value as u32) & 0x01) << 19);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _PROCENDFCW<'a> {
+#[doc = "Reader of field `PROCENDFC`"]
+pub type PROCENDFC_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `PROCENDFC`"]
+pub struct PROCENDFC_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PROCENDFCW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> PROCENDFC_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 17;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 17)) | (((value as u32) & 0x01) << 17);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 20 - Clear Address error flag"]
-    #[inline]
-    pub fn addrerrfc(&self) -> ADDRERRFCR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 20;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        ADDRERRFCR { bits }
+    #[inline(always)]
+    pub fn addrerrfc(&self) -> ADDRERRFC_R {
+        ADDRERRFC_R::new(((self.bits >> 20) & 0x01) != 0)
     }
     #[doc = "Bit 19 - Clear RAM error flag"]
-    #[inline]
-    pub fn ramerrfc(&self) -> RAMERRFCR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 19;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        RAMERRFCR { bits }
+    #[inline(always)]
+    pub fn ramerrfc(&self) -> RAMERRFC_R {
+        RAMERRFC_R::new(((self.bits >> 19) & 0x01) != 0)
     }
     #[doc = "Bit 17 - Clear PKA End of Operation flag"]
-    #[inline]
-    pub fn procendfc(&self) -> PROCENDFCR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 17;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        PROCENDFCR { bits }
+    #[inline(always)]
+    pub fn procendfc(&self) -> PROCENDFC_R {
+        PROCENDFC_R::new(((self.bits >> 17) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 20 - Clear Address error flag"]
-    #[inline]
-    pub fn addrerrfc(&mut self) -> _ADDRERRFCW {
-        _ADDRERRFCW { w: self }
+    #[inline(always)]
+    pub fn addrerrfc(&mut self) -> ADDRERRFC_W {
+        ADDRERRFC_W { w: self }
     }
     #[doc = "Bit 19 - Clear RAM error flag"]
-    #[inline]
-    pub fn ramerrfc(&mut self) -> _RAMERRFCW {
-        _RAMERRFCW { w: self }
+    #[inline(always)]
+    pub fn ramerrfc(&mut self) -> RAMERRFC_W {
+        RAMERRFC_W { w: self }
     }
     #[doc = "Bit 17 - Clear PKA End of Operation flag"]
-    #[inline]
-    pub fn procendfc(&mut self) -> _PROCENDFCW {
-        _PROCENDFCW { w: self }
+    #[inline(always)]
+    pub fn procendfc(&mut self) -> PROCENDFC_W {
+        PROCENDFC_W { w: self }
     }
 }

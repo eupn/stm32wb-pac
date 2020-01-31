@@ -1,93 +1,25 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::RLR27 {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LOCKR {
-    bits: bool,
-}
-impl LOCKR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct COREIDR {
-    bits: u8,
-}
-impl COREIDR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct PROCIDR {
-    bits: u8,
-}
-impl PROCIDR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
+#[doc = "Reader of register RLR27"]
+pub type R = crate::R<u32, super::RLR27>;
+#[doc = "Reader of field `LOCK`"]
+pub type LOCK_R = crate::R<bool, bool>;
+#[doc = "Reader of field `COREID`"]
+pub type COREID_R = crate::R<u8, u8>;
+#[doc = "Reader of field `PROCID`"]
+pub type PROCID_R = crate::R<u8, u8>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 31 - lock indication"]
-    #[inline]
-    pub fn lock(&self) -> LOCKR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 31;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LOCKR { bits }
+    #[inline(always)]
+    pub fn lock(&self) -> LOCK_R {
+        LOCK_R::new(((self.bits >> 31) & 0x01) != 0)
     }
     #[doc = "Bits 8:11 - Semaphore CoreID"]
-    #[inline]
-    pub fn coreid(&self) -> COREIDR {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        COREIDR { bits }
+    #[inline(always)]
+    pub fn coreid(&self) -> COREID_R {
+        COREID_R::new(((self.bits >> 8) & 0x0f) as u8)
     }
     #[doc = "Bits 0:7 - Semaphore ProcessID"]
-    #[inline]
-    pub fn procid(&self) -> PROCIDR {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        PROCIDR { bits }
+    #[inline(always)]
+    pub fn procid(&self) -> PROCID_R {
+        PROCID_R::new((self.bits & 0xff) as u8)
     }
 }

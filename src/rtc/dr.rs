@@ -1,369 +1,194 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::DR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register DR"]
+pub type R = crate::R<u32, super::DR>;
+#[doc = "Writer for register DR"]
+pub type W = crate::W<u32, super::DR>;
+#[doc = "Register DR `reset()`'s with value 0x2101"]
+impl crate::ResetValue for super::DR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0x2101
     }
 }
-#[doc = r" Value of the field"]
-pub struct YTR {
-    bits: u8,
-}
-impl YTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct YUR {
-    bits: u8,
-}
-impl YUR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct WDUR {
-    bits: u8,
-}
-impl WDUR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct MTR {
-    bits: bool,
-}
-impl MTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct MUR {
-    bits: u8,
-}
-impl MUR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct DTR {
-    bits: u8,
-}
-impl DTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct DUR {
-    bits: u8,
-}
-impl DUR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Proxy"]
-pub struct _YTW<'a> {
+#[doc = "Reader of field `YT`"]
+pub type YT_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `YT`"]
+pub struct YT_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _YTW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> YT_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 20;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 20)) | (((value as u32) & 0x0f) << 20);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _YUW<'a> {
+#[doc = "Reader of field `YU`"]
+pub type YU_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `YU`"]
+pub struct YU_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _YUW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> YU_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 16)) | (((value as u32) & 0x0f) << 16);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _WDUW<'a> {
+#[doc = "Reader of field `WDU`"]
+pub type WDU_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `WDU`"]
+pub struct WDU_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _WDUW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> WDU_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 7;
-        const OFFSET: u8 = 13;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x07 << 13)) | (((value as u32) & 0x07) << 13);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _MTW<'a> {
+#[doc = "Reader of field `MT`"]
+pub type MT_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `MT`"]
+pub struct MT_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _MTW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> MT_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 12;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 12)) | (((value as u32) & 0x01) << 12);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _MUW<'a> {
+#[doc = "Reader of field `MU`"]
+pub type MU_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `MU`"]
+pub struct MU_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _MUW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> MU_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 8)) | (((value as u32) & 0x0f) << 8);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _DTW<'a> {
+#[doc = "Reader of field `DT`"]
+pub type DT_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `DT`"]
+pub struct DT_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _DTW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> DT_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 4)) | (((value as u32) & 0x03) << 4);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _DUW<'a> {
+#[doc = "Reader of field `DU`"]
+pub type DU_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `DU`"]
+pub struct DU_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _DUW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> DU_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x0f) | ((value as u32) & 0x0f);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 20:23 - Year tens in BCD format"]
-    #[inline]
-    pub fn yt(&self) -> YTR {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 20;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        YTR { bits }
+    #[inline(always)]
+    pub fn yt(&self) -> YT_R {
+        YT_R::new(((self.bits >> 20) & 0x0f) as u8)
     }
     #[doc = "Bits 16:19 - Year units in BCD format"]
-    #[inline]
-    pub fn yu(&self) -> YUR {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        YUR { bits }
+    #[inline(always)]
+    pub fn yu(&self) -> YU_R {
+        YU_R::new(((self.bits >> 16) & 0x0f) as u8)
     }
     #[doc = "Bits 13:15 - Week day units"]
-    #[inline]
-    pub fn wdu(&self) -> WDUR {
-        let bits = {
-            const MASK: u8 = 7;
-            const OFFSET: u8 = 13;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        WDUR { bits }
+    #[inline(always)]
+    pub fn wdu(&self) -> WDU_R {
+        WDU_R::new(((self.bits >> 13) & 0x07) as u8)
     }
     #[doc = "Bit 12 - Month tens in BCD format"]
-    #[inline]
-    pub fn mt(&self) -> MTR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        MTR { bits }
+    #[inline(always)]
+    pub fn mt(&self) -> MT_R {
+        MT_R::new(((self.bits >> 12) & 0x01) != 0)
     }
     #[doc = "Bits 8:11 - Month units in BCD format"]
-    #[inline]
-    pub fn mu(&self) -> MUR {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        MUR { bits }
+    #[inline(always)]
+    pub fn mu(&self) -> MU_R {
+        MU_R::new(((self.bits >> 8) & 0x0f) as u8)
     }
     #[doc = "Bits 4:5 - Date tens in BCD format"]
-    #[inline]
-    pub fn dt(&self) -> DTR {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        DTR { bits }
+    #[inline(always)]
+    pub fn dt(&self) -> DT_R {
+        DT_R::new(((self.bits >> 4) & 0x03) as u8)
     }
     #[doc = "Bits 0:3 - Date units in BCD format"]
-    #[inline]
-    pub fn du(&self) -> DUR {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        DUR { bits }
+    #[inline(always)]
+    pub fn du(&self) -> DU_R {
+        DU_R::new((self.bits & 0x0f) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 8449 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 20:23 - Year tens in BCD format"]
-    #[inline]
-    pub fn yt(&mut self) -> _YTW {
-        _YTW { w: self }
+    #[inline(always)]
+    pub fn yt(&mut self) -> YT_W {
+        YT_W { w: self }
     }
     #[doc = "Bits 16:19 - Year units in BCD format"]
-    #[inline]
-    pub fn yu(&mut self) -> _YUW {
-        _YUW { w: self }
+    #[inline(always)]
+    pub fn yu(&mut self) -> YU_W {
+        YU_W { w: self }
     }
     #[doc = "Bits 13:15 - Week day units"]
-    #[inline]
-    pub fn wdu(&mut self) -> _WDUW {
-        _WDUW { w: self }
+    #[inline(always)]
+    pub fn wdu(&mut self) -> WDU_W {
+        WDU_W { w: self }
     }
     #[doc = "Bit 12 - Month tens in BCD format"]
-    #[inline]
-    pub fn mt(&mut self) -> _MTW {
-        _MTW { w: self }
+    #[inline(always)]
+    pub fn mt(&mut self) -> MT_W {
+        MT_W { w: self }
     }
     #[doc = "Bits 8:11 - Month units in BCD format"]
-    #[inline]
-    pub fn mu(&mut self) -> _MUW {
-        _MUW { w: self }
+    #[inline(always)]
+    pub fn mu(&mut self) -> MU_W {
+        MU_W { w: self }
     }
     #[doc = "Bits 4:5 - Date tens in BCD format"]
-    #[inline]
-    pub fn dt(&mut self) -> _DTW {
-        _DTW { w: self }
+    #[inline(always)]
+    pub fn dt(&mut self) -> DT_W {
+        DT_W { w: self }
     }
     #[doc = "Bits 0:3 - Date units in BCD format"]
-    #[inline]
-    pub fn du(&mut self) -> _DUW {
-        _DUW { w: self }
+    #[inline(always)]
+    pub fn du(&mut self) -> DU_W {
+        DU_W { w: self }
     }
 }

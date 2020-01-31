@@ -1,41 +1,11 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::IOG5CR {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CNTR {
-    bits: u16,
-}
-impl CNTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u16 {
-        self.bits
-    }
-}
+#[doc = "Reader of register IOG5CR"]
+pub type R = crate::R<u32, super::IOG5CR>;
+#[doc = "Reader of field `CNT`"]
+pub type CNT_R = crate::R<u16, u16>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:13 - Counter value"]
-    #[inline]
-    pub fn cnt(&self) -> CNTR {
-        let bits = {
-            const MASK: u16 = 16383;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u16
-        };
-        CNTR { bits }
+    #[inline(always)]
+    pub fn cnt(&self) -> CNT_R {
+        CNT_R::new((self.bits & 0x3fff) as u16)
     }
 }

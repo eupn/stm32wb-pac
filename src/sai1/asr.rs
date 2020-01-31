@@ -1,258 +1,60 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::ASR {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FLVLR {
-    bits: u8,
-}
-impl FLVLR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LFSDETR {
-    bits: bool,
-}
-impl LFSDETR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct AFSDETR {
-    bits: bool,
-}
-impl AFSDETR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CNRDYR {
-    bits: bool,
-}
-impl CNRDYR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FREQR {
-    bits: bool,
-}
-impl FREQR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct WCKCFGR {
-    bits: bool,
-}
-impl WCKCFGR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct MUTEDETR {
-    bits: bool,
-}
-impl MUTEDETR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct OVRUDRR {
-    bits: bool,
-}
-impl OVRUDRR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
+#[doc = "Reader of register ASR"]
+pub type R = crate::R<u32, super::ASR>;
+#[doc = "Reader of field `FLVL`"]
+pub type FLVL_R = crate::R<u8, u8>;
+#[doc = "Reader of field `LFSDET`"]
+pub type LFSDET_R = crate::R<bool, bool>;
+#[doc = "Reader of field `AFSDET`"]
+pub type AFSDET_R = crate::R<bool, bool>;
+#[doc = "Reader of field `CNRDY`"]
+pub type CNRDY_R = crate::R<bool, bool>;
+#[doc = "Reader of field `FREQ`"]
+pub type FREQ_R = crate::R<bool, bool>;
+#[doc = "Reader of field `WCKCFG`"]
+pub type WCKCFG_R = crate::R<bool, bool>;
+#[doc = "Reader of field `MUTEDET`"]
+pub type MUTEDET_R = crate::R<bool, bool>;
+#[doc = "Reader of field `OVRUDR`"]
+pub type OVRUDR_R = crate::R<bool, bool>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 16:18 - FIFO level threshold"]
-    #[inline]
-    pub fn flvl(&self) -> FLVLR {
-        let bits = {
-            const MASK: u8 = 7;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        FLVLR { bits }
+    #[inline(always)]
+    pub fn flvl(&self) -> FLVL_R {
+        FLVL_R::new(((self.bits >> 16) & 0x07) as u8)
     }
     #[doc = "Bit 6 - Late frame synchronization detection"]
-    #[inline]
-    pub fn lfsdet(&self) -> LFSDETR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LFSDETR { bits }
+    #[inline(always)]
+    pub fn lfsdet(&self) -> LFSDET_R {
+        LFSDET_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Anticipated frame synchronization detection"]
-    #[inline]
-    pub fn afsdet(&self) -> AFSDETR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        AFSDETR { bits }
+    #[inline(always)]
+    pub fn afsdet(&self) -> AFSDET_R {
+        AFSDET_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Codec not ready"]
-    #[inline]
-    pub fn cnrdy(&self) -> CNRDYR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CNRDYR { bits }
+    #[inline(always)]
+    pub fn cnrdy(&self) -> CNRDY_R {
+        CNRDY_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 3 - FIFO request"]
-    #[inline]
-    pub fn freq(&self) -> FREQR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        FREQR { bits }
+    #[inline(always)]
+    pub fn freq(&self) -> FREQ_R {
+        FREQ_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Wrong clock configuration flag. This bit is read only"]
-    #[inline]
-    pub fn wckcfg(&self) -> WCKCFGR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        WCKCFGR { bits }
+    #[inline(always)]
+    pub fn wckcfg(&self) -> WCKCFG_R {
+        WCKCFG_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 1 - Mute detection"]
-    #[inline]
-    pub fn mutedet(&self) -> MUTEDETR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        MUTEDETR { bits }
+    #[inline(always)]
+    pub fn mutedet(&self) -> MUTEDET_R {
+        MUTEDET_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 0 - Overrun / underrun"]
-    #[inline]
-    pub fn ovrudr(&self) -> OVRUDRR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        OVRUDRR { bits }
+    #[inline(always)]
+    pub fn ovrudr(&self) -> OVRUDR_R {
+        OVRUDR_R::new((self.bits & 0x01) != 0)
     }
 }

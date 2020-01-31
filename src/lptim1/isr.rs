@@ -1,237 +1,53 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::ISR {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct DOWNR {
-    bits: bool,
-}
-impl DOWNR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct UPR {
-    bits: bool,
-}
-impl UPR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct ARROKR {
-    bits: bool,
-}
-impl ARROKR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CMPOKR {
-    bits: bool,
-}
-impl CMPOKR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EXTTRIGR {
-    bits: bool,
-}
-impl EXTTRIGR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct ARRMR {
-    bits: bool,
-}
-impl ARRMR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CMPMR {
-    bits: bool,
-}
-impl CMPMR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
+#[doc = "Reader of register ISR"]
+pub type R = crate::R<u32, super::ISR>;
+#[doc = "Reader of field `DOWN`"]
+pub type DOWN_R = crate::R<bool, bool>;
+#[doc = "Reader of field `UP`"]
+pub type UP_R = crate::R<bool, bool>;
+#[doc = "Reader of field `ARROK`"]
+pub type ARROK_R = crate::R<bool, bool>;
+#[doc = "Reader of field `CMPOK`"]
+pub type CMPOK_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EXTTRIG`"]
+pub type EXTTRIG_R = crate::R<bool, bool>;
+#[doc = "Reader of field `ARRM`"]
+pub type ARRM_R = crate::R<bool, bool>;
+#[doc = "Reader of field `CMPM`"]
+pub type CMPM_R = crate::R<bool, bool>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 6 - Counter direction change up to down"]
-    #[inline]
-    pub fn down(&self) -> DOWNR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        DOWNR { bits }
+    #[inline(always)]
+    pub fn down(&self) -> DOWN_R {
+        DOWN_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Counter direction change down to up"]
-    #[inline]
-    pub fn up(&self) -> UPR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        UPR { bits }
+    #[inline(always)]
+    pub fn up(&self) -> UP_R {
+        UP_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Autoreload register update OK"]
-    #[inline]
-    pub fn arrok(&self) -> ARROKR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        ARROKR { bits }
+    #[inline(always)]
+    pub fn arrok(&self) -> ARROK_R {
+        ARROK_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Compare register update OK"]
-    #[inline]
-    pub fn cmpok(&self) -> CMPOKR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CMPOKR { bits }
+    #[inline(always)]
+    pub fn cmpok(&self) -> CMPOK_R {
+        CMPOK_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 2 - External trigger edge event"]
-    #[inline]
-    pub fn exttrig(&self) -> EXTTRIGR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EXTTRIGR { bits }
+    #[inline(always)]
+    pub fn exttrig(&self) -> EXTTRIG_R {
+        EXTTRIG_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 1 - Autoreload match"]
-    #[inline]
-    pub fn arrm(&self) -> ARRMR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        ARRMR { bits }
+    #[inline(always)]
+    pub fn arrm(&self) -> ARRM_R {
+        ARRM_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 0 - Compare match"]
-    #[inline]
-    pub fn cmpm(&self) -> CMPMR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CMPMR { bits }
+    #[inline(always)]
+    pub fn cmpm(&self) -> CMPM_R {
+        CMPM_R::new((self.bits & 0x01) != 0)
     }
 }

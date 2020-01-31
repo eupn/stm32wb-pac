@@ -1,888 +1,200 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::ISR {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TEIF7R {
-    bits: bool,
-}
-impl TEIF7R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct HTIF7R {
-    bits: bool,
-}
-impl HTIF7R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TCIF7R {
-    bits: bool,
-}
-impl TCIF7R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct GIF7R {
-    bits: bool,
-}
-impl GIF7R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TEIF6R {
-    bits: bool,
-}
-impl TEIF6R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct HTIF6R {
-    bits: bool,
-}
-impl HTIF6R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TCIF6R {
-    bits: bool,
-}
-impl TCIF6R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct GIF6R {
-    bits: bool,
-}
-impl GIF6R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TEIF5R {
-    bits: bool,
-}
-impl TEIF5R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct HTIF5R {
-    bits: bool,
-}
-impl HTIF5R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TCIF5R {
-    bits: bool,
-}
-impl TCIF5R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct GIF5R {
-    bits: bool,
-}
-impl GIF5R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TEIF4R {
-    bits: bool,
-}
-impl TEIF4R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct HTIF4R {
-    bits: bool,
-}
-impl HTIF4R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TCIF4R {
-    bits: bool,
-}
-impl TCIF4R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct GIF4R {
-    bits: bool,
-}
-impl GIF4R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TEIF3R {
-    bits: bool,
-}
-impl TEIF3R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct HTIF3R {
-    bits: bool,
-}
-impl HTIF3R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TCIF3R {
-    bits: bool,
-}
-impl TCIF3R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct GIF3R {
-    bits: bool,
-}
-impl GIF3R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TEIF2R {
-    bits: bool,
-}
-impl TEIF2R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct HTIF2R {
-    bits: bool,
-}
-impl HTIF2R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TCIF2R {
-    bits: bool,
-}
-impl TCIF2R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct GIF2R {
-    bits: bool,
-}
-impl GIF2R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TEIF1R {
-    bits: bool,
-}
-impl TEIF1R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct HTIF1R {
-    bits: bool,
-}
-impl HTIF1R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TCIF1R {
-    bits: bool,
-}
-impl TCIF1R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct GIF1R {
-    bits: bool,
-}
-impl GIF1R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
+#[doc = "Reader of register ISR"]
+pub type R = crate::R<u32, super::ISR>;
+#[doc = "Reader of field `TEIF7`"]
+pub type TEIF7_R = crate::R<bool, bool>;
+#[doc = "Reader of field `HTIF7`"]
+pub type HTIF7_R = crate::R<bool, bool>;
+#[doc = "Reader of field `TCIF7`"]
+pub type TCIF7_R = crate::R<bool, bool>;
+#[doc = "Reader of field `GIF7`"]
+pub type GIF7_R = crate::R<bool, bool>;
+#[doc = "Reader of field `TEIF6`"]
+pub type TEIF6_R = crate::R<bool, bool>;
+#[doc = "Reader of field `HTIF6`"]
+pub type HTIF6_R = crate::R<bool, bool>;
+#[doc = "Reader of field `TCIF6`"]
+pub type TCIF6_R = crate::R<bool, bool>;
+#[doc = "Reader of field `GIF6`"]
+pub type GIF6_R = crate::R<bool, bool>;
+#[doc = "Reader of field `TEIF5`"]
+pub type TEIF5_R = crate::R<bool, bool>;
+#[doc = "Reader of field `HTIF5`"]
+pub type HTIF5_R = crate::R<bool, bool>;
+#[doc = "Reader of field `TCIF5`"]
+pub type TCIF5_R = crate::R<bool, bool>;
+#[doc = "Reader of field `GIF5`"]
+pub type GIF5_R = crate::R<bool, bool>;
+#[doc = "Reader of field `TEIF4`"]
+pub type TEIF4_R = crate::R<bool, bool>;
+#[doc = "Reader of field `HTIF4`"]
+pub type HTIF4_R = crate::R<bool, bool>;
+#[doc = "Reader of field `TCIF4`"]
+pub type TCIF4_R = crate::R<bool, bool>;
+#[doc = "Reader of field `GIF4`"]
+pub type GIF4_R = crate::R<bool, bool>;
+#[doc = "Reader of field `TEIF3`"]
+pub type TEIF3_R = crate::R<bool, bool>;
+#[doc = "Reader of field `HTIF3`"]
+pub type HTIF3_R = crate::R<bool, bool>;
+#[doc = "Reader of field `TCIF3`"]
+pub type TCIF3_R = crate::R<bool, bool>;
+#[doc = "Reader of field `GIF3`"]
+pub type GIF3_R = crate::R<bool, bool>;
+#[doc = "Reader of field `TEIF2`"]
+pub type TEIF2_R = crate::R<bool, bool>;
+#[doc = "Reader of field `HTIF2`"]
+pub type HTIF2_R = crate::R<bool, bool>;
+#[doc = "Reader of field `TCIF2`"]
+pub type TCIF2_R = crate::R<bool, bool>;
+#[doc = "Reader of field `GIF2`"]
+pub type GIF2_R = crate::R<bool, bool>;
+#[doc = "Reader of field `TEIF1`"]
+pub type TEIF1_R = crate::R<bool, bool>;
+#[doc = "Reader of field `HTIF1`"]
+pub type HTIF1_R = crate::R<bool, bool>;
+#[doc = "Reader of field `TCIF1`"]
+pub type TCIF1_R = crate::R<bool, bool>;
+#[doc = "Reader of field `GIF1`"]
+pub type GIF1_R = crate::R<bool, bool>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 27 - Channel x transfer error flag (x = 1 ..7)"]
-    #[inline]
-    pub fn teif7(&self) -> TEIF7R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 27;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TEIF7R { bits }
+    #[inline(always)]
+    pub fn teif7(&self) -> TEIF7_R {
+        TEIF7_R::new(((self.bits >> 27) & 0x01) != 0)
     }
     #[doc = "Bit 26 - Channel x half transfer flag (x = 1 ..7)"]
-    #[inline]
-    pub fn htif7(&self) -> HTIF7R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 26;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        HTIF7R { bits }
+    #[inline(always)]
+    pub fn htif7(&self) -> HTIF7_R {
+        HTIF7_R::new(((self.bits >> 26) & 0x01) != 0)
     }
     #[doc = "Bit 25 - Channel x transfer complete flag (x = 1 ..7)"]
-    #[inline]
-    pub fn tcif7(&self) -> TCIF7R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 25;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TCIF7R { bits }
+    #[inline(always)]
+    pub fn tcif7(&self) -> TCIF7_R {
+        TCIF7_R::new(((self.bits >> 25) & 0x01) != 0)
     }
     #[doc = "Bit 24 - Channel x global interrupt flag (x = 1 ..7)"]
-    #[inline]
-    pub fn gif7(&self) -> GIF7R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 24;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        GIF7R { bits }
+    #[inline(always)]
+    pub fn gif7(&self) -> GIF7_R {
+        GIF7_R::new(((self.bits >> 24) & 0x01) != 0)
     }
     #[doc = "Bit 23 - Channel x transfer error flag (x = 1 ..7)"]
-    #[inline]
-    pub fn teif6(&self) -> TEIF6R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 23;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TEIF6R { bits }
+    #[inline(always)]
+    pub fn teif6(&self) -> TEIF6_R {
+        TEIF6_R::new(((self.bits >> 23) & 0x01) != 0)
     }
     #[doc = "Bit 22 - Channel x half transfer flag (x = 1 ..7)"]
-    #[inline]
-    pub fn htif6(&self) -> HTIF6R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 22;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        HTIF6R { bits }
+    #[inline(always)]
+    pub fn htif6(&self) -> HTIF6_R {
+        HTIF6_R::new(((self.bits >> 22) & 0x01) != 0)
     }
     #[doc = "Bit 21 - Channel x transfer complete flag (x = 1 ..7)"]
-    #[inline]
-    pub fn tcif6(&self) -> TCIF6R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 21;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TCIF6R { bits }
+    #[inline(always)]
+    pub fn tcif6(&self) -> TCIF6_R {
+        TCIF6_R::new(((self.bits >> 21) & 0x01) != 0)
     }
     #[doc = "Bit 20 - Channel x global interrupt flag (x = 1 ..7)"]
-    #[inline]
-    pub fn gif6(&self) -> GIF6R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 20;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        GIF6R { bits }
+    #[inline(always)]
+    pub fn gif6(&self) -> GIF6_R {
+        GIF6_R::new(((self.bits >> 20) & 0x01) != 0)
     }
     #[doc = "Bit 19 - Channel x transfer error flag (x = 1 ..7)"]
-    #[inline]
-    pub fn teif5(&self) -> TEIF5R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 19;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TEIF5R { bits }
+    #[inline(always)]
+    pub fn teif5(&self) -> TEIF5_R {
+        TEIF5_R::new(((self.bits >> 19) & 0x01) != 0)
     }
     #[doc = "Bit 18 - Channel x half transfer flag (x = 1 ..7)"]
-    #[inline]
-    pub fn htif5(&self) -> HTIF5R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 18;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        HTIF5R { bits }
+    #[inline(always)]
+    pub fn htif5(&self) -> HTIF5_R {
+        HTIF5_R::new(((self.bits >> 18) & 0x01) != 0)
     }
     #[doc = "Bit 17 - Channel x transfer complete flag (x = 1 ..7)"]
-    #[inline]
-    pub fn tcif5(&self) -> TCIF5R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 17;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TCIF5R { bits }
+    #[inline(always)]
+    pub fn tcif5(&self) -> TCIF5_R {
+        TCIF5_R::new(((self.bits >> 17) & 0x01) != 0)
     }
     #[doc = "Bit 16 - Channel x global interrupt flag (x = 1 ..7)"]
-    #[inline]
-    pub fn gif5(&self) -> GIF5R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        GIF5R { bits }
+    #[inline(always)]
+    pub fn gif5(&self) -> GIF5_R {
+        GIF5_R::new(((self.bits >> 16) & 0x01) != 0)
     }
     #[doc = "Bit 15 - Channel x transfer error flag (x = 1 ..7)"]
-    #[inline]
-    pub fn teif4(&self) -> TEIF4R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 15;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TEIF4R { bits }
+    #[inline(always)]
+    pub fn teif4(&self) -> TEIF4_R {
+        TEIF4_R::new(((self.bits >> 15) & 0x01) != 0)
     }
     #[doc = "Bit 14 - Channel x half transfer flag (x = 1 ..7)"]
-    #[inline]
-    pub fn htif4(&self) -> HTIF4R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 14;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        HTIF4R { bits }
+    #[inline(always)]
+    pub fn htif4(&self) -> HTIF4_R {
+        HTIF4_R::new(((self.bits >> 14) & 0x01) != 0)
     }
     #[doc = "Bit 13 - Channel x transfer complete flag (x = 1 ..7)"]
-    #[inline]
-    pub fn tcif4(&self) -> TCIF4R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 13;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TCIF4R { bits }
+    #[inline(always)]
+    pub fn tcif4(&self) -> TCIF4_R {
+        TCIF4_R::new(((self.bits >> 13) & 0x01) != 0)
     }
     #[doc = "Bit 12 - Channel x global interrupt flag (x = 1 ..7)"]
-    #[inline]
-    pub fn gif4(&self) -> GIF4R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        GIF4R { bits }
+    #[inline(always)]
+    pub fn gif4(&self) -> GIF4_R {
+        GIF4_R::new(((self.bits >> 12) & 0x01) != 0)
     }
     #[doc = "Bit 11 - Channel x transfer error flag (x = 1 ..7)"]
-    #[inline]
-    pub fn teif3(&self) -> TEIF3R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 11;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TEIF3R { bits }
+    #[inline(always)]
+    pub fn teif3(&self) -> TEIF3_R {
+        TEIF3_R::new(((self.bits >> 11) & 0x01) != 0)
     }
     #[doc = "Bit 10 - Channel x half transfer flag (x = 1 ..7)"]
-    #[inline]
-    pub fn htif3(&self) -> HTIF3R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 10;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        HTIF3R { bits }
+    #[inline(always)]
+    pub fn htif3(&self) -> HTIF3_R {
+        HTIF3_R::new(((self.bits >> 10) & 0x01) != 0)
     }
     #[doc = "Bit 9 - Channel x transfer complete flag (x = 1 ..7)"]
-    #[inline]
-    pub fn tcif3(&self) -> TCIF3R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 9;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TCIF3R { bits }
+    #[inline(always)]
+    pub fn tcif3(&self) -> TCIF3_R {
+        TCIF3_R::new(((self.bits >> 9) & 0x01) != 0)
     }
     #[doc = "Bit 8 - Channel x global interrupt flag (x = 1 ..7)"]
-    #[inline]
-    pub fn gif3(&self) -> GIF3R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        GIF3R { bits }
+    #[inline(always)]
+    pub fn gif3(&self) -> GIF3_R {
+        GIF3_R::new(((self.bits >> 8) & 0x01) != 0)
     }
     #[doc = "Bit 7 - Channel x transfer error flag (x = 1 ..7)"]
-    #[inline]
-    pub fn teif2(&self) -> TEIF2R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TEIF2R { bits }
+    #[inline(always)]
+    pub fn teif2(&self) -> TEIF2_R {
+        TEIF2_R::new(((self.bits >> 7) & 0x01) != 0)
     }
     #[doc = "Bit 6 - Channel x half transfer flag (x = 1 ..7)"]
-    #[inline]
-    pub fn htif2(&self) -> HTIF2R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        HTIF2R { bits }
+    #[inline(always)]
+    pub fn htif2(&self) -> HTIF2_R {
+        HTIF2_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Channel x transfer complete flag (x = 1 ..7)"]
-    #[inline]
-    pub fn tcif2(&self) -> TCIF2R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TCIF2R { bits }
+    #[inline(always)]
+    pub fn tcif2(&self) -> TCIF2_R {
+        TCIF2_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Channel x global interrupt flag (x = 1 ..7)"]
-    #[inline]
-    pub fn gif2(&self) -> GIF2R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        GIF2R { bits }
+    #[inline(always)]
+    pub fn gif2(&self) -> GIF2_R {
+        GIF2_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Channel x transfer error flag (x = 1 ..7)"]
-    #[inline]
-    pub fn teif1(&self) -> TEIF1R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TEIF1R { bits }
+    #[inline(always)]
+    pub fn teif1(&self) -> TEIF1_R {
+        TEIF1_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Channel x half transfer flag (x = 1 ..7)"]
-    #[inline]
-    pub fn htif1(&self) -> HTIF1R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        HTIF1R { bits }
+    #[inline(always)]
+    pub fn htif1(&self) -> HTIF1_R {
+        HTIF1_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 1 - Channel x transfer complete flag (x = 1 ..7)"]
-    #[inline]
-    pub fn tcif1(&self) -> TCIF1R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TCIF1R { bits }
+    #[inline(always)]
+    pub fn tcif1(&self) -> TCIF1_R {
+        TCIF1_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 0 - Channel x global interrupt flag (x = 1 ..7)"]
-    #[inline]
-    pub fn gif1(&self) -> GIF1R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        GIF1R { bits }
+    #[inline(always)]
+    pub fn gif1(&self) -> GIF1_R {
+        GIF1_R::new((self.bits & 0x01) != 0)
     }
 }

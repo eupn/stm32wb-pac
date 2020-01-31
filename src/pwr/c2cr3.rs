@@ -1,595 +1,322 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::C2CR3 {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register C2CR3"]
+pub type R = crate::R<u32, super::C2CR3>;
+#[doc = "Writer for register C2CR3"]
+pub type W = crate::W<u32, super::C2CR3>;
+#[doc = "Register C2CR3 `reset()`'s with value 0x8000"]
+impl crate::ResetValue for super::C2CR3 {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0x8000
     }
 }
-#[doc = r" Value of the field"]
-pub struct EIWULR {
-    bits: bool,
-}
-impl EIWULR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct APCR {
-    bits: bool,
-}
-impl APCR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct E802WUPR {
-    bits: bool,
-}
-impl E802WUPR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EBLEWUPR {
-    bits: bool,
-}
-impl EBLEWUPR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EWUP5R {
-    bits: bool,
-}
-impl EWUP5R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EWUP4R {
-    bits: bool,
-}
-impl EWUP4R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EWUP3R {
-    bits: bool,
-}
-impl EWUP3R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EWUP2R {
-    bits: bool,
-}
-impl EWUP2R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EWUP1R {
-    bits: bool,
-}
-impl EWUP1R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Proxy"]
-pub struct _EIWULW<'a> {
+#[doc = "Reader of field `EIWUL`"]
+pub type EIWUL_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `EIWUL`"]
+pub struct EIWUL_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EIWULW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EIWUL_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 15;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 15)) | (((value as u32) & 0x01) << 15);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _APCW<'a> {
+#[doc = "Reader of field `APC`"]
+pub type APC_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `APC`"]
+pub struct APC_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _APCW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> APC_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 12;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 12)) | (((value as u32) & 0x01) << 12);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _E802WUPW<'a> {
+#[doc = "Reader of field `E802WUP`"]
+pub type E802WUP_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `E802WUP`"]
+pub struct E802WUP_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _E802WUPW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> E802WUP_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 10;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 10)) | (((value as u32) & 0x01) << 10);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EBLEWUPW<'a> {
+#[doc = "Reader of field `EBLEWUP`"]
+pub type EBLEWUP_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `EBLEWUP`"]
+pub struct EBLEWUP_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EBLEWUPW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EBLEWUP_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 9;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EWUP5W<'a> {
+#[doc = "Reader of field `EWUP5`"]
+pub type EWUP5_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `EWUP5`"]
+pub struct EWUP5_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EWUP5W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EWUP5_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EWUP4W<'a> {
+#[doc = "Reader of field `EWUP4`"]
+pub type EWUP4_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `EWUP4`"]
+pub struct EWUP4_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EWUP4W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EWUP4_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EWUP3W<'a> {
+#[doc = "Reader of field `EWUP3`"]
+pub type EWUP3_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `EWUP3`"]
+pub struct EWUP3_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EWUP3W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EWUP3_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EWUP2W<'a> {
+#[doc = "Reader of field `EWUP2`"]
+pub type EWUP2_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `EWUP2`"]
+pub struct EWUP2_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EWUP2W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EWUP2_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EWUP1W<'a> {
+#[doc = "Reader of field `EWUP1`"]
+pub type EWUP1_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `EWUP1`"]
+pub struct EWUP1_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EWUP1W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EWUP1_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 15 - Enable internal wakeup line for CPU2"]
-    #[inline]
-    pub fn eiwul(&self) -> EIWULR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 15;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EIWULR { bits }
+    #[inline(always)]
+    pub fn eiwul(&self) -> EIWUL_R {
+        EIWUL_R::new(((self.bits >> 15) & 0x01) != 0)
     }
     #[doc = "Bit 12 - Apply pull-up and pull-down configuration for CPU2"]
-    #[inline]
-    pub fn apc(&self) -> APCR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        APCR { bits }
+    #[inline(always)]
+    pub fn apc(&self) -> APC_R {
+        APC_R::new(((self.bits >> 12) & 0x01) != 0)
     }
     #[doc = "Bit 10 - Enable 802.15.4 host wakeup interrupt for CPU2"]
-    #[inline]
-    pub fn e802wup(&self) -> E802WUPR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 10;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        E802WUPR { bits }
+    #[inline(always)]
+    pub fn e802wup(&self) -> E802WUP_R {
+        E802WUP_R::new(((self.bits >> 10) & 0x01) != 0)
     }
     #[doc = "Bit 9 - Enable BLE host wakeup interrupt for CPU2"]
-    #[inline]
-    pub fn eblewup(&self) -> EBLEWUPR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 9;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EBLEWUPR { bits }
+    #[inline(always)]
+    pub fn eblewup(&self) -> EBLEWUP_R {
+        EBLEWUP_R::new(((self.bits >> 9) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Enable Wakeup pin WKUP5 for CPU2"]
-    #[inline]
-    pub fn ewup5(&self) -> EWUP5R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EWUP5R { bits }
+    #[inline(always)]
+    pub fn ewup5(&self) -> EWUP5_R {
+        EWUP5_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Enable Wakeup pin WKUP4 for CPU2"]
-    #[inline]
-    pub fn ewup4(&self) -> EWUP4R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EWUP4R { bits }
+    #[inline(always)]
+    pub fn ewup4(&self) -> EWUP4_R {
+        EWUP4_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Enable Wakeup pin WKUP3 for CPU2"]
-    #[inline]
-    pub fn ewup3(&self) -> EWUP3R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EWUP3R { bits }
+    #[inline(always)]
+    pub fn ewup3(&self) -> EWUP3_R {
+        EWUP3_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 1 - Enable Wakeup pin WKUP2 for CPU2"]
-    #[inline]
-    pub fn ewup2(&self) -> EWUP2R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EWUP2R { bits }
+    #[inline(always)]
+    pub fn ewup2(&self) -> EWUP2_R {
+        EWUP2_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 0 - Enable Wakeup pin WKUP1 for CPU2"]
-    #[inline]
-    pub fn ewup1(&self) -> EWUP1R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EWUP1R { bits }
+    #[inline(always)]
+    pub fn ewup1(&self) -> EWUP1_R {
+        EWUP1_R::new((self.bits & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 32768 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 15 - Enable internal wakeup line for CPU2"]
-    #[inline]
-    pub fn eiwul(&mut self) -> _EIWULW {
-        _EIWULW { w: self }
+    #[inline(always)]
+    pub fn eiwul(&mut self) -> EIWUL_W {
+        EIWUL_W { w: self }
     }
     #[doc = "Bit 12 - Apply pull-up and pull-down configuration for CPU2"]
-    #[inline]
-    pub fn apc(&mut self) -> _APCW {
-        _APCW { w: self }
+    #[inline(always)]
+    pub fn apc(&mut self) -> APC_W {
+        APC_W { w: self }
     }
     #[doc = "Bit 10 - Enable 802.15.4 host wakeup interrupt for CPU2"]
-    #[inline]
-    pub fn e802wup(&mut self) -> _E802WUPW {
-        _E802WUPW { w: self }
+    #[inline(always)]
+    pub fn e802wup(&mut self) -> E802WUP_W {
+        E802WUP_W { w: self }
     }
     #[doc = "Bit 9 - Enable BLE host wakeup interrupt for CPU2"]
-    #[inline]
-    pub fn eblewup(&mut self) -> _EBLEWUPW {
-        _EBLEWUPW { w: self }
+    #[inline(always)]
+    pub fn eblewup(&mut self) -> EBLEWUP_W {
+        EBLEWUP_W { w: self }
     }
     #[doc = "Bit 4 - Enable Wakeup pin WKUP5 for CPU2"]
-    #[inline]
-    pub fn ewup5(&mut self) -> _EWUP5W {
-        _EWUP5W { w: self }
+    #[inline(always)]
+    pub fn ewup5(&mut self) -> EWUP5_W {
+        EWUP5_W { w: self }
     }
     #[doc = "Bit 3 - Enable Wakeup pin WKUP4 for CPU2"]
-    #[inline]
-    pub fn ewup4(&mut self) -> _EWUP4W {
-        _EWUP4W { w: self }
+    #[inline(always)]
+    pub fn ewup4(&mut self) -> EWUP4_W {
+        EWUP4_W { w: self }
     }
     #[doc = "Bit 2 - Enable Wakeup pin WKUP3 for CPU2"]
-    #[inline]
-    pub fn ewup3(&mut self) -> _EWUP3W {
-        _EWUP3W { w: self }
+    #[inline(always)]
+    pub fn ewup3(&mut self) -> EWUP3_W {
+        EWUP3_W { w: self }
     }
     #[doc = "Bit 1 - Enable Wakeup pin WKUP2 for CPU2"]
-    #[inline]
-    pub fn ewup2(&mut self) -> _EWUP2W {
-        _EWUP2W { w: self }
+    #[inline(always)]
+    pub fn ewup2(&mut self) -> EWUP2_W {
+        EWUP2_W { w: self }
     }
     #[doc = "Bit 0 - Enable Wakeup pin WKUP1 for CPU2"]
-    #[inline]
-    pub fn ewup1(&mut self) -> _EWUP1W {
-        _EWUP1W { w: self }
+    #[inline(always)]
+    pub fn ewup1(&mut self) -> EWUP1_W {
+        EWUP1_W { w: self }
     }
 }

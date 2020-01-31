@@ -1,62 +1,18 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::HWCFGR1 {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct NBINTR {
-    bits: u8,
-}
-impl NBINTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct NBSEMR {
-    bits: u8,
-}
-impl NBSEMR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
+#[doc = "Reader of register HWCFGR1"]
+pub type R = crate::R<u32, super::HWCFGR1>;
+#[doc = "Reader of field `NBINT`"]
+pub type NBINT_R = crate::R<u8, u8>;
+#[doc = "Reader of field `NBSEM`"]
+pub type NBSEM_R = crate::R<u8, u8>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 8:11 - Hardware Configuration number of interrupts supported number of master IDs"]
-    #[inline]
-    pub fn nbint(&self) -> NBINTR {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        NBINTR { bits }
+    #[inline(always)]
+    pub fn nbint(&self) -> NBINT_R {
+        NBINT_R::new(((self.bits >> 8) & 0x0f) as u8)
     }
     #[doc = "Bits 0:7 - Hardware Configuration number of semaphores"]
-    #[inline]
-    pub fn nbsem(&self) -> NBSEMR {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        NBSEMR { bits }
+    #[inline(always)]
+    pub fn nbsem(&self) -> NBSEM_R {
+        NBSEM_R::new((self.bits & 0xff) as u8)
     }
 }

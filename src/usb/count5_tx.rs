@@ -1,105 +1,40 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u16,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u16,
-}
-impl super::COUNT5_TX {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register COUNT5_TX"]
+pub type R = crate::R<u16, super::COUNT5_TX>;
+#[doc = "Writer for register COUNT5_TX"]
+pub type W = crate::W<u16, super::COUNT5_TX>;
+#[doc = "Register COUNT5_TX `reset()`'s with value 0"]
+impl crate::ResetValue for super::COUNT5_TX {
+    type Type = u16;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct COUNT5_TXR {
-    bits: u16,
-}
-impl COUNT5_TXR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u16 {
-        self.bits
-    }
-}
-#[doc = r" Proxy"]
-pub struct _COUNT5_TXW<'a> {
+#[doc = "Reader of field `COUNT5_TX`"]
+pub type COUNT5_TX_R = crate::R<u16, u16>;
+#[doc = "Write proxy for field `COUNT5_TX`"]
+pub struct COUNT5_TX_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _COUNT5_TXW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> COUNT5_TX_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
-        const MASK: u16 = 1023;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u16) << OFFSET);
-        self.w.bits |= ((value & MASK) as u16) << OFFSET;
+        self.w.bits = (self.w.bits & !0x03ff) | ((value as u16) & 0x03ff);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u16 {
-        self.bits
-    }
     #[doc = "Bits 0:9 - Transmission byte count"]
-    #[inline]
-    pub fn count5_tx(&self) -> COUNT5_TXR {
-        let bits = {
-            const MASK: u16 = 1023;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u16) as u16
-        };
-        COUNT5_TXR { bits }
+    #[inline(always)]
+    pub fn count5_tx(&self) -> COUNT5_TX_R {
+        COUNT5_TX_R::new((self.bits & 0x03ff) as u16)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u16) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:9 - Transmission byte count"]
-    #[inline]
-    pub fn count5_tx(&mut self) -> _COUNT5_TXW {
-        _COUNT5_TXW { w: self }
+    #[inline(always)]
+    pub fn count5_tx(&mut self) -> COUNT5_TX_W {
+        COUNT5_TX_W { w: self }
     }
 }

@@ -1,359 +1,186 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::AHB1ENR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register AHB1ENR"]
+pub type R = crate::R<u32, super::AHB1ENR>;
+#[doc = "Writer for register AHB1ENR"]
+pub type W = crate::W<u32, super::AHB1ENR>;
+#[doc = "Register AHB1ENR `reset()`'s with value 0x0100"]
+impl crate::ResetValue for super::AHB1ENR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0x0100
     }
 }
-#[doc = r" Value of the field"]
-pub struct TSCENR {
-    bits: bool,
-}
-impl TSCENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CRCENR {
-    bits: bool,
-}
-impl CRCENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct DMAMUXENR {
-    bits: bool,
-}
-impl DMAMUXENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct DMA2ENR {
-    bits: bool,
-}
-impl DMA2ENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct DMA1ENR {
-    bits: bool,
-}
-impl DMA1ENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Proxy"]
-pub struct _TSCENW<'a> {
+#[doc = "Reader of field `TSCEN`"]
+pub type TSCEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `TSCEN`"]
+pub struct TSCEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TSCENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> TSCEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CRCENW<'a> {
+#[doc = "Reader of field `CRCEN`"]
+pub type CRCEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `CRCEN`"]
+pub struct CRCEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CRCENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CRCEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 12;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 12)) | (((value as u32) & 0x01) << 12);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _DMAMUXENW<'a> {
+#[doc = "Reader of field `DMAMUXEN`"]
+pub type DMAMUXEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `DMAMUXEN`"]
+pub struct DMAMUXEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _DMAMUXENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> DMAMUXEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _DMA2ENW<'a> {
+#[doc = "Reader of field `DMA2EN`"]
+pub type DMA2EN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `DMA2EN`"]
+pub struct DMA2EN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _DMA2ENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> DMA2EN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _DMA1ENW<'a> {
+#[doc = "Reader of field `DMA1EN`"]
+pub type DMA1EN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `DMA1EN`"]
+pub struct DMA1EN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _DMA1ENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> DMA1EN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 16 - Touch Sensing Controller clock enable"]
-    #[inline]
-    pub fn tscen(&self) -> TSCENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TSCENR { bits }
+    #[inline(always)]
+    pub fn tscen(&self) -> TSCEN_R {
+        TSCEN_R::new(((self.bits >> 16) & 0x01) != 0)
     }
     #[doc = "Bit 12 - CPU1 CRC clock enable"]
-    #[inline]
-    pub fn crcen(&self) -> CRCENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CRCENR { bits }
+    #[inline(always)]
+    pub fn crcen(&self) -> CRCEN_R {
+        CRCEN_R::new(((self.bits >> 12) & 0x01) != 0)
     }
     #[doc = "Bit 2 - DMAMUX clock enable"]
-    #[inline]
-    pub fn dmamuxen(&self) -> DMAMUXENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        DMAMUXENR { bits }
+    #[inline(always)]
+    pub fn dmamuxen(&self) -> DMAMUXEN_R {
+        DMAMUXEN_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 1 - DMA2 clock enable"]
-    #[inline]
-    pub fn dma2en(&self) -> DMA2ENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        DMA2ENR { bits }
+    #[inline(always)]
+    pub fn dma2en(&self) -> DMA2EN_R {
+        DMA2EN_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 0 - DMA1 clock enable"]
-    #[inline]
-    pub fn dma1en(&self) -> DMA1ENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        DMA1ENR { bits }
+    #[inline(always)]
+    pub fn dma1en(&self) -> DMA1EN_R {
+        DMA1EN_R::new((self.bits & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 256 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 16 - Touch Sensing Controller clock enable"]
-    #[inline]
-    pub fn tscen(&mut self) -> _TSCENW {
-        _TSCENW { w: self }
+    #[inline(always)]
+    pub fn tscen(&mut self) -> TSCEN_W {
+        TSCEN_W { w: self }
     }
     #[doc = "Bit 12 - CPU1 CRC clock enable"]
-    #[inline]
-    pub fn crcen(&mut self) -> _CRCENW {
-        _CRCENW { w: self }
+    #[inline(always)]
+    pub fn crcen(&mut self) -> CRCEN_W {
+        CRCEN_W { w: self }
     }
     #[doc = "Bit 2 - DMAMUX clock enable"]
-    #[inline]
-    pub fn dmamuxen(&mut self) -> _DMAMUXENW {
-        _DMAMUXENW { w: self }
+    #[inline(always)]
+    pub fn dmamuxen(&mut self) -> DMAMUXEN_W {
+        DMAMUXEN_W { w: self }
     }
     #[doc = "Bit 1 - DMA2 clock enable"]
-    #[inline]
-    pub fn dma2en(&mut self) -> _DMA2ENW {
-        _DMA2ENW { w: self }
+    #[inline(always)]
+    pub fn dma2en(&mut self) -> DMA2EN_W {
+        DMA2EN_W { w: self }
     }
     #[doc = "Bit 0 - DMA1 clock enable"]
-    #[inline]
-    pub fn dma1en(&mut self) -> _DMA1ENW {
-        _DMA1ENW { w: self }
+    #[inline(always)]
+    pub fn dma1en(&mut self) -> DMA1EN_W {
+        DMA1EN_W { w: self }
     }
 }

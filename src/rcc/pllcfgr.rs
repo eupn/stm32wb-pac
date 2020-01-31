@@ -1,487 +1,262 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::PLLCFGR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register PLLCFGR"]
+pub type R = crate::R<u32, super::PLLCFGR>;
+#[doc = "Writer for register PLLCFGR"]
+pub type W = crate::W<u32, super::PLLCFGR>;
+#[doc = "Register PLLCFGR `reset()`'s with value 0x2204_0100"]
+impl crate::ResetValue for super::PLLCFGR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0x2204_0100
     }
 }
-#[doc = r" Value of the field"]
-pub struct PLLRR {
-    bits: u8,
-}
-impl PLLRR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct PLLRENR {
-    bits: bool,
-}
-impl PLLRENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct PLLQR {
-    bits: u8,
-}
-impl PLLQR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct PLLQENR {
-    bits: bool,
-}
-impl PLLQENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct PLLPR {
-    bits: u8,
-}
-impl PLLPR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct PLLPENR {
-    bits: bool,
-}
-impl PLLPENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct PLLNR {
-    bits: u8,
-}
-impl PLLNR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct PLLMR {
-    bits: u8,
-}
-impl PLLMR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct PLLSRCR {
-    bits: u8,
-}
-impl PLLSRCR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Proxy"]
-pub struct _PLLRW<'a> {
+#[doc = "Reader of field `PLLR`"]
+pub type PLLR_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `PLLR`"]
+pub struct PLLR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PLLRW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> PLLR_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 7;
-        const OFFSET: u8 = 29;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x07 << 29)) | (((value as u32) & 0x07) << 29);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _PLLRENW<'a> {
+#[doc = "Reader of field `PLLREN`"]
+pub type PLLREN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `PLLREN`"]
+pub struct PLLREN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PLLRENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> PLLREN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 28;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 28)) | (((value as u32) & 0x01) << 28);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _PLLQW<'a> {
+#[doc = "Reader of field `PLLQ`"]
+pub type PLLQ_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `PLLQ`"]
+pub struct PLLQ_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PLLQW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> PLLQ_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 7;
-        const OFFSET: u8 = 25;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x07 << 25)) | (((value as u32) & 0x07) << 25);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _PLLQENW<'a> {
+#[doc = "Reader of field `PLLQEN`"]
+pub type PLLQEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `PLLQEN`"]
+pub struct PLLQEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PLLQENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> PLLQEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 24;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 24)) | (((value as u32) & 0x01) << 24);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _PLLPW<'a> {
+#[doc = "Reader of field `PLLP`"]
+pub type PLLP_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `PLLP`"]
+pub struct PLLP_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PLLPW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> PLLP_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 31;
-        const OFFSET: u8 = 17;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x1f << 17)) | (((value as u32) & 0x1f) << 17);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _PLLPENW<'a> {
+#[doc = "Reader of field `PLLPEN`"]
+pub type PLLPEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `PLLPEN`"]
+pub struct PLLPEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PLLPENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> PLLPEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _PLLNW<'a> {
+#[doc = "Reader of field `PLLN`"]
+pub type PLLN_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `PLLN`"]
+pub struct PLLN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PLLNW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> PLLN_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 127;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x7f << 8)) | (((value as u32) & 0x7f) << 8);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _PLLMW<'a> {
+#[doc = "Reader of field `PLLM`"]
+pub type PLLM_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `PLLM`"]
+pub struct PLLM_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PLLMW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> PLLM_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 7;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x07 << 4)) | (((value as u32) & 0x07) << 4);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _PLLSRCW<'a> {
+#[doc = "Reader of field `PLLSRC`"]
+pub type PLLSRC_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `PLLSRC`"]
+pub struct PLLSRC_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PLLSRCW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> PLLSRC_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x03) | ((value as u32) & 0x03);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 29:31 - Main PLLSYS division factor R for SYSCLK (system clock)"]
-    #[inline]
-    pub fn pllr(&self) -> PLLRR {
-        let bits = {
-            const MASK: u8 = 7;
-            const OFFSET: u8 = 29;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        PLLRR { bits }
+    #[inline(always)]
+    pub fn pllr(&self) -> PLLR_R {
+        PLLR_R::new(((self.bits >> 29) & 0x07) as u8)
     }
     #[doc = "Bit 28 - Main PLLSYSR PLLCLK output enable"]
-    #[inline]
-    pub fn pllren(&self) -> PLLRENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 28;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        PLLRENR { bits }
+    #[inline(always)]
+    pub fn pllren(&self) -> PLLREN_R {
+        PLLREN_R::new(((self.bits >> 28) & 0x01) != 0)
     }
     #[doc = "Bits 25:27 - Main PLLSYS division factor Q for PLLSYSUSBCLK"]
-    #[inline]
-    pub fn pllq(&self) -> PLLQR {
-        let bits = {
-            const MASK: u8 = 7;
-            const OFFSET: u8 = 25;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        PLLQR { bits }
+    #[inline(always)]
+    pub fn pllq(&self) -> PLLQ_R {
+        PLLQ_R::new(((self.bits >> 25) & 0x07) as u8)
     }
     #[doc = "Bit 24 - Main PLLSYSQ output enable"]
-    #[inline]
-    pub fn pllqen(&self) -> PLLQENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 24;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        PLLQENR { bits }
+    #[inline(always)]
+    pub fn pllqen(&self) -> PLLQEN_R {
+        PLLQEN_R::new(((self.bits >> 24) & 0x01) != 0)
     }
     #[doc = "Bits 17:21 - Main PLL division factor P for PPLSYSSAICLK"]
-    #[inline]
-    pub fn pllp(&self) -> PLLPR {
-        let bits = {
-            const MASK: u8 = 31;
-            const OFFSET: u8 = 17;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        PLLPR { bits }
+    #[inline(always)]
+    pub fn pllp(&self) -> PLLP_R {
+        PLLP_R::new(((self.bits >> 17) & 0x1f) as u8)
     }
     #[doc = "Bit 16 - Main PLLSYSP output enable"]
-    #[inline]
-    pub fn pllpen(&self) -> PLLPENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        PLLPENR { bits }
+    #[inline(always)]
+    pub fn pllpen(&self) -> PLLPEN_R {
+        PLLPEN_R::new(((self.bits >> 16) & 0x01) != 0)
     }
     #[doc = "Bits 8:14 - Main PLLSYS multiplication factor N"]
-    #[inline]
-    pub fn plln(&self) -> PLLNR {
-        let bits = {
-            const MASK: u8 = 127;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        PLLNR { bits }
+    #[inline(always)]
+    pub fn plln(&self) -> PLLN_R {
+        PLLN_R::new(((self.bits >> 8) & 0x7f) as u8)
     }
     #[doc = "Bits 4:6 - Division factor M for the main PLL and audio PLL (PLLSAI1 and PLLSAI2) input clock"]
-    #[inline]
-    pub fn pllm(&self) -> PLLMR {
-        let bits = {
-            const MASK: u8 = 7;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        PLLMR { bits }
+    #[inline(always)]
+    pub fn pllm(&self) -> PLLM_R {
+        PLLM_R::new(((self.bits >> 4) & 0x07) as u8)
     }
     #[doc = "Bits 0:1 - Main PLL, PLLSAI1 and PLLSAI2 entry clock source"]
-    #[inline]
-    pub fn pllsrc(&self) -> PLLSRCR {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        PLLSRCR { bits }
+    #[inline(always)]
+    pub fn pllsrc(&self) -> PLLSRC_R {
+        PLLSRC_R::new((self.bits & 0x03) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 570687744 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 29:31 - Main PLLSYS division factor R for SYSCLK (system clock)"]
-    #[inline]
-    pub fn pllr(&mut self) -> _PLLRW {
-        _PLLRW { w: self }
+    #[inline(always)]
+    pub fn pllr(&mut self) -> PLLR_W {
+        PLLR_W { w: self }
     }
     #[doc = "Bit 28 - Main PLLSYSR PLLCLK output enable"]
-    #[inline]
-    pub fn pllren(&mut self) -> _PLLRENW {
-        _PLLRENW { w: self }
+    #[inline(always)]
+    pub fn pllren(&mut self) -> PLLREN_W {
+        PLLREN_W { w: self }
     }
     #[doc = "Bits 25:27 - Main PLLSYS division factor Q for PLLSYSUSBCLK"]
-    #[inline]
-    pub fn pllq(&mut self) -> _PLLQW {
-        _PLLQW { w: self }
+    #[inline(always)]
+    pub fn pllq(&mut self) -> PLLQ_W {
+        PLLQ_W { w: self }
     }
     #[doc = "Bit 24 - Main PLLSYSQ output enable"]
-    #[inline]
-    pub fn pllqen(&mut self) -> _PLLQENW {
-        _PLLQENW { w: self }
+    #[inline(always)]
+    pub fn pllqen(&mut self) -> PLLQEN_W {
+        PLLQEN_W { w: self }
     }
     #[doc = "Bits 17:21 - Main PLL division factor P for PPLSYSSAICLK"]
-    #[inline]
-    pub fn pllp(&mut self) -> _PLLPW {
-        _PLLPW { w: self }
+    #[inline(always)]
+    pub fn pllp(&mut self) -> PLLP_W {
+        PLLP_W { w: self }
     }
     #[doc = "Bit 16 - Main PLLSYSP output enable"]
-    #[inline]
-    pub fn pllpen(&mut self) -> _PLLPENW {
-        _PLLPENW { w: self }
+    #[inline(always)]
+    pub fn pllpen(&mut self) -> PLLPEN_W {
+        PLLPEN_W { w: self }
     }
     #[doc = "Bits 8:14 - Main PLLSYS multiplication factor N"]
-    #[inline]
-    pub fn plln(&mut self) -> _PLLNW {
-        _PLLNW { w: self }
+    #[inline(always)]
+    pub fn plln(&mut self) -> PLLN_W {
+        PLLN_W { w: self }
     }
     #[doc = "Bits 4:6 - Division factor M for the main PLL and audio PLL (PLLSAI1 and PLLSAI2) input clock"]
-    #[inline]
-    pub fn pllm(&mut self) -> _PLLMW {
-        _PLLMW { w: self }
+    #[inline(always)]
+    pub fn pllm(&mut self) -> PLLM_W {
+        PLLM_W { w: self }
     }
     #[doc = "Bits 0:1 - Main PLL, PLLSAI1 and PLLSAI2 entry clock source"]
-    #[inline]
-    pub fn pllsrc(&mut self) -> _PLLSRCW {
-        _PLLSRCW { w: self }
+    #[inline(always)]
+    pub fn pllsrc(&mut self) -> PLLSRC_W {
+        PLLSRC_W { w: self }
     }
 }

@@ -1,359 +1,186 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::C2AHB3SMENR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register C2AHB3SMENR"]
+pub type R = crate::R<u32, super::C2AHB3SMENR>;
+#[doc = "Writer for register C2AHB3SMENR"]
+pub type W = crate::W<u32, super::C2AHB3SMENR>;
+#[doc = "Register C2AHB3SMENR `reset()`'s with value 0x0307_0000"]
+impl crate::ResetValue for super::C2AHB3SMENR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0x0307_0000
     }
 }
-#[doc = r" Value of the field"]
-pub struct FLASHSMENR {
-    bits: bool,
-}
-impl FLASHSMENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SRAM2SMENR {
-    bits: bool,
-}
-impl SRAM2SMENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct RNGSMENR {
-    bits: bool,
-}
-impl RNGSMENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct AES2SMENR {
-    bits: bool,
-}
-impl AES2SMENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct PKASMENR {
-    bits: bool,
-}
-impl PKASMENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Proxy"]
-pub struct _FLASHSMENW<'a> {
+#[doc = "Reader of field `FLASHSMEN`"]
+pub type FLASHSMEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `FLASHSMEN`"]
+pub struct FLASHSMEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FLASHSMENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> FLASHSMEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 25;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 25)) | (((value as u32) & 0x01) << 25);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SRAM2SMENW<'a> {
+#[doc = "Reader of field `SRAM2SMEN`"]
+pub type SRAM2SMEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `SRAM2SMEN`"]
+pub struct SRAM2SMEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SRAM2SMENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SRAM2SMEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 24;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 24)) | (((value as u32) & 0x01) << 24);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _RNGSMENW<'a> {
+#[doc = "Reader of field `RNGSMEN`"]
+pub type RNGSMEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `RNGSMEN`"]
+pub struct RNGSMEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _RNGSMENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> RNGSMEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 18;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 18)) | (((value as u32) & 0x01) << 18);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _AES2SMENW<'a> {
+#[doc = "Reader of field `AES2SMEN`"]
+pub type AES2SMEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `AES2SMEN`"]
+pub struct AES2SMEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _AES2SMENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> AES2SMEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 17;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 17)) | (((value as u32) & 0x01) << 17);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _PKASMENW<'a> {
+#[doc = "Reader of field `PKASMEN`"]
+pub type PKASMEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `PKASMEN`"]
+pub struct PKASMEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PKASMENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> PKASMEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 25 - Flash interface clocks enable during CPU2 sleep modes"]
-    #[inline]
-    pub fn flashsmen(&self) -> FLASHSMENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 25;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        FLASHSMENR { bits }
+    #[inline(always)]
+    pub fn flashsmen(&self) -> FLASHSMEN_R {
+        FLASHSMEN_R::new(((self.bits >> 25) & 0x01) != 0)
     }
     #[doc = "Bit 24 - SRAM2a and SRAM2b memory interface clocks enable during CPU2 sleep modes"]
-    #[inline]
-    pub fn sram2smen(&self) -> SRAM2SMENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 24;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SRAM2SMENR { bits }
+    #[inline(always)]
+    pub fn sram2smen(&self) -> SRAM2SMEN_R {
+        SRAM2SMEN_R::new(((self.bits >> 24) & 0x01) != 0)
     }
     #[doc = "Bit 18 - True RNG clocks enable during CPU2 sleep modes"]
-    #[inline]
-    pub fn rngsmen(&self) -> RNGSMENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 18;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        RNGSMENR { bits }
+    #[inline(always)]
+    pub fn rngsmen(&self) -> RNGSMEN_R {
+        RNGSMEN_R::new(((self.bits >> 18) & 0x01) != 0)
     }
     #[doc = "Bit 17 - AES2 accelerator clocks enable during CPU2 sleep modes"]
-    #[inline]
-    pub fn aes2smen(&self) -> AES2SMENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 17;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        AES2SMENR { bits }
+    #[inline(always)]
+    pub fn aes2smen(&self) -> AES2SMEN_R {
+        AES2SMEN_R::new(((self.bits >> 17) & 0x01) != 0)
     }
     #[doc = "Bit 16 - PKA accelerator clocks enable during CPU2 sleep modes"]
-    #[inline]
-    pub fn pkasmen(&self) -> PKASMENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        PKASMENR { bits }
+    #[inline(always)]
+    pub fn pkasmen(&self) -> PKASMEN_R {
+        PKASMEN_R::new(((self.bits >> 16) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 50790400 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 25 - Flash interface clocks enable during CPU2 sleep modes"]
-    #[inline]
-    pub fn flashsmen(&mut self) -> _FLASHSMENW {
-        _FLASHSMENW { w: self }
+    #[inline(always)]
+    pub fn flashsmen(&mut self) -> FLASHSMEN_W {
+        FLASHSMEN_W { w: self }
     }
     #[doc = "Bit 24 - SRAM2a and SRAM2b memory interface clocks enable during CPU2 sleep modes"]
-    #[inline]
-    pub fn sram2smen(&mut self) -> _SRAM2SMENW {
-        _SRAM2SMENW { w: self }
+    #[inline(always)]
+    pub fn sram2smen(&mut self) -> SRAM2SMEN_W {
+        SRAM2SMEN_W { w: self }
     }
     #[doc = "Bit 18 - True RNG clocks enable during CPU2 sleep modes"]
-    #[inline]
-    pub fn rngsmen(&mut self) -> _RNGSMENW {
-        _RNGSMENW { w: self }
+    #[inline(always)]
+    pub fn rngsmen(&mut self) -> RNGSMEN_W {
+        RNGSMEN_W { w: self }
     }
     #[doc = "Bit 17 - AES2 accelerator clocks enable during CPU2 sleep modes"]
-    #[inline]
-    pub fn aes2smen(&mut self) -> _AES2SMENW {
-        _AES2SMENW { w: self }
+    #[inline(always)]
+    pub fn aes2smen(&mut self) -> AES2SMEN_W {
+        AES2SMEN_W { w: self }
     }
     #[doc = "Bit 16 - PKA accelerator clocks enable during CPU2 sleep modes"]
-    #[inline]
-    pub fn pkasmen(&mut self) -> _PKASMENW {
-        _PKASMENW { w: self }
+    #[inline(always)]
+    pub fn pkasmen(&mut self) -> PKASMEN_W {
+        PKASMEN_W { w: self }
     }
 }

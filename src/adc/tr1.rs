@@ -1,146 +1,64 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::TR1 {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register TR1"]
+pub type R = crate::R<u32, super::TR1>;
+#[doc = "Writer for register TR1"]
+pub type W = crate::W<u32, super::TR1>;
+#[doc = "Register TR1 `reset()`'s with value 0x0fff_0000"]
+impl crate::ResetValue for super::TR1 {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0x0fff_0000
     }
 }
-#[doc = r" Value of the field"]
-pub struct HT1R {
-    bits: u16,
-}
-impl HT1R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u16 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LT1R {
-    bits: u16,
-}
-impl LT1R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u16 {
-        self.bits
-    }
-}
-#[doc = r" Proxy"]
-pub struct _HT1W<'a> {
+#[doc = "Reader of field `HT1`"]
+pub type HT1_R = crate::R<u16, u16>;
+#[doc = "Write proxy for field `HT1`"]
+pub struct HT1_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _HT1W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> HT1_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
-        const MASK: u16 = 4095;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0fff << 16)) | (((value as u32) & 0x0fff) << 16);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _LT1W<'a> {
+#[doc = "Reader of field `LT1`"]
+pub type LT1_R = crate::R<u16, u16>;
+#[doc = "Write proxy for field `LT1`"]
+pub struct LT1_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _LT1W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> LT1_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
-        const MASK: u16 = 4095;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x0fff) | ((value as u32) & 0x0fff);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 16:27 - ADC analog watchdog 1 threshold high"]
-    #[inline]
-    pub fn ht1(&self) -> HT1R {
-        let bits = {
-            const MASK: u16 = 4095;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) as u16
-        };
-        HT1R { bits }
+    #[inline(always)]
+    pub fn ht1(&self) -> HT1_R {
+        HT1_R::new(((self.bits >> 16) & 0x0fff) as u16)
     }
     #[doc = "Bits 0:11 - ADC analog watchdog 1 threshold low"]
-    #[inline]
-    pub fn lt1(&self) -> LT1R {
-        let bits = {
-            const MASK: u16 = 4095;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u16
-        };
-        LT1R { bits }
+    #[inline(always)]
+    pub fn lt1(&self) -> LT1_R {
+        LT1_R::new((self.bits & 0x0fff) as u16)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 268369920 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 16:27 - ADC analog watchdog 1 threshold high"]
-    #[inline]
-    pub fn ht1(&mut self) -> _HT1W {
-        _HT1W { w: self }
+    #[inline(always)]
+    pub fn ht1(&mut self) -> HT1_W {
+        HT1_W { w: self }
     }
     #[doc = "Bits 0:11 - ADC analog watchdog 1 threshold low"]
-    #[inline]
-    pub fn lt1(&mut self) -> _LT1W {
-        _LT1W { w: self }
+    #[inline(always)]
+    pub fn lt1(&mut self) -> LT1_W {
+        LT1_W { w: self }
     }
 }

@@ -1,228 +1,112 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::EXTICR2 {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register EXTICR2"]
+pub type R = crate::R<u32, super::EXTICR2>;
+#[doc = "Writer for register EXTICR2"]
+pub type W = crate::W<u32, super::EXTICR2>;
+#[doc = "Register EXTICR2 `reset()`'s with value 0"]
+impl crate::ResetValue for super::EXTICR2 {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct EXTI7R {
-    bits: u8,
-}
-impl EXTI7R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EXTI6R {
-    bits: u8,
-}
-impl EXTI6R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EXTI5R {
-    bits: u8,
-}
-impl EXTI5R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EXTI4R {
-    bits: u8,
-}
-impl EXTI4R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Proxy"]
-pub struct _EXTI7W<'a> {
+#[doc = "Reader of field `EXTI7`"]
+pub type EXTI7_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `EXTI7`"]
+pub struct EXTI7_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EXTI7W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> EXTI7_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 7;
-        const OFFSET: u8 = 12;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x07 << 12)) | (((value as u32) & 0x07) << 12);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EXTI6W<'a> {
+#[doc = "Reader of field `EXTI6`"]
+pub type EXTI6_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `EXTI6`"]
+pub struct EXTI6_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EXTI6W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> EXTI6_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 7;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x07 << 8)) | (((value as u32) & 0x07) << 8);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EXTI5W<'a> {
+#[doc = "Reader of field `EXTI5`"]
+pub type EXTI5_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `EXTI5`"]
+pub struct EXTI5_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EXTI5W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> EXTI5_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 7;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x07 << 4)) | (((value as u32) & 0x07) << 4);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EXTI4W<'a> {
+#[doc = "Reader of field `EXTI4`"]
+pub type EXTI4_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `EXTI4`"]
+pub struct EXTI4_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EXTI4W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> EXTI4_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 7;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x07) | ((value as u32) & 0x07);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 12:14 - EXTI 7 configuration bits"]
-    #[inline]
-    pub fn exti7(&self) -> EXTI7R {
-        let bits = {
-            const MASK: u8 = 7;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        EXTI7R { bits }
+    #[inline(always)]
+    pub fn exti7(&self) -> EXTI7_R {
+        EXTI7_R::new(((self.bits >> 12) & 0x07) as u8)
     }
     #[doc = "Bits 8:10 - EXTI 6 configuration bits"]
-    #[inline]
-    pub fn exti6(&self) -> EXTI6R {
-        let bits = {
-            const MASK: u8 = 7;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        EXTI6R { bits }
+    #[inline(always)]
+    pub fn exti6(&self) -> EXTI6_R {
+        EXTI6_R::new(((self.bits >> 8) & 0x07) as u8)
     }
     #[doc = "Bits 4:6 - EXTI 5 configuration bits"]
-    #[inline]
-    pub fn exti5(&self) -> EXTI5R {
-        let bits = {
-            const MASK: u8 = 7;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        EXTI5R { bits }
+    #[inline(always)]
+    pub fn exti5(&self) -> EXTI5_R {
+        EXTI5_R::new(((self.bits >> 4) & 0x07) as u8)
     }
     #[doc = "Bits 0:2 - EXTI 4 configuration bits"]
-    #[inline]
-    pub fn exti4(&self) -> EXTI4R {
-        let bits = {
-            const MASK: u8 = 7;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        EXTI4R { bits }
+    #[inline(always)]
+    pub fn exti4(&self) -> EXTI4_R {
+        EXTI4_R::new((self.bits & 0x07) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 12:14 - EXTI 7 configuration bits"]
-    #[inline]
-    pub fn exti7(&mut self) -> _EXTI7W {
-        _EXTI7W { w: self }
+    #[inline(always)]
+    pub fn exti7(&mut self) -> EXTI7_W {
+        EXTI7_W { w: self }
     }
     #[doc = "Bits 8:10 - EXTI 6 configuration bits"]
-    #[inline]
-    pub fn exti6(&mut self) -> _EXTI6W {
-        _EXTI6W { w: self }
+    #[inline(always)]
+    pub fn exti6(&mut self) -> EXTI6_W {
+        EXTI6_W { w: self }
     }
     #[doc = "Bits 4:6 - EXTI 5 configuration bits"]
-    #[inline]
-    pub fn exti5(&mut self) -> _EXTI5W {
-        _EXTI5W { w: self }
+    #[inline(always)]
+    pub fn exti5(&mut self) -> EXTI5_W {
+        EXTI5_W { w: self }
     }
     #[doc = "Bits 0:2 - EXTI 4 configuration bits"]
-    #[inline]
-    pub fn exti4(&mut self) -> _EXTI4W {
-        _EXTI4W { w: self }
+    #[inline(always)]
+    pub fn exti4(&mut self) -> EXTI4_W {
+        EXTI4_W { w: self }
     }
 }

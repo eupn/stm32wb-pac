@@ -1,164 +1,74 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::RTSR2 {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register RTSR2"]
+pub type R = crate::R<u32, super::RTSR2>;
+#[doc = "Writer for register RTSR2"]
+pub type W = crate::W<u32, super::RTSR2>;
+#[doc = "Register RTSR2 `reset()`'s with value 0"]
+impl crate::ResetValue for super::RTSR2 {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct RT33R {
-    bits: bool,
-}
-impl RT33R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct RT40_41R {
-    bits: u8,
-}
-impl RT40_41R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Proxy"]
-pub struct _RT33W<'a> {
+#[doc = "Reader of field `RT33`"]
+pub type RT33_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `RT33`"]
+pub struct RT33_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _RT33W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> RT33_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _RT40_41W<'a> {
+#[doc = "Reader of field `RT40_41`"]
+pub type RT40_41_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `RT40_41`"]
+pub struct RT40_41_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _RT40_41W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> RT40_41_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 8)) | (((value as u32) & 0x03) << 8);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 1 - Rising trigger event configuration bit of Configurable Event input"]
-    #[inline]
-    pub fn rt33(&self) -> RT33R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        RT33R { bits }
+    #[inline(always)]
+    pub fn rt33(&self) -> RT33_R {
+        RT33_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bits 8:9 - Rising trigger event configuration bit of Configurable Event input"]
-    #[inline]
-    pub fn rt40_41(&self) -> RT40_41R {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        RT40_41R { bits }
+    #[inline(always)]
+    pub fn rt40_41(&self) -> RT40_41_R {
+        RT40_41_R::new(((self.bits >> 8) & 0x03) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 1 - Rising trigger event configuration bit of Configurable Event input"]
-    #[inline]
-    pub fn rt33(&mut self) -> _RT33W {
-        _RT33W { w: self }
+    #[inline(always)]
+    pub fn rt33(&mut self) -> RT33_W {
+        RT33_W { w: self }
     }
     #[doc = "Bits 8:9 - Rising trigger event configuration bit of Configurable Event input"]
-    #[inline]
-    pub fn rt40_41(&mut self) -> _RT40_41W {
-        _RT40_41W { w: self }
+    #[inline(always)]
+    pub fn rt40_41(&mut self) -> RT40_41_W {
+        RT40_41_W { w: self }
     }
 }

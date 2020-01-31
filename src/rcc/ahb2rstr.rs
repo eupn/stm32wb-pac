@@ -1,536 +1,288 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::AHB2RSTR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register AHB2RSTR"]
+pub type R = crate::R<u32, super::AHB2RSTR>;
+#[doc = "Writer for register AHB2RSTR"]
+pub type W = crate::W<u32, super::AHB2RSTR>;
+#[doc = "Register AHB2RSTR `reset()`'s with value 0"]
+impl crate::ResetValue for super::AHB2RSTR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct AES1RSTR {
-    bits: bool,
-}
-impl AES1RSTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct ADCRSTR {
-    bits: bool,
-}
-impl ADCRSTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct GPIOHRSTR {
-    bits: bool,
-}
-impl GPIOHRSTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct GPIOERSTR {
-    bits: bool,
-}
-impl GPIOERSTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct GPIODRSTR {
-    bits: bool,
-}
-impl GPIODRSTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct GPIOCRSTR {
-    bits: bool,
-}
-impl GPIOCRSTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct GPIOBRSTR {
-    bits: bool,
-}
-impl GPIOBRSTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct GPIOARSTR {
-    bits: bool,
-}
-impl GPIOARSTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Proxy"]
-pub struct _AES1RSTW<'a> {
+#[doc = "Reader of field `AES1RST`"]
+pub type AES1RST_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `AES1RST`"]
+pub struct AES1RST_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _AES1RSTW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> AES1RST_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _ADCRSTW<'a> {
+#[doc = "Reader of field `ADCRST`"]
+pub type ADCRST_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `ADCRST`"]
+pub struct ADCRST_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _ADCRSTW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> ADCRST_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 13;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 13)) | (((value as u32) & 0x01) << 13);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _GPIOHRSTW<'a> {
+#[doc = "Reader of field `GPIOHRST`"]
+pub type GPIOHRST_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `GPIOHRST`"]
+pub struct GPIOHRST_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _GPIOHRSTW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> GPIOHRST_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 7;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _GPIOERSTW<'a> {
+#[doc = "Reader of field `GPIOERST`"]
+pub type GPIOERST_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `GPIOERST`"]
+pub struct GPIOERST_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _GPIOERSTW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> GPIOERST_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _GPIODRSTW<'a> {
+#[doc = "Reader of field `GPIODRST`"]
+pub type GPIODRST_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `GPIODRST`"]
+pub struct GPIODRST_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _GPIODRSTW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> GPIODRST_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _GPIOCRSTW<'a> {
+#[doc = "Reader of field `GPIOCRST`"]
+pub type GPIOCRST_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `GPIOCRST`"]
+pub struct GPIOCRST_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _GPIOCRSTW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> GPIOCRST_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _GPIOBRSTW<'a> {
+#[doc = "Reader of field `GPIOBRST`"]
+pub type GPIOBRST_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `GPIOBRST`"]
+pub struct GPIOBRST_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _GPIOBRSTW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> GPIOBRST_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _GPIOARSTW<'a> {
+#[doc = "Reader of field `GPIOARST`"]
+pub type GPIOARST_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `GPIOARST`"]
+pub struct GPIOARST_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _GPIOARSTW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> GPIOARST_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 16 - AES1 hardware accelerator reset"]
-    #[inline]
-    pub fn aes1rst(&self) -> AES1RSTR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        AES1RSTR { bits }
+    #[inline(always)]
+    pub fn aes1rst(&self) -> AES1RST_R {
+        AES1RST_R::new(((self.bits >> 16) & 0x01) != 0)
     }
     #[doc = "Bit 13 - ADC reset"]
-    #[inline]
-    pub fn adcrst(&self) -> ADCRSTR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 13;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        ADCRSTR { bits }
+    #[inline(always)]
+    pub fn adcrst(&self) -> ADCRST_R {
+        ADCRST_R::new(((self.bits >> 13) & 0x01) != 0)
     }
     #[doc = "Bit 7 - IO port H reset"]
-    #[inline]
-    pub fn gpiohrst(&self) -> GPIOHRSTR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        GPIOHRSTR { bits }
+    #[inline(always)]
+    pub fn gpiohrst(&self) -> GPIOHRST_R {
+        GPIOHRST_R::new(((self.bits >> 7) & 0x01) != 0)
     }
     #[doc = "Bit 4 - IO port E reset"]
-    #[inline]
-    pub fn gpioerst(&self) -> GPIOERSTR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        GPIOERSTR { bits }
+    #[inline(always)]
+    pub fn gpioerst(&self) -> GPIOERST_R {
+        GPIOERST_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 3 - IO port D reset"]
-    #[inline]
-    pub fn gpiodrst(&self) -> GPIODRSTR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        GPIODRSTR { bits }
+    #[inline(always)]
+    pub fn gpiodrst(&self) -> GPIODRST_R {
+        GPIODRST_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 2 - IO port C reset"]
-    #[inline]
-    pub fn gpiocrst(&self) -> GPIOCRSTR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        GPIOCRSTR { bits }
+    #[inline(always)]
+    pub fn gpiocrst(&self) -> GPIOCRST_R {
+        GPIOCRST_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 1 - IO port B reset"]
-    #[inline]
-    pub fn gpiobrst(&self) -> GPIOBRSTR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        GPIOBRSTR { bits }
+    #[inline(always)]
+    pub fn gpiobrst(&self) -> GPIOBRST_R {
+        GPIOBRST_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 0 - IO port A reset"]
-    #[inline]
-    pub fn gpioarst(&self) -> GPIOARSTR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        GPIOARSTR { bits }
+    #[inline(always)]
+    pub fn gpioarst(&self) -> GPIOARST_R {
+        GPIOARST_R::new((self.bits & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 16 - AES1 hardware accelerator reset"]
-    #[inline]
-    pub fn aes1rst(&mut self) -> _AES1RSTW {
-        _AES1RSTW { w: self }
+    #[inline(always)]
+    pub fn aes1rst(&mut self) -> AES1RST_W {
+        AES1RST_W { w: self }
     }
     #[doc = "Bit 13 - ADC reset"]
-    #[inline]
-    pub fn adcrst(&mut self) -> _ADCRSTW {
-        _ADCRSTW { w: self }
+    #[inline(always)]
+    pub fn adcrst(&mut self) -> ADCRST_W {
+        ADCRST_W { w: self }
     }
     #[doc = "Bit 7 - IO port H reset"]
-    #[inline]
-    pub fn gpiohrst(&mut self) -> _GPIOHRSTW {
-        _GPIOHRSTW { w: self }
+    #[inline(always)]
+    pub fn gpiohrst(&mut self) -> GPIOHRST_W {
+        GPIOHRST_W { w: self }
     }
     #[doc = "Bit 4 - IO port E reset"]
-    #[inline]
-    pub fn gpioerst(&mut self) -> _GPIOERSTW {
-        _GPIOERSTW { w: self }
+    #[inline(always)]
+    pub fn gpioerst(&mut self) -> GPIOERST_W {
+        GPIOERST_W { w: self }
     }
     #[doc = "Bit 3 - IO port D reset"]
-    #[inline]
-    pub fn gpiodrst(&mut self) -> _GPIODRSTW {
-        _GPIODRSTW { w: self }
+    #[inline(always)]
+    pub fn gpiodrst(&mut self) -> GPIODRST_W {
+        GPIODRST_W { w: self }
     }
     #[doc = "Bit 2 - IO port C reset"]
-    #[inline]
-    pub fn gpiocrst(&mut self) -> _GPIOCRSTW {
-        _GPIOCRSTW { w: self }
+    #[inline(always)]
+    pub fn gpiocrst(&mut self) -> GPIOCRST_W {
+        GPIOCRST_W { w: self }
     }
     #[doc = "Bit 1 - IO port B reset"]
-    #[inline]
-    pub fn gpiobrst(&mut self) -> _GPIOBRSTW {
-        _GPIOBRSTW { w: self }
+    #[inline(always)]
+    pub fn gpiobrst(&mut self) -> GPIOBRST_W {
+        GPIOBRST_W { w: self }
     }
     #[doc = "Bit 0 - IO port A reset"]
-    #[inline]
-    pub fn gpioarst(&mut self) -> _GPIOARSTW {
-        _GPIOARSTW { w: self }
+    #[inline(always)]
+    pub fn gpioarst(&mut self) -> GPIOARST_W {
+        GPIOARST_W { w: self }
     }
 }

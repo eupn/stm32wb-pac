@@ -1,155 +1,39 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u16,
-}
-impl super::FNR {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct FNR {
-    bits: u16,
-}
-impl FNR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u16 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LSOFR {
-    bits: u8,
-}
-impl LSOFR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LCKR {
-    bits: bool,
-}
-impl LCKR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct RXDMR {
-    bits: bool,
-}
-impl RXDMR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct RXDPR {
-    bits: bool,
-}
-impl RXDPR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
+#[doc = "Reader of register FNR"]
+pub type R = crate::R<u16, super::FNR>;
+#[doc = "Reader of field `FN`"]
+pub type FN_R = crate::R<u16, u16>;
+#[doc = "Reader of field `LSOF`"]
+pub type LSOF_R = crate::R<u8, u8>;
+#[doc = "Reader of field `LCK`"]
+pub type LCK_R = crate::R<bool, bool>;
+#[doc = "Reader of field `RXDM`"]
+pub type RXDM_R = crate::R<bool, bool>;
+#[doc = "Reader of field `RXDP`"]
+pub type RXDP_R = crate::R<bool, bool>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u16 {
-        self.bits
-    }
     #[doc = "Bits 0:10 - Frame number"]
-    #[inline]
-    pub fn fn_(&self) -> FNR {
-        let bits = {
-            const MASK: u16 = 2047;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u16) as u16
-        };
-        FNR { bits }
+    #[inline(always)]
+    pub fn fn_(&self) -> FN_R {
+        FN_R::new((self.bits & 0x07ff) as u16)
     }
     #[doc = "Bits 11:12 - Lost SOF"]
-    #[inline]
-    pub fn lsof(&self) -> LSOFR {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 11;
-            ((self.bits >> OFFSET) & MASK as u16) as u8
-        };
-        LSOFR { bits }
+    #[inline(always)]
+    pub fn lsof(&self) -> LSOF_R {
+        LSOF_R::new(((self.bits >> 11) & 0x03) as u8)
     }
     #[doc = "Bit 13 - Locked"]
-    #[inline]
-    pub fn lck(&self) -> LCKR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 13;
-            ((self.bits >> OFFSET) & MASK as u16) != 0
-        };
-        LCKR { bits }
+    #[inline(always)]
+    pub fn lck(&self) -> LCK_R {
+        LCK_R::new(((self.bits >> 13) & 0x01) != 0)
     }
     #[doc = "Bit 14 - Receive data - line status"]
-    #[inline]
-    pub fn rxdm(&self) -> RXDMR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 14;
-            ((self.bits >> OFFSET) & MASK as u16) != 0
-        };
-        RXDMR { bits }
+    #[inline(always)]
+    pub fn rxdm(&self) -> RXDM_R {
+        RXDM_R::new(((self.bits >> 14) & 0x01) != 0)
     }
     #[doc = "Bit 15 - Receive data + line status"]
-    #[inline]
-    pub fn rxdp(&self) -> RXDPR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 15;
-            ((self.bits >> OFFSET) & MASK as u16) != 0
-        };
-        RXDPR { bits }
+    #[inline(always)]
+    pub fn rxdp(&self) -> RXDP_R {
+        RXDP_R::new(((self.bits >> 15) & 0x01) != 0)
     }
 }

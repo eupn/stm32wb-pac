@@ -1,720 +1,400 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::OSPEEDR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register OSPEEDR"]
+pub type R = crate::R<u32, super::OSPEEDR>;
+#[doc = "Writer for register OSPEEDR"]
+pub type W = crate::W<u32, super::OSPEEDR>;
+#[doc = "Register OSPEEDR `reset()`'s with value 0x0c00_0000"]
+impl crate::ResetValue for super::OSPEEDR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0x0c00_0000
     }
 }
-#[doc = r" Value of the field"]
-pub struct OSPEEDR15R {
-    bits: u8,
-}
-impl OSPEEDR15R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct OSPEEDR14R {
-    bits: u8,
-}
-impl OSPEEDR14R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct OSPEEDR13R {
-    bits: u8,
-}
-impl OSPEEDR13R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct OSPEEDR12R {
-    bits: u8,
-}
-impl OSPEEDR12R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct OSPEEDR11R {
-    bits: u8,
-}
-impl OSPEEDR11R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct OSPEEDR10R {
-    bits: u8,
-}
-impl OSPEEDR10R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct OSPEEDR9R {
-    bits: u8,
-}
-impl OSPEEDR9R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct OSPEEDR8R {
-    bits: u8,
-}
-impl OSPEEDR8R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct OSPEEDR7R {
-    bits: u8,
-}
-impl OSPEEDR7R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct OSPEEDR6R {
-    bits: u8,
-}
-impl OSPEEDR6R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct OSPEEDR5R {
-    bits: u8,
-}
-impl OSPEEDR5R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct OSPEEDR4R {
-    bits: u8,
-}
-impl OSPEEDR4R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct OSPEEDR3R {
-    bits: u8,
-}
-impl OSPEEDR3R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct OSPEEDR2R {
-    bits: u8,
-}
-impl OSPEEDR2R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct OSPEEDR1R {
-    bits: u8,
-}
-impl OSPEEDR1R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct OSPEEDR0R {
-    bits: u8,
-}
-impl OSPEEDR0R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Proxy"]
-pub struct _OSPEEDR15W<'a> {
+#[doc = "Reader of field `OSPEEDR15`"]
+pub type OSPEEDR15_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `OSPEEDR15`"]
+pub struct OSPEEDR15_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _OSPEEDR15W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> OSPEEDR15_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 30;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 30)) | (((value as u32) & 0x03) << 30);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _OSPEEDR14W<'a> {
+#[doc = "Reader of field `OSPEEDR14`"]
+pub type OSPEEDR14_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `OSPEEDR14`"]
+pub struct OSPEEDR14_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _OSPEEDR14W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> OSPEEDR14_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 28;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 28)) | (((value as u32) & 0x03) << 28);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _OSPEEDR13W<'a> {
+#[doc = "Reader of field `OSPEEDR13`"]
+pub type OSPEEDR13_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `OSPEEDR13`"]
+pub struct OSPEEDR13_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _OSPEEDR13W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> OSPEEDR13_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 26;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 26)) | (((value as u32) & 0x03) << 26);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _OSPEEDR12W<'a> {
+#[doc = "Reader of field `OSPEEDR12`"]
+pub type OSPEEDR12_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `OSPEEDR12`"]
+pub struct OSPEEDR12_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _OSPEEDR12W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> OSPEEDR12_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 24;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 24)) | (((value as u32) & 0x03) << 24);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _OSPEEDR11W<'a> {
+#[doc = "Reader of field `OSPEEDR11`"]
+pub type OSPEEDR11_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `OSPEEDR11`"]
+pub struct OSPEEDR11_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _OSPEEDR11W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> OSPEEDR11_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 22;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 22)) | (((value as u32) & 0x03) << 22);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _OSPEEDR10W<'a> {
+#[doc = "Reader of field `OSPEEDR10`"]
+pub type OSPEEDR10_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `OSPEEDR10`"]
+pub struct OSPEEDR10_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _OSPEEDR10W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> OSPEEDR10_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 20;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 20)) | (((value as u32) & 0x03) << 20);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _OSPEEDR9W<'a> {
+#[doc = "Reader of field `OSPEEDR9`"]
+pub type OSPEEDR9_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `OSPEEDR9`"]
+pub struct OSPEEDR9_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _OSPEEDR9W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> OSPEEDR9_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 18;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 18)) | (((value as u32) & 0x03) << 18);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _OSPEEDR8W<'a> {
+#[doc = "Reader of field `OSPEEDR8`"]
+pub type OSPEEDR8_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `OSPEEDR8`"]
+pub struct OSPEEDR8_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _OSPEEDR8W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> OSPEEDR8_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 16)) | (((value as u32) & 0x03) << 16);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _OSPEEDR7W<'a> {
+#[doc = "Reader of field `OSPEEDR7`"]
+pub type OSPEEDR7_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `OSPEEDR7`"]
+pub struct OSPEEDR7_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _OSPEEDR7W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> OSPEEDR7_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 14;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 14)) | (((value as u32) & 0x03) << 14);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _OSPEEDR6W<'a> {
+#[doc = "Reader of field `OSPEEDR6`"]
+pub type OSPEEDR6_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `OSPEEDR6`"]
+pub struct OSPEEDR6_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _OSPEEDR6W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> OSPEEDR6_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 12;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 12)) | (((value as u32) & 0x03) << 12);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _OSPEEDR5W<'a> {
+#[doc = "Reader of field `OSPEEDR5`"]
+pub type OSPEEDR5_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `OSPEEDR5`"]
+pub struct OSPEEDR5_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _OSPEEDR5W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> OSPEEDR5_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 10;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 10)) | (((value as u32) & 0x03) << 10);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _OSPEEDR4W<'a> {
+#[doc = "Reader of field `OSPEEDR4`"]
+pub type OSPEEDR4_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `OSPEEDR4`"]
+pub struct OSPEEDR4_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _OSPEEDR4W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> OSPEEDR4_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 8)) | (((value as u32) & 0x03) << 8);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _OSPEEDR3W<'a> {
+#[doc = "Reader of field `OSPEEDR3`"]
+pub type OSPEEDR3_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `OSPEEDR3`"]
+pub struct OSPEEDR3_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _OSPEEDR3W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> OSPEEDR3_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 6)) | (((value as u32) & 0x03) << 6);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _OSPEEDR2W<'a> {
+#[doc = "Reader of field `OSPEEDR2`"]
+pub type OSPEEDR2_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `OSPEEDR2`"]
+pub struct OSPEEDR2_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _OSPEEDR2W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> OSPEEDR2_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 4)) | (((value as u32) & 0x03) << 4);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _OSPEEDR1W<'a> {
+#[doc = "Reader of field `OSPEEDR1`"]
+pub type OSPEEDR1_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `OSPEEDR1`"]
+pub struct OSPEEDR1_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _OSPEEDR1W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> OSPEEDR1_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 2)) | (((value as u32) & 0x03) << 2);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _OSPEEDR0W<'a> {
+#[doc = "Reader of field `OSPEEDR0`"]
+pub type OSPEEDR0_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `OSPEEDR0`"]
+pub struct OSPEEDR0_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _OSPEEDR0W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> OSPEEDR0_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x03) | ((value as u32) & 0x03);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 30:31 - Port x configuration bits (y = 0..15)"]
-    #[inline]
-    pub fn ospeedr15(&self) -> OSPEEDR15R {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 30;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        OSPEEDR15R { bits }
+    #[inline(always)]
+    pub fn ospeedr15(&self) -> OSPEEDR15_R {
+        OSPEEDR15_R::new(((self.bits >> 30) & 0x03) as u8)
     }
     #[doc = "Bits 28:29 - Port x configuration bits (y = 0..15)"]
-    #[inline]
-    pub fn ospeedr14(&self) -> OSPEEDR14R {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 28;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        OSPEEDR14R { bits }
+    #[inline(always)]
+    pub fn ospeedr14(&self) -> OSPEEDR14_R {
+        OSPEEDR14_R::new(((self.bits >> 28) & 0x03) as u8)
     }
     #[doc = "Bits 26:27 - Port x configuration bits (y = 0..15)"]
-    #[inline]
-    pub fn ospeedr13(&self) -> OSPEEDR13R {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 26;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        OSPEEDR13R { bits }
+    #[inline(always)]
+    pub fn ospeedr13(&self) -> OSPEEDR13_R {
+        OSPEEDR13_R::new(((self.bits >> 26) & 0x03) as u8)
     }
     #[doc = "Bits 24:25 - Port x configuration bits (y = 0..15)"]
-    #[inline]
-    pub fn ospeedr12(&self) -> OSPEEDR12R {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 24;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        OSPEEDR12R { bits }
+    #[inline(always)]
+    pub fn ospeedr12(&self) -> OSPEEDR12_R {
+        OSPEEDR12_R::new(((self.bits >> 24) & 0x03) as u8)
     }
     #[doc = "Bits 22:23 - Port x configuration bits (y = 0..15)"]
-    #[inline]
-    pub fn ospeedr11(&self) -> OSPEEDR11R {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 22;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        OSPEEDR11R { bits }
+    #[inline(always)]
+    pub fn ospeedr11(&self) -> OSPEEDR11_R {
+        OSPEEDR11_R::new(((self.bits >> 22) & 0x03) as u8)
     }
     #[doc = "Bits 20:21 - Port x configuration bits (y = 0..15)"]
-    #[inline]
-    pub fn ospeedr10(&self) -> OSPEEDR10R {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 20;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        OSPEEDR10R { bits }
+    #[inline(always)]
+    pub fn ospeedr10(&self) -> OSPEEDR10_R {
+        OSPEEDR10_R::new(((self.bits >> 20) & 0x03) as u8)
     }
     #[doc = "Bits 18:19 - Port x configuration bits (y = 0..15)"]
-    #[inline]
-    pub fn ospeedr9(&self) -> OSPEEDR9R {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 18;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        OSPEEDR9R { bits }
+    #[inline(always)]
+    pub fn ospeedr9(&self) -> OSPEEDR9_R {
+        OSPEEDR9_R::new(((self.bits >> 18) & 0x03) as u8)
     }
     #[doc = "Bits 16:17 - Port x configuration bits (y = 0..15)"]
-    #[inline]
-    pub fn ospeedr8(&self) -> OSPEEDR8R {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        OSPEEDR8R { bits }
+    #[inline(always)]
+    pub fn ospeedr8(&self) -> OSPEEDR8_R {
+        OSPEEDR8_R::new(((self.bits >> 16) & 0x03) as u8)
     }
     #[doc = "Bits 14:15 - Port x configuration bits (y = 0..15)"]
-    #[inline]
-    pub fn ospeedr7(&self) -> OSPEEDR7R {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 14;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        OSPEEDR7R { bits }
+    #[inline(always)]
+    pub fn ospeedr7(&self) -> OSPEEDR7_R {
+        OSPEEDR7_R::new(((self.bits >> 14) & 0x03) as u8)
     }
     #[doc = "Bits 12:13 - Port x configuration bits (y = 0..15)"]
-    #[inline]
-    pub fn ospeedr6(&self) -> OSPEEDR6R {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        OSPEEDR6R { bits }
+    #[inline(always)]
+    pub fn ospeedr6(&self) -> OSPEEDR6_R {
+        OSPEEDR6_R::new(((self.bits >> 12) & 0x03) as u8)
     }
     #[doc = "Bits 10:11 - Port x configuration bits (y = 0..15)"]
-    #[inline]
-    pub fn ospeedr5(&self) -> OSPEEDR5R {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 10;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        OSPEEDR5R { bits }
+    #[inline(always)]
+    pub fn ospeedr5(&self) -> OSPEEDR5_R {
+        OSPEEDR5_R::new(((self.bits >> 10) & 0x03) as u8)
     }
     #[doc = "Bits 8:9 - Port x configuration bits (y = 0..15)"]
-    #[inline]
-    pub fn ospeedr4(&self) -> OSPEEDR4R {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        OSPEEDR4R { bits }
+    #[inline(always)]
+    pub fn ospeedr4(&self) -> OSPEEDR4_R {
+        OSPEEDR4_R::new(((self.bits >> 8) & 0x03) as u8)
     }
     #[doc = "Bits 6:7 - Port x configuration bits (y = 0..15)"]
-    #[inline]
-    pub fn ospeedr3(&self) -> OSPEEDR3R {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        OSPEEDR3R { bits }
+    #[inline(always)]
+    pub fn ospeedr3(&self) -> OSPEEDR3_R {
+        OSPEEDR3_R::new(((self.bits >> 6) & 0x03) as u8)
     }
     #[doc = "Bits 4:5 - Port x configuration bits (y = 0..15)"]
-    #[inline]
-    pub fn ospeedr2(&self) -> OSPEEDR2R {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        OSPEEDR2R { bits }
+    #[inline(always)]
+    pub fn ospeedr2(&self) -> OSPEEDR2_R {
+        OSPEEDR2_R::new(((self.bits >> 4) & 0x03) as u8)
     }
     #[doc = "Bits 2:3 - Port x configuration bits (y = 0..15)"]
-    #[inline]
-    pub fn ospeedr1(&self) -> OSPEEDR1R {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        OSPEEDR1R { bits }
+    #[inline(always)]
+    pub fn ospeedr1(&self) -> OSPEEDR1_R {
+        OSPEEDR1_R::new(((self.bits >> 2) & 0x03) as u8)
     }
     #[doc = "Bits 0:1 - Port x configuration bits (y = 0..15)"]
-    #[inline]
-    pub fn ospeedr0(&self) -> OSPEEDR0R {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        OSPEEDR0R { bits }
+    #[inline(always)]
+    pub fn ospeedr0(&self) -> OSPEEDR0_R {
+        OSPEEDR0_R::new((self.bits & 0x03) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 201326592 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 30:31 - Port x configuration bits (y = 0..15)"]
-    #[inline]
-    pub fn ospeedr15(&mut self) -> _OSPEEDR15W {
-        _OSPEEDR15W { w: self }
+    #[inline(always)]
+    pub fn ospeedr15(&mut self) -> OSPEEDR15_W {
+        OSPEEDR15_W { w: self }
     }
     #[doc = "Bits 28:29 - Port x configuration bits (y = 0..15)"]
-    #[inline]
-    pub fn ospeedr14(&mut self) -> _OSPEEDR14W {
-        _OSPEEDR14W { w: self }
+    #[inline(always)]
+    pub fn ospeedr14(&mut self) -> OSPEEDR14_W {
+        OSPEEDR14_W { w: self }
     }
     #[doc = "Bits 26:27 - Port x configuration bits (y = 0..15)"]
-    #[inline]
-    pub fn ospeedr13(&mut self) -> _OSPEEDR13W {
-        _OSPEEDR13W { w: self }
+    #[inline(always)]
+    pub fn ospeedr13(&mut self) -> OSPEEDR13_W {
+        OSPEEDR13_W { w: self }
     }
     #[doc = "Bits 24:25 - Port x configuration bits (y = 0..15)"]
-    #[inline]
-    pub fn ospeedr12(&mut self) -> _OSPEEDR12W {
-        _OSPEEDR12W { w: self }
+    #[inline(always)]
+    pub fn ospeedr12(&mut self) -> OSPEEDR12_W {
+        OSPEEDR12_W { w: self }
     }
     #[doc = "Bits 22:23 - Port x configuration bits (y = 0..15)"]
-    #[inline]
-    pub fn ospeedr11(&mut self) -> _OSPEEDR11W {
-        _OSPEEDR11W { w: self }
+    #[inline(always)]
+    pub fn ospeedr11(&mut self) -> OSPEEDR11_W {
+        OSPEEDR11_W { w: self }
     }
     #[doc = "Bits 20:21 - Port x configuration bits (y = 0..15)"]
-    #[inline]
-    pub fn ospeedr10(&mut self) -> _OSPEEDR10W {
-        _OSPEEDR10W { w: self }
+    #[inline(always)]
+    pub fn ospeedr10(&mut self) -> OSPEEDR10_W {
+        OSPEEDR10_W { w: self }
     }
     #[doc = "Bits 18:19 - Port x configuration bits (y = 0..15)"]
-    #[inline]
-    pub fn ospeedr9(&mut self) -> _OSPEEDR9W {
-        _OSPEEDR9W { w: self }
+    #[inline(always)]
+    pub fn ospeedr9(&mut self) -> OSPEEDR9_W {
+        OSPEEDR9_W { w: self }
     }
     #[doc = "Bits 16:17 - Port x configuration bits (y = 0..15)"]
-    #[inline]
-    pub fn ospeedr8(&mut self) -> _OSPEEDR8W {
-        _OSPEEDR8W { w: self }
+    #[inline(always)]
+    pub fn ospeedr8(&mut self) -> OSPEEDR8_W {
+        OSPEEDR8_W { w: self }
     }
     #[doc = "Bits 14:15 - Port x configuration bits (y = 0..15)"]
-    #[inline]
-    pub fn ospeedr7(&mut self) -> _OSPEEDR7W {
-        _OSPEEDR7W { w: self }
+    #[inline(always)]
+    pub fn ospeedr7(&mut self) -> OSPEEDR7_W {
+        OSPEEDR7_W { w: self }
     }
     #[doc = "Bits 12:13 - Port x configuration bits (y = 0..15)"]
-    #[inline]
-    pub fn ospeedr6(&mut self) -> _OSPEEDR6W {
-        _OSPEEDR6W { w: self }
+    #[inline(always)]
+    pub fn ospeedr6(&mut self) -> OSPEEDR6_W {
+        OSPEEDR6_W { w: self }
     }
     #[doc = "Bits 10:11 - Port x configuration bits (y = 0..15)"]
-    #[inline]
-    pub fn ospeedr5(&mut self) -> _OSPEEDR5W {
-        _OSPEEDR5W { w: self }
+    #[inline(always)]
+    pub fn ospeedr5(&mut self) -> OSPEEDR5_W {
+        OSPEEDR5_W { w: self }
     }
     #[doc = "Bits 8:9 - Port x configuration bits (y = 0..15)"]
-    #[inline]
-    pub fn ospeedr4(&mut self) -> _OSPEEDR4W {
-        _OSPEEDR4W { w: self }
+    #[inline(always)]
+    pub fn ospeedr4(&mut self) -> OSPEEDR4_W {
+        OSPEEDR4_W { w: self }
     }
     #[doc = "Bits 6:7 - Port x configuration bits (y = 0..15)"]
-    #[inline]
-    pub fn ospeedr3(&mut self) -> _OSPEEDR3W {
-        _OSPEEDR3W { w: self }
+    #[inline(always)]
+    pub fn ospeedr3(&mut self) -> OSPEEDR3_W {
+        OSPEEDR3_W { w: self }
     }
     #[doc = "Bits 4:5 - Port x configuration bits (y = 0..15)"]
-    #[inline]
-    pub fn ospeedr2(&mut self) -> _OSPEEDR2W {
-        _OSPEEDR2W { w: self }
+    #[inline(always)]
+    pub fn ospeedr2(&mut self) -> OSPEEDR2_W {
+        OSPEEDR2_W { w: self }
     }
     #[doc = "Bits 2:3 - Port x configuration bits (y = 0..15)"]
-    #[inline]
-    pub fn ospeedr1(&mut self) -> _OSPEEDR1W {
-        _OSPEEDR1W { w: self }
+    #[inline(always)]
+    pub fn ospeedr1(&mut self) -> OSPEEDR1_W {
+        OSPEEDR1_W { w: self }
     }
     #[doc = "Bits 0:1 - Port x configuration bits (y = 0..15)"]
-    #[inline]
-    pub fn ospeedr0(&mut self) -> _OSPEEDR0W {
-        _OSPEEDR0W { w: self }
+    #[inline(always)]
+    pub fn ospeedr0(&mut self) -> OSPEEDR0_W {
+        OSPEEDR0_W { w: self }
     }
 }

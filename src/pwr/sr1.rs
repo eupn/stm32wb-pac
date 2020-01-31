@@ -1,454 +1,102 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::SR1 {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct WUFIR {
-    bits: bool,
-}
-impl WUFIR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct C2HFR {
-    bits: bool,
-}
-impl C2HFR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct AF802R {
-    bits: bool,
-}
-impl AF802R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct BLEAFR {
-    bits: bool,
-}
-impl BLEAFR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CRPEFR {
-    bits: bool,
-}
-impl CRPEFR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct _802WUFR {
-    bits: bool,
-}
-impl _802WUFR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct BLEWUFR {
-    bits: bool,
-}
-impl BLEWUFR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct BORHFR {
-    bits: bool,
-}
-impl BORHFR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SDFBFR {
-    bits: bool,
-}
-impl SDFBFR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CWUF5R {
-    bits: bool,
-}
-impl CWUF5R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CWUF4R {
-    bits: bool,
-}
-impl CWUF4R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CWUF3R {
-    bits: bool,
-}
-impl CWUF3R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CWUF2R {
-    bits: bool,
-}
-impl CWUF2R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CWUF1R {
-    bits: bool,
-}
-impl CWUF1R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
+#[doc = "Reader of register SR1"]
+pub type R = crate::R<u32, super::SR1>;
+#[doc = "Reader of field `WUFI`"]
+pub type WUFI_R = crate::R<bool, bool>;
+#[doc = "Reader of field `C2HF`"]
+pub type C2HF_R = crate::R<bool, bool>;
+#[doc = "Reader of field `AF802`"]
+pub type AF802_R = crate::R<bool, bool>;
+#[doc = "Reader of field `BLEAF`"]
+pub type BLEAF_R = crate::R<bool, bool>;
+#[doc = "Reader of field `CRPEF`"]
+pub type CRPEF_R = crate::R<bool, bool>;
+#[doc = "Reader of field `802WUF`"]
+pub type _802WUF_R = crate::R<bool, bool>;
+#[doc = "Reader of field `BLEWUF`"]
+pub type BLEWUF_R = crate::R<bool, bool>;
+#[doc = "Reader of field `BORHF`"]
+pub type BORHF_R = crate::R<bool, bool>;
+#[doc = "Reader of field `SDFBF`"]
+pub type SDFBF_R = crate::R<bool, bool>;
+#[doc = "Reader of field `CWUF5`"]
+pub type CWUF5_R = crate::R<bool, bool>;
+#[doc = "Reader of field `CWUF4`"]
+pub type CWUF4_R = crate::R<bool, bool>;
+#[doc = "Reader of field `CWUF3`"]
+pub type CWUF3_R = crate::R<bool, bool>;
+#[doc = "Reader of field `CWUF2`"]
+pub type CWUF2_R = crate::R<bool, bool>;
+#[doc = "Reader of field `CWUF1`"]
+pub type CWUF1_R = crate::R<bool, bool>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 15 - Internal Wakeup interrupt flag"]
-    #[inline]
-    pub fn wufi(&self) -> WUFIR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 15;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        WUFIR { bits }
+    #[inline(always)]
+    pub fn wufi(&self) -> WUFI_R {
+        WUFI_R::new(((self.bits >> 15) & 0x01) != 0)
     }
     #[doc = "Bit 14 - CPU2 Hold interrupt flag"]
-    #[inline]
-    pub fn c2hf(&self) -> C2HFR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 14;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        C2HFR { bits }
+    #[inline(always)]
+    pub fn c2hf(&self) -> C2HF_R {
+        C2HF_R::new(((self.bits >> 14) & 0x01) != 0)
     }
     #[doc = "Bit 13 - 802.15.4 end of activity interrupt flag"]
-    #[inline]
-    pub fn af802(&self) -> AF802R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 13;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        AF802R { bits }
+    #[inline(always)]
+    pub fn af802(&self) -> AF802_R {
+        AF802_R::new(((self.bits >> 13) & 0x01) != 0)
     }
     #[doc = "Bit 12 - BLE end of activity interrupt flag"]
-    #[inline]
-    pub fn bleaf(&self) -> BLEAFR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        BLEAFR { bits }
+    #[inline(always)]
+    pub fn bleaf(&self) -> BLEAF_R {
+        BLEAF_R::new(((self.bits >> 12) & 0x01) != 0)
     }
     #[doc = "Bit 11 - Enable critical radio phase end of activity interrupt flag"]
-    #[inline]
-    pub fn crpef(&self) -> CRPEFR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 11;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CRPEFR { bits }
+    #[inline(always)]
+    pub fn crpef(&self) -> CRPEF_R {
+        CRPEF_R::new(((self.bits >> 11) & 0x01) != 0)
     }
     #[doc = "Bit 10 - 802.15.4 wakeup interrupt flag"]
-    #[inline]
-    pub fn _802wuf(&self) -> _802WUFR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 10;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        _802WUFR { bits }
+    #[inline(always)]
+    pub fn _802wuf(&self) -> _802WUF_R {
+        _802WUF_R::new(((self.bits >> 10) & 0x01) != 0)
     }
     #[doc = "Bit 9 - BLE wakeup interrupt flag"]
-    #[inline]
-    pub fn blewuf(&self) -> BLEWUFR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 9;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        BLEWUFR { bits }
+    #[inline(always)]
+    pub fn blewuf(&self) -> BLEWUF_R {
+        BLEWUF_R::new(((self.bits >> 9) & 0x01) != 0)
     }
     #[doc = "Bit 8 - BORH interrupt flag"]
-    #[inline]
-    pub fn borhf(&self) -> BORHFR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        BORHFR { bits }
+    #[inline(always)]
+    pub fn borhf(&self) -> BORHF_R {
+        BORHF_R::new(((self.bits >> 8) & 0x01) != 0)
     }
     #[doc = "Bit 7 - Step Down converter forced in Bypass interrupt flag"]
-    #[inline]
-    pub fn sdfbf(&self) -> SDFBFR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SDFBFR { bits }
+    #[inline(always)]
+    pub fn sdfbf(&self) -> SDFBF_R {
+        SDFBF_R::new(((self.bits >> 7) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Wakeup flag 5"]
-    #[inline]
-    pub fn cwuf5(&self) -> CWUF5R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CWUF5R { bits }
+    #[inline(always)]
+    pub fn cwuf5(&self) -> CWUF5_R {
+        CWUF5_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Wakeup flag 4"]
-    #[inline]
-    pub fn cwuf4(&self) -> CWUF4R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CWUF4R { bits }
+    #[inline(always)]
+    pub fn cwuf4(&self) -> CWUF4_R {
+        CWUF4_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Wakeup flag 3"]
-    #[inline]
-    pub fn cwuf3(&self) -> CWUF3R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CWUF3R { bits }
+    #[inline(always)]
+    pub fn cwuf3(&self) -> CWUF3_R {
+        CWUF3_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 1 - Wakeup flag 2"]
-    #[inline]
-    pub fn cwuf2(&self) -> CWUF2R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CWUF2R { bits }
+    #[inline(always)]
+    pub fn cwuf2(&self) -> CWUF2_R {
+        CWUF2_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 0 - Wakeup flag 1"]
-    #[inline]
-    pub fn cwuf1(&self) -> CWUF1R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CWUF1R { bits }
+    #[inline(always)]
+    pub fn cwuf1(&self) -> CWUF1_R {
+        CWUF1_R::new((self.bits & 0x01) != 0)
     }
 }

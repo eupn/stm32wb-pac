@@ -1,113 +1,25 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::SR {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct WVUR {
-    bits: bool,
-}
-impl WVUR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct RVUR {
-    bits: bool,
-}
-impl RVUR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct PVUR {
-    bits: bool,
-}
-impl PVUR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
+#[doc = "Reader of register SR"]
+pub type R = crate::R<u32, super::SR>;
+#[doc = "Reader of field `WVU`"]
+pub type WVU_R = crate::R<bool, bool>;
+#[doc = "Reader of field `RVU`"]
+pub type RVU_R = crate::R<bool, bool>;
+#[doc = "Reader of field `PVU`"]
+pub type PVU_R = crate::R<bool, bool>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 2 - Watchdog counter window value update"]
-    #[inline]
-    pub fn wvu(&self) -> WVUR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        WVUR { bits }
+    #[inline(always)]
+    pub fn wvu(&self) -> WVU_R {
+        WVU_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 1 - Watchdog counter reload value update"]
-    #[inline]
-    pub fn rvu(&self) -> RVUR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        RVUR { bits }
+    #[inline(always)]
+    pub fn rvu(&self) -> RVU_R {
+        RVU_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 0 - Watchdog prescaler value update"]
-    #[inline]
-    pub fn pvu(&self) -> PVUR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        PVUR { bits }
+    #[inline(always)]
+    pub fn pvu(&self) -> PVU_R {
+        PVU_R::new((self.bits & 0x01) != 0)
     }
 }

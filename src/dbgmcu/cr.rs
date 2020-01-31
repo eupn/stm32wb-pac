@@ -1,359 +1,186 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register CR"]
+pub type R = crate::R<u32, super::CR>;
+#[doc = "Writer for register CR"]
+pub type W = crate::W<u32, super::CR>;
+#[doc = "Register CR `reset()`'s with value 0"]
+impl crate::ResetValue for super::CR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct DBG_SLEEPR {
-    bits: bool,
-}
-impl DBG_SLEEPR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct DBG_STOPR {
-    bits: bool,
-}
-impl DBG_STOPR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct DBG_STANDBYR {
-    bits: bool,
-}
-impl DBG_STANDBYR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TRACE_IOENR {
-    bits: bool,
-}
-impl TRACE_IOENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TRGOENR {
-    bits: bool,
-}
-impl TRGOENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Proxy"]
-pub struct _DBG_SLEEPW<'a> {
+#[doc = "Reader of field `DBG_SLEEP`"]
+pub type DBG_SLEEP_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `DBG_SLEEP`"]
+pub struct DBG_SLEEP_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _DBG_SLEEPW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> DBG_SLEEP_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _DBG_STOPW<'a> {
+#[doc = "Reader of field `DBG_STOP`"]
+pub type DBG_STOP_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `DBG_STOP`"]
+pub struct DBG_STOP_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _DBG_STOPW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> DBG_STOP_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _DBG_STANDBYW<'a> {
+#[doc = "Reader of field `DBG_STANDBY`"]
+pub type DBG_STANDBY_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `DBG_STANDBY`"]
+pub struct DBG_STANDBY_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _DBG_STANDBYW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> DBG_STANDBY_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _TRACE_IOENW<'a> {
+#[doc = "Reader of field `TRACE_IOEN`"]
+pub type TRACE_IOEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `TRACE_IOEN`"]
+pub struct TRACE_IOEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TRACE_IOENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> TRACE_IOEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _TRGOENW<'a> {
+#[doc = "Reader of field `TRGOEN`"]
+pub type TRGOEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `TRGOEN`"]
+pub struct TRGOEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TRGOENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> TRGOEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 28;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 28)) | (((value as u32) & 0x01) << 28);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Debug Sleep Mode"]
-    #[inline]
-    pub fn dbg_sleep(&self) -> DBG_SLEEPR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        DBG_SLEEPR { bits }
+    #[inline(always)]
+    pub fn dbg_sleep(&self) -> DBG_SLEEP_R {
+        DBG_SLEEP_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Debug Stop Mode"]
-    #[inline]
-    pub fn dbg_stop(&self) -> DBG_STOPR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        DBG_STOPR { bits }
+    #[inline(always)]
+    pub fn dbg_stop(&self) -> DBG_STOP_R {
+        DBG_STOP_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Debug Standby Mode"]
-    #[inline]
-    pub fn dbg_standby(&self) -> DBG_STANDBYR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        DBG_STANDBYR { bits }
+    #[inline(always)]
+    pub fn dbg_standby(&self) -> DBG_STANDBY_R {
+        DBG_STANDBY_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Trace port and clock enable"]
-    #[inline]
-    pub fn trace_ioen(&self) -> TRACE_IOENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TRACE_IOENR { bits }
+    #[inline(always)]
+    pub fn trace_ioen(&self) -> TRACE_IOEN_R {
+        TRACE_IOEN_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 28 - External trigger output enable"]
-    #[inline]
-    pub fn trgoen(&self) -> TRGOENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 28;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TRGOENR { bits }
+    #[inline(always)]
+    pub fn trgoen(&self) -> TRGOEN_R {
+        TRGOEN_R::new(((self.bits >> 28) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Debug Sleep Mode"]
-    #[inline]
-    pub fn dbg_sleep(&mut self) -> _DBG_SLEEPW {
-        _DBG_SLEEPW { w: self }
+    #[inline(always)]
+    pub fn dbg_sleep(&mut self) -> DBG_SLEEP_W {
+        DBG_SLEEP_W { w: self }
     }
     #[doc = "Bit 1 - Debug Stop Mode"]
-    #[inline]
-    pub fn dbg_stop(&mut self) -> _DBG_STOPW {
-        _DBG_STOPW { w: self }
+    #[inline(always)]
+    pub fn dbg_stop(&mut self) -> DBG_STOP_W {
+        DBG_STOP_W { w: self }
     }
     #[doc = "Bit 2 - Debug Standby Mode"]
-    #[inline]
-    pub fn dbg_standby(&mut self) -> _DBG_STANDBYW {
-        _DBG_STANDBYW { w: self }
+    #[inline(always)]
+    pub fn dbg_standby(&mut self) -> DBG_STANDBY_W {
+        DBG_STANDBY_W { w: self }
     }
     #[doc = "Bit 5 - Trace port and clock enable"]
-    #[inline]
-    pub fn trace_ioen(&mut self) -> _TRACE_IOENW {
-        _TRACE_IOENW { w: self }
+    #[inline(always)]
+    pub fn trace_ioen(&mut self) -> TRACE_IOEN_W {
+        TRACE_IOEN_W { w: self }
     }
     #[doc = "Bit 28 - External trigger output enable"]
-    #[inline]
-    pub fn trgoen(&mut self) -> _TRGOENW {
-        _TRGOENW { w: self }
+    #[inline(always)]
+    pub fn trgoen(&mut self) -> TRGOEN_W {
+        TRGOEN_W { w: self }
     }
 }

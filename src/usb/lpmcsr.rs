@@ -1,262 +1,125 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u16,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u16,
-}
-impl super::LPMCSR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register LPMCSR"]
+pub type R = crate::R<u16, super::LPMCSR>;
+#[doc = "Writer for register LPMCSR"]
+pub type W = crate::W<u16, super::LPMCSR>;
+#[doc = "Register LPMCSR `reset()`'s with value 0"]
+impl crate::ResetValue for super::LPMCSR {
+    type Type = u16;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct LPMENR {
-    bits: bool,
-}
-impl LPMENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LPMACKR {
-    bits: bool,
-}
-impl LPMACKR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct REMWAKER {
-    bits: bool,
-}
-impl REMWAKER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct BESLR {
-    bits: u8,
-}
-impl BESLR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Proxy"]
-pub struct _LPMENW<'a> {
+#[doc = "Reader of field `LPMEN`"]
+pub type LPMEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `LPMEN`"]
+pub struct LPMEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _LPMENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> LPMEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u16) << OFFSET);
-        self.w.bits |= ((value & MASK) as u16) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u16) & 0x01);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _LPMACKW<'a> {
+#[doc = "Reader of field `LPMACK`"]
+pub type LPMACK_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `LPMACK`"]
+pub struct LPMACK_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _LPMACKW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> LPMACK_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u16) << OFFSET);
-        self.w.bits |= ((value & MASK) as u16) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u16) & 0x01) << 1);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _REMWAKEW<'a> {
+#[doc = "Reader of field `REMWAKE`"]
+pub type REMWAKE_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `REMWAKE`"]
+pub struct REMWAKE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _REMWAKEW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> REMWAKE_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u16) << OFFSET);
-        self.w.bits |= ((value & MASK) as u16) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u16) & 0x01) << 3);
         self.w
     }
 }
+#[doc = "Reader of field `BESL`"]
+pub type BESL_R = crate::R<u8, u8>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u16 {
-        self.bits
-    }
     #[doc = "Bit 0 - LPM support enable"]
-    #[inline]
-    pub fn lpmen(&self) -> LPMENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u16) != 0
-        };
-        LPMENR { bits }
+    #[inline(always)]
+    pub fn lpmen(&self) -> LPMEN_R {
+        LPMEN_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - LPM Token acknowledge enable"]
-    #[inline]
-    pub fn lpmack(&self) -> LPMACKR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u16) != 0
-        };
-        LPMACKR { bits }
+    #[inline(always)]
+    pub fn lpmack(&self) -> LPMACK_R {
+        LPMACK_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 3 - RemoteWake value"]
-    #[inline]
-    pub fn remwake(&self) -> REMWAKER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u16) != 0
-        };
-        REMWAKER { bits }
+    #[inline(always)]
+    pub fn remwake(&self) -> REMWAKE_R {
+        REMWAKE_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bits 4:7 - BESL value"]
-    #[inline]
-    pub fn besl(&self) -> BESLR {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u16) as u8
-        };
-        BESLR { bits }
+    #[inline(always)]
+    pub fn besl(&self) -> BESL_R {
+        BESL_R::new(((self.bits >> 4) & 0x0f) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u16) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - LPM support enable"]
-    #[inline]
-    pub fn lpmen(&mut self) -> _LPMENW {
-        _LPMENW { w: self }
+    #[inline(always)]
+    pub fn lpmen(&mut self) -> LPMEN_W {
+        LPMEN_W { w: self }
     }
     #[doc = "Bit 1 - LPM Token acknowledge enable"]
-    #[inline]
-    pub fn lpmack(&mut self) -> _LPMACKW {
-        _LPMACKW { w: self }
+    #[inline(always)]
+    pub fn lpmack(&mut self) -> LPMACK_W {
+        LPMACK_W { w: self }
     }
     #[doc = "Bit 3 - RemoteWake value"]
-    #[inline]
-    pub fn remwake(&mut self) -> _REMWAKEW {
-        _REMWAKEW { w: self }
+    #[inline(always)]
+    pub fn remwake(&mut self) -> REMWAKE_W {
+        REMWAKE_W { w: self }
     }
 }

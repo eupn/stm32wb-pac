@@ -664,7 +664,7 @@ impl SYSCFG {
     #[doc = r"Returns a pointer to the register block"]
     #[inline(always)]
     pub const fn ptr() -> *const syscfg::RegisterBlock {
-        0x4001_0100 as *const _
+        0x4001_0000 as *const _
     }
 }
 impl Deref for SYSCFG {
